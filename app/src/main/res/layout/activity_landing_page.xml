@@ -7,6 +7,7 @@
     tools:context=".LandingPageActivity">
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpLandingPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,7 +16,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/circleIndicator"
         android:layout_width="match_parent"
-        android:layout_height="68dp"/>
+        android:layout_height="68dp"
+        app:ci_width="5.5dp"
+        app:ci_height="5.5dp"
+        app:ci_drawable="@drawable/bg_circle_indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="22dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
