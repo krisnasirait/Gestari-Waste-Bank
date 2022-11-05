@@ -103,7 +103,7 @@
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Register"
         app:layout_constraintStart_toEndOf="@id/tvHaveAcc"
         app:layout_constraintTop_toTopOf="@id/tvHaveAcc"
         app:layout_constraintBottom_toBottomOf="@id/tvHaveAcc"
@@ -112,6 +112,7 @@
         android:textColor="@color/medium_green"/>
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
