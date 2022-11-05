@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="light_green">#97D19E</color>
+    <color name="medium_green">#5EA466</color>
+    <color name="auth_color">#A3B7A6</color>
 </resources>
