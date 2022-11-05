@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.LoginActivity">
+
+    <TextView
+        android:id="@+id/titleLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's sign you in."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/medium_green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/textWelcomeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome back."
+        android:textColor="@color/medium_green"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/titleLogin"
+        app:layout_constraintTop_toBottomOf="@+id/titleLogin"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You've been missed!"
+        android:textSize="16sp"
+        android:textColor="@color/medium_green"
+        app:layout_constraintStart_toStartOf="@id/textWelcomeBack"
+        app:layout_constraintTop_toBottomOf="@id/textWelcomeBack"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bg_auth"
+        app:layout_constraintTop_toBottomOf="@id/textMissed"
+        android:padding="10dp"
+        android:layout_margin="28dp"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:maxLines="1"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_auth"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        android:padding="10dp"
+        android:layout_margin="28dp"/>
+
+    <TextView
+        android:id="@+id/tvDontHaveAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/etPassword"
+        app:layout_constraintTop_toBottomOf="@id/etPassword"
+        android:layout_marginTop="18dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintStart_toEndOf="@id/tvDontHaveAcc"
+        app:layout_constraintTop_toTopOf="@id/tvDontHaveAcc"
+        app:layout_constraintBottom_toBottomOf="@id/tvDontHaveAcc"
+        android:layout_marginStart="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/medium_green"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_button_login"
+        app:layout_constraintTop_toBottomOf="@id/tvDontHaveAcc"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
