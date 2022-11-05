@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_auth.xml" value="0.279" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_circle_indicator.xml" value="0.1405" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_landing_page.xml" value="0.25" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
