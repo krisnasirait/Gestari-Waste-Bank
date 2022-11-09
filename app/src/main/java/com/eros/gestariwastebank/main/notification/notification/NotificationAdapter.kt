@@ -1,12 +1,9 @@
 package com.eros.gestariwastebank.main.notification.notification
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.eros.gestariwastebank.databinding.ItemArtikelBinding
 import com.eros.gestariwastebank.databinding.ItemNotificationBinding
-import com.eros.gestariwastebank.main.home.artikel.Artikel
 
 class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.ViewHolder>(){
 

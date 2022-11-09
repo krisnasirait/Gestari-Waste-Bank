@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.data
 
 import com.eros.gestariwastebank.main.home.artikel.Artikel
+import com.eros.gestariwastebank.main.notification.notification.Notification
 
 object Util {
 
@@ -15,5 +16,17 @@ object Util {
         Artikel("Bencana 8", "Adalah bencana 8"),
         Artikel("Bencana 9", "Adalah bencana 9"),
         Artikel("Bencana 10", "Adalah bencana 10"),
+    )
+
+    val allNotification = arrayListOf(
+        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
+        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
+        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
+        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
+        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
     )
 }
