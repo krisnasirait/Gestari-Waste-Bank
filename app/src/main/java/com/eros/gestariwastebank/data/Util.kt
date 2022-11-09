@@ -2,6 +2,7 @@ package com.eros.gestariwastebank.data
 
 import com.eros.gestariwastebank.main.home.artikel.Artikel
 import com.eros.gestariwastebank.main.notification.notification.Notification
+import com.eros.gestariwastebank.main.wallet.history.History
 
 object Util {
 
@@ -28,5 +29,18 @@ object Util {
         Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
         Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
         Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+    )
+
+    val allHistory = arrayListOf(
+        History("Penyetoran", "20 Oktober 2022", 3.500),
+        History("Penarikan", "20 Oktober 2022", 7.500),
+        History("Penyetoran", "20 Oktober 2022", 3.500),
+        History("Penarikan", "20 Oktober 2022", 7.500),
+        History("Penyetoran", "20 Oktober 2022", 3.500),
+        History("Penarikan", "20 Oktober 2022", 7.500),
+        History("Penyetoran", "20 Oktober 2022", 3.500),
+        History("Penarikan", "20 Oktober 2022", 7.500),
+        History("Penyetoran", "20 Oktober 2022", 3.500),
+        History("Penarikan", "20 Oktober 2022", 7.500),
     )
 }
