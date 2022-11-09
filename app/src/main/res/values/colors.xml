@@ -11,4 +11,8 @@
     <color name="light_green">#97D19E</color>
     <color name="medium_green">#5EA466</color>
     <color name="auth_color">#A3B7A6</color>
+
+    <color name="point_color">#FAAE4C</color>
+    <color name="pricelist_color">#C05151</color>
+
 </resources>
