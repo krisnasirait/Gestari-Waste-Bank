@@ -16,11 +16,12 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
         fun bind(history: History) {
             itemBinding.tvStatus.text = history.status
             itemBinding.tvDate.text = history.tanggal
-            itemBinding.tvAmountMoney.text = history.amount.toString()
             if(itemBinding.tvStatus.text == "Penyetoran") {
-                itemBinding.tvAmountMoney.setTextColor(Color.RED)
-            } else {
                 itemBinding.tvAmountMoney.setTextColor(Color.GREEN)
+                itemBinding.tvAmountMoney.text = "+ " + history.amount.toString()
+            } else {
+                itemBinding.tvAmountMoney.setTextColor(Color.RED)
+                itemBinding.tvAmountMoney.text = "- " + history.amount.toString()
             }
         }
     }
