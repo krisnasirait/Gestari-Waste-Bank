@@ -1,14 +1,12 @@
 package com.eros.gestariwastebank.main.notification
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.data.Util
-import com.eros.gestariwastebank.databinding.FragmentHomeBinding
 import com.eros.gestariwastebank.databinding.FragmentNotificationBinding
 import com.eros.gestariwastebank.main.notification.notification.NotificationAdapter
 
