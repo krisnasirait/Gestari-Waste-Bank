@@ -7,6 +7,8 @@
         android:id="@+id/notification"
         android:title="Notification"/>
     <item
+        android:id="@+id/emptyItem"/>
+    <item
         android:id="@+id/wallet"
         android:title="Wallet"/>
     <item
