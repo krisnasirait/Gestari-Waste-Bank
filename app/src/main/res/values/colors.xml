@@ -15,4 +15,6 @@
     <color name="point_color">#FAAE4C</color>
     <color name="pricelist_color">#C05151</color>
 
+    <color name="red">#FF3D00</color>
+
 </resources>
