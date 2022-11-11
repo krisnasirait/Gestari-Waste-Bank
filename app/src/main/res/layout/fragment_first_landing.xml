@@ -6,7 +6,7 @@
     tools:context=".landingpage.fragmentlanding.FirstLandingFragment"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="20dp">
+    android:padding="20dp">
 
     <ImageView
         android:layout_width="298dp"

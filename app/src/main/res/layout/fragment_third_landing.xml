@@ -6,7 +6,7 @@
     tools:context=".landingpage.fragmentlanding.ThirdLandingFragment"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="20dp">
+    android:padding="20dp">
 
     <ImageView
         android:layout_width="298dp"
@@ -36,8 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_button_login"
         android:text="Register"
         android:textAllCaps="false"
@@ -48,8 +46,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:textColor="@color/medium_green"
         android:backgroundTint="@color/light_grey"
         android:textAllCaps="false"
