@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App.Starting"
+        android:theme="@style/Theme.GestariWasteBank"
         tools:targetApi="31">
         <activity
             android:name=".auth.RegisterActivity"
@@ -24,7 +24,8 @@
             android:exported="false" />
         <activity
             android:name=".landingpage.LandingPageActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
