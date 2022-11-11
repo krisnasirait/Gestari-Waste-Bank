@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".auth.RegisterActivity">
 
     <TextView
@@ -14,10 +16,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/medium_green"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/textWelcomeBack"
@@ -26,8 +25,6 @@
         android:text="Welcome back."
         android:textColor="@color/medium_green"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/titleLogin"
-        app:layout_constraintTop_toBottomOf="@+id/titleLogin"
         android:layout_marginTop="16dp"/>
 
     <TextView
@@ -36,9 +33,7 @@
         android:layout_height="wrap_content"
         android:text="You've been missed!"
         android:textSize="16sp"
-        android:textColor="@color/medium_green"
-        app:layout_constraintStart_toStartOf="@id/textWelcomeBack"
-        app:layout_constraintTop_toBottomOf="@id/textWelcomeBack"/>
+        android:textColor="@color/medium_green" />
 
     <EditText
         android:id="@+id/etFullName"
@@ -46,11 +41,12 @@
         android:layout_height="wrap_content"
         android:hint="Full name"
         android:maxLines="1"
+        android:textColorHint="@color/black"
         android:inputType="textCapSentences"
         android:background="@drawable/bg_auth"
         app:layout_constraintTop_toBottomOf="@id/textMissed"
-        android:padding="10dp"
-        android:layout_margin="28dp"/>
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/etEmail"
@@ -60,9 +56,9 @@
         android:maxLines="1"
         android:inputType="textEmailAddress"
         android:background="@drawable/bg_auth"
-        app:layout_constraintTop_toBottomOf="@id/etFullName"
-        android:padding="10dp"
-        android:layout_margin="28dp"/>
+        android:textColorHint="@color/black"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -72,9 +68,9 @@
         android:maxLines="1"
         android:inputType="textPassword"
         android:background="@drawable/bg_auth"
-        app:layout_constraintTop_toBottomOf="@id/etEmail"
-        android:padding="10dp"
-        android:layout_margin="28dp"/>
+        android:textColorHint="@color/black"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/etConfPassword"
@@ -83,33 +79,32 @@
         android:hint="Confirm Password"
         android:maxLines="1"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
         android:background="@drawable/bg_auth"
-        app:layout_constraintTop_toBottomOf="@id/etPassword"
-        android:padding="10dp"
-        android:layout_margin="28dp"/>
+        android:layout_marginTop="15dp"
+        android:padding="10dp"/>
 
-    <TextView
-        android:id="@+id/tvHaveAcc"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Have an account?"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/etConfPassword"
-        app:layout_constraintTop_toBottomOf="@id/etConfPassword"
-        android:layout_marginTop="18dp"
-        android:textSize="12sp"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have an account?"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
 
-    <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintStart_toEndOf="@id/tvHaveAcc"
-        app:layout_constraintTop_toTopOf="@id/tvHaveAcc"
-        app:layout_constraintBottom_toBottomOf="@id/tvHaveAcc"
-        android:layout_marginStart="5dp"
-        android:textSize="12sp"
-        android:textColor="@color/medium_green"/>
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginStart="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/medium_green"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnRegister"
@@ -119,11 +114,6 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:background="@drawable/bg_button_login"
-        app:layout_constraintTop_toBottomOf="@id/tvHaveAcc"
-        android:layout_marginTop="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"/>
+        android:layout_marginTop="30dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

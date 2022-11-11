@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_auth.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login.xml" value="0.279" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login_landingpage.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_circle_indicator.xml" value="0.1405" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_landing_page.xml" value="0.25" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
@@ -15,6 +16,8 @@
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_notification.xml" value="0.17831813576494426" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_profile.xml" value="0.30570652173913043" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_second_landing.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_third_landing.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_wallet.xml" value="0.36666666666666664" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/item_artikel.xml" value="0.5" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/item_history.xml" value="0.33" />
