@@ -16,7 +16,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/medium_green"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/textWelcomeBack"
@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="textEmailAddress"
         android:background="@drawable/bg_auth"
@@ -51,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="textPassword"
         android:background="@drawable/bg_auth"

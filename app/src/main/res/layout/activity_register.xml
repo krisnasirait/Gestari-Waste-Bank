@@ -16,7 +16,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/medium_green"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/textWelcomeBack"
@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="Full name"
         android:maxLines="1"
+        android:textColorHint="@color/black"
         android:inputType="textCapSentences"
         android:background="@drawable/bg_auth"
         app:layout_constraintTop_toBottomOf="@id/textMissed"
@@ -55,6 +56,7 @@
         android:maxLines="1"
         android:inputType="textEmailAddress"
         android:background="@drawable/bg_auth"
+        android:textColorHint="@color/black"
         android:layout_marginTop="15dp"
         android:padding="10dp"/>
 
@@ -66,6 +68,7 @@
         android:maxLines="1"
         android:inputType="textPassword"
         android:background="@drawable/bg_auth"
+        android:textColorHint="@color/black"
         android:layout_marginTop="15dp"
         android:padding="10dp"/>
 
@@ -76,6 +79,7 @@
         android:hint="Confirm Password"
         android:maxLines="1"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
         android:background="@drawable/bg_auth"
         android:layout_marginTop="15dp"
         android:padding="10dp"/>
