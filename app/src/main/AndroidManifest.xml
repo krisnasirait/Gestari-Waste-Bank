@@ -20,10 +20,10 @@
             android:name=".auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".landingpage.LandingPageActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".landingpage.LandingPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
