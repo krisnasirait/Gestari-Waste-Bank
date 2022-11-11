@@ -16,5 +16,6 @@
     <color name="pricelist_color">#C05151</color>
 
     <color name="red">#FF3D00</color>
+    <color name="light_grey">#D9D9D9</color>
 
 </resources>
