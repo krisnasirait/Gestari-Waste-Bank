@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".main.home.HomeFragment">
+    tools:context=".main.home.HomeFragment"
+    android:layout_margin="20dp">
 
     <TextView
         android:id="@+id/titleHome"
@@ -27,15 +28,14 @@
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/titleHome"
-        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent" />
     
     <androidx.cardview.widget.CardView
         android:id="@+id/cvBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         app:cardCornerRadius="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/greetings">
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,20 +83,21 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/cvBalance"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginTop="15dp" />
 
     <LinearLayout
         android:id="@+id/layoutServices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tvServices"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/tvServices">
         <androidx.cardview.widget.CardView
             android:id="@+id/cvCollect"
-            android:layout_width="90dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="100dp"
             app:cardCornerRadius="14dp">
 
@@ -123,7 +124,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPoint"
-            android:layout_width="90dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="100dp"
             app:cardCornerRadius="14dp"
             android:layout_marginStart="20dp"
@@ -152,7 +154,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPricelist"
-            android:layout_width="90dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="100dp"
             app:cardCornerRadius="14dp">
 
@@ -188,13 +191,13 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/layoutServices"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvArtikel" />
 
 
