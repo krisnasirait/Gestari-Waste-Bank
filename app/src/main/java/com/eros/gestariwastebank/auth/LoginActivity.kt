@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // TODO: Prompt Should be added here 
+        // TODO: Prompt Should be added here
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text
             val password = binding.etPassword.text
