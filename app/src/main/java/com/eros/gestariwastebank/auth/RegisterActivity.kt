@@ -1,10 +1,10 @@
 package com.eros.gestariwastebank.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
-import com.eros.gestariwastebank.R
-import com.eros.gestariwastebank.databinding.ActivityLoginBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.eros.gestariwastebank.MainActivity
 import com.eros.gestariwastebank.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -16,9 +16,24 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setOnClickListener()
+    }
 
+    private fun setOnClickListener() {
         binding.tvLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
+        }
+        binding.btnRegister.setOnClickListener {
+            val password = binding.etPassword.text
+            val confPassword = binding.etConfPassword.text
+
+            if (password == confPassword) {
+                Intent(this, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else {
+                binding.tvPrompt.setTextColor(Color.RED)
+            }
         }
     }
 }
