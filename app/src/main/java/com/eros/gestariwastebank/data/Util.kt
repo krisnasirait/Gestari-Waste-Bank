@@ -20,15 +20,15 @@ object Util {
     )
 
     val allNotification = arrayListOf(
-        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
-        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
-        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
-        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
-        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
-        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
-        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
-        Notification("09 November 2022", "20.00", "Permintaan anda gagal"),
-        Notification("09 November 2022", "20.00", "Permintaan anda sudah berhasil diproses"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
+        Notification("09 November 2022", "20.00", "Permintaanmu sudah terkirim, silahkan tunggu sampai admin mengkonfirmasi"),
     )
 
     val allHistory = arrayListOf(
