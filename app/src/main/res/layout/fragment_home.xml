@@ -110,6 +110,7 @@
                 <ImageView
                     android:id="@+id/ivCollect"
                     android:layout_width="50dp"
+                    android:src="@drawable/ic_walletcollect"
                     android:layout_height="50dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -139,6 +140,7 @@
                 android:gravity="center">
                 <ImageView
                     android:id="@+id/ivPoint"
+                    android:src="@drawable/ic_points"
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
                 <TextView
@@ -168,6 +170,7 @@
                 <ImageView
                     android:id="@+id/ivPricelist"
                     android:layout_width="50dp"
+                    android:src="@drawable/ic_shop"
                     android:layout_height="50dp"/>
                 <TextView
                     android:layout_width="wrap_content"
