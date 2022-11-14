@@ -13,8 +13,8 @@ class ArtikelAdapter : RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
     inner class ViewHolder(private val itemBinding: ItemArtikelBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(artikel: Artikel) {
-            itemBinding.tvTitle.text = artikel.title
-            itemBinding.tvDesc.text = artikel.description
+            itemBinding.tvArtikelTitle.text = artikel.title
+//            itemBinding.tvDesc.text = artikel.description
         }
     }
 
