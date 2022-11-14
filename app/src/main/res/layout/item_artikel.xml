@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="256dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:elevation="20dp"
     android:layout_marginTop="5dp"
-    android:layout_marginStart="5dp"
+    android:layout_marginEnd="40dp"
     android:outlineAmbientShadowColor="@color/black">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sampah Masyarakat"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="80dp"
+           android:scaleType="fitXY"
+           android:adjustViewBounds="true"
+           android:src="@drawable/article_display"/>
 
-        <TextView
-            android:id="@+id/tvDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Banyaknya sampah masyarakat yang tidak baik"
-            android:textSize="14sp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/black" />
-    </LinearLayout>
+       <TextView
+           android:id="@+id/tvArtikelTitle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="10dp"
+           android:textColor="@color/medium_green"
+           android:text="How to create a valueable compose waste"/>
+   </LinearLayout>
 
 </androidx.cardview.widget.CardView>

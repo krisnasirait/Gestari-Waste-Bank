@@ -1,207 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".main.home.HomeFragment"
-    android:layout_margin="20dp">
+    tools:context=".main.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/titleHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/tvGreetings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome, Rose"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/titleHome"
-        app:layout_constraintStart_toStartOf="parent" />
-    
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvBalance"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tvGreetings">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+        <TextView
+            android:id="@+id/titleHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvGreetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome, Rose"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/titleHome"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBalance"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="vertical"
-            android:background="@color/medium_green">
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvGreetings">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:background="@color/medium_green">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Wallet"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Wallet"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BALANCE"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BALANCE"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"/>
 
-            <TextView
-                android:id="@+id/totalBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp. 36,850.00"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                <TextView
+                    android:id="@+id/totalBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 36,850.00"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvServices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Services"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/cvBalance"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/tvServices">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCollect"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                app:cardCornerRadius="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/medium_green"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/ivCollect"
+                        android:layout_width="50dp"
+                        android:src="@drawable/ic_walletcollect"
+                        android:layout_height="50dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Collect"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPoint"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                app:cardCornerRadius="14dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/point_color"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/ivPoint"
+                        android:src="@drawable/ic_points"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Point"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPricelist"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                app:cardCornerRadius="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/pricelist_color"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/ivPricelist"
+                        android:layout_width="50dp"
+                        android:src="@drawable/ic_shop"
+                        android:layout_height="50dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Pricelist"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvServices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Services"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/cvBalance"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp" />
+        <TextView
+            android:id="@+id/tvArtikel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artikel"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/layoutServices"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" />
 
-    <LinearLayout
-        android:id="@+id/layoutServices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:weightSum="3"
-        app:layout_constraintTop_toBottomOf="@id/tvServices">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvCollect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="100dp"
-            app:cardCornerRadius="14dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/medium_green"
-                android:gravity="center">
-                <ImageView
-                    android:id="@+id/ivCollect"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Collect"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvPoint"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="100dp"
-            app:cardCornerRadius="14dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/point_color"
-                android:gravity="center">
-                <ImageView
-                    android:id="@+id/ivPoint"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Point"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvPricelist"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="100dp"
-            app:cardCornerRadius="14dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/pricelist_color"
-                android:gravity="center">
-                <ImageView
-                    android:id="@+id/ivPricelist"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Pricelist"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvArtikel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Artikel"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/layoutServices"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHome"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tvArtikel" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHome"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvArtikel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
