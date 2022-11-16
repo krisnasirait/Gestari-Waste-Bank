@@ -27,4 +27,8 @@
         <!-- Required -->
         <item name="postSplashScreenTheme">@style/Theme.GestariWasteBank</item>
     </style>
+    <style name="MyTransparentDialog" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:windowBackground">@drawable/background_white_radius_16</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

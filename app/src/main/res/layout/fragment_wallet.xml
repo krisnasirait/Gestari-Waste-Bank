@@ -14,7 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </LinearLayout>
 
     <TextView
@@ -83,7 +82,7 @@
                     android:id="@+id/ivWithdraw"
                     android:layout_width="wrap_content"
                     android:layout_height="65dp"
-                    android:src="@drawable/ic_walletcollect" />
+                    android:src="@drawable/ic_walletcollect_green" />
 
                 <TextView
                     android:id="@+id/tvWithdraw"
@@ -108,7 +107,7 @@
                     android:layout_height="65dp"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/ic_points" />
+                    android:src="@drawable/ic_walletpoint_green" />
 
                 <TextView
                     android:id="@+id/tvPoint"

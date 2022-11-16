@@ -27,4 +27,16 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/mobile_navigation"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        app:elevation="8dp"
+        app:fabCustomSize="48dp"
+        app:layout_constraintEnd_toEndOf="@id/botNavBar"
+        app:layout_constraintStart_toStartOf="@id/botNavBar"
+        app:layout_constraintBottom_toTopOf="@id/botNavBar"
+        app:layout_constraintTop_toTopOf="@id/botNavBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
