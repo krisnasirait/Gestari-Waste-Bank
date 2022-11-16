@@ -38,14 +38,14 @@ class MainActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this, R.style.MyTransparentDialog)
         val view = layoutInflater.inflate(R.layout.pop_up_category, null)
         val rvCategory = view.findViewById<RecyclerView>(R.id.rvCategory)
-        val adapter = AdapterCategory(View.OnClickListener {
+        val adapter = AdapterCategory {
             dialog.dismiss()
             showDialogItem()
-        })
+        }
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
         adapter.addCategory(generateDummyData())
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
     }
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
             showDialogCategory()
         }
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
     }
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
         adapter.addCategory(generateDummyData())
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
     }
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         val rvCategory = view.findViewById<RecyclerView>(R.id.rvItem)
         val ivNext = view.findViewById<ImageView>(R.id.ivNext)
         val tvConfirm = view.findViewById<TextView>(R.id.tvConfirm)
-        val adapter = AdapterSchedule() { positionSelected ->
+        val adapter = AdapterSchedule { positionSelected ->
             if (positionSelected >= 0) {
                 ivNext.visibility = View.GONE
                 tvConfirm.visibility = View.VISIBLE
@@ -107,14 +107,14 @@ class MainActivity : AppCompatActivity() {
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
         adapter.addCategory(generateDummyData())
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
     }
     private fun showDialogOrderConfirmed() {
         val dialog = BottomSheetDialog(this, R.style.MyTransparentDialog)
         val view = layoutInflater.inflate(R.layout.pop_up_order_confirmed, null)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
     }
