@@ -13,7 +13,7 @@
         app:itemTextColor="@color/light_green"
         app:labelVisibilityMode="auto"
         android:background="@color/white"
-        app:itemRippleColor="@color/light_green"
+        app:itemRippleColor="@color/medium_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
