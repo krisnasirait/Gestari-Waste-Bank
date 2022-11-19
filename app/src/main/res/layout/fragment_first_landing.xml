@@ -3,23 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".landingpage.fragmentlanding.FirstLandingFragment"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/white">
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieView"
         android:layout_width="298dp"
         android:layout_height="198dp"
-        android:src="@drawable/elon"/>
+        app:lottie_fileName="54940-recycle-icon-animation.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lorem Ipsum"
-        android:textSize="18sp"
+        android:text="Welcome to Gestari"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/medium_green"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -27,8 +32,8 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+        android:textColor="@color/medium_green"
+        android:textSize="18sp"
+        android:text="Look deep into nature, and then you will understand everything better."/>
 
 </LinearLayout>
