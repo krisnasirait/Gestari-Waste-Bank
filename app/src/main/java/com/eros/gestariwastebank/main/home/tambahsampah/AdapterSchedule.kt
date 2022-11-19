@@ -1,17 +1,18 @@
-package com.eros.gestariwastebank
+package com.eros.gestariwastebank.main.home.tambahsampah
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
+import com.eros.gestariwastebank.R
 
 
 class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
     RecyclerView.Adapter<AdapterSchedule.ItemHolder>() {
     private var category: ArrayList<String> = ArrayList()
     private var positionSelected: Int = -1
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterSchedule.ItemHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.rv_item_schedule, parent, false)
         )
@@ -22,7 +23,7 @@ class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: AdapterSchedule.ItemHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.bind()
     }
 
@@ -37,7 +38,7 @@ class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
 
         fun bind() {
             rb?.isChecked = positionSelected == layoutPosition
-            rb?.setOnCheckedChangeListener { compoundButton, b ->
+            rb?.setOnCheckedChangeListener { _, b ->
                 val temp = positionSelected
 
                 if (b) {

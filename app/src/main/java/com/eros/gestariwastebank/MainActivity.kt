@@ -12,6 +12,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eros.gestariwastebank.databinding.ActivityMainBinding
+import com.eros.gestariwastebank.main.home.tambahsampah.AdapterCategory
+import com.eros.gestariwastebank.main.home.tambahsampah.AdapterItem
+import com.eros.gestariwastebank.main.home.tambahsampah.AdapterSchedule
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
