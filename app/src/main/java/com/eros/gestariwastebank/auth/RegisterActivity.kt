@@ -24,6 +24,8 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.btnRegister.setOnClickListener {
+            val fullName = binding.etFullName.text
+            val email = binding.etEmail.text
             val password = binding.etPassword.text
             val confPassword = binding.etConfPassword.text
 
@@ -31,7 +33,10 @@ class RegisterActivity : AppCompatActivity() {
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
                 }
-            } else {
+            } else if (fullName.isNullOrEmpty() || email.isNullOrEmpty() || password.isNullOrEmpty() || confPassword.isNullOrEmpty()){
+                binding.tvPrompt.setTextColor(Color.RED)
+                binding.tvPrompt.text = "Please fill all the form"
+            }else {
                 binding.tvPrompt.setTextColor(Color.RED)
             }
         }
