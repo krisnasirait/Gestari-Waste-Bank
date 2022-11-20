@@ -31,6 +31,10 @@ class ThirdLandingFragment : Fragment() {
 
     private fun setOnClickListener() {
         binding.btnLetsStart.setOnClickListener {
+
+            val sharedPreferences = this.activity?.getSharedPreferences("prefGWA", 0)
+            sharedPreferences?.edit()?.putString("isFirst", "false")?.apply()
+
             Intent(context, LoginActivity::class.java).also {
                 startActivity(it)
             }
