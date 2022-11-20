@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile"
+        android:fontFamily="@font/poppins_regular"
         android:textSize="16sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,6 +58,7 @@
                     android:id="@+id/tvTitleNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Nama"
                     android:textSize="14sp" />
 
@@ -64,9 +66,10 @@
                     android:id="@+id/tvNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Ivanna"
                     android:textSize="14sp"
-                    android:layout_marginStart="50dp" />
+                    android:layout_marginStart="42dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,12 +81,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No. Tlp"
+                    android:fontFamily="@font/poppins_regular"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvNoTlp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="089765434678"
                     android:textSize="14sp"
                     android:layout_marginStart="41dp" />
@@ -97,6 +102,7 @@
                     android:id="@+id/tvTitleAlamat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Alamat"
                     android:textSize="14sp" />
 
@@ -105,8 +111,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kasihan, Bantul"
+                    android:fontFamily="@font/poppins_regular"
                     android:textSize="14sp"
-                    android:layout_marginStart="41dp" />
+                    android:layout_marginStart="35dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,6 +124,7 @@
                     android:id="@+id/tvTitleEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Email"
                     android:textSize="14sp" />
 
@@ -126,6 +134,7 @@
                     android:layout_height="wrap_content"
                     android:text="ivanaxx@gmail.com"
                     android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_marginStart="50dp" />
             </LinearLayout>
             <LinearLayout
@@ -138,6 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Password"
+                    android:fontFamily="@font/poppins_regular"
                     android:textSize="14sp" />
 
                 <TextView
@@ -146,6 +156,7 @@
                     android:layout_height="wrap_content"
                     android:text="************"
                     android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_marginStart="20dp" />
             </LinearLayout>
         </LinearLayout>
@@ -169,6 +180,7 @@
                 android:text="Balance"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
@@ -177,6 +189,7 @@
                 android:text="Rp 38,650.00"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textSize="16sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -197,6 +210,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Keluar"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/red"/>
 
         </LinearLayout>
