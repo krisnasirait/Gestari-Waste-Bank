@@ -13,9 +13,9 @@
         android:id="@+id/lottieView"
         android:layout_width="298dp"
         android:layout_height="198dp"
+        app:lottie_autoPlay="true"
         app:lottie_fileName="51720-making-money.json"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"/>
+        app:lottie_loop="true" />
 
     <TextView
         android:layout_width="wrap_content"
