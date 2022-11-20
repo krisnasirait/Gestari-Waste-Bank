@@ -13,7 +13,7 @@
         app:itemTextColor="@color/light_green"
         app:labelVisibilityMode="auto"
         android:background="@color/white"
-        app:itemRippleColor="@color/light_green"
+        app:itemRippleColor="@color/medium_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
@@ -37,6 +37,7 @@
         app:layout_constraintTop_toTopOf="@id/botNavBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/add"/>
+        android:backgroundTint="@color/white"
+        android:src="@drawable/plus"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

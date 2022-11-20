@@ -16,6 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Home"
+            android:fontFamily="@font/poppins_regular"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
@@ -27,6 +28,7 @@
             android:id="@+id/tvGreetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:text="Welcome, Rose"
             android:textSize="16sp"
             android:textColor="@color/black"
@@ -45,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="vertical"
-                android:background="@color/medium_green">
+                android:background="@drawable/bg_card_main">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -54,6 +56,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_marginStart="20dp"/>
 
                 <TextView
@@ -61,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="BALANCE"
                     android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="20dp"/>
@@ -70,9 +74,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp. 36,850.00"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textSize="24sp"
                     android:textColor="@color/white"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginStart="20dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -84,7 +89,7 @@
             android:text="Services"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintTop_toBottomOf="@+id/cvBalance"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="15dp" />
@@ -121,6 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Collect"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/white"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -151,6 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Point"
                         android:textColor="@color/white"
                         android:textStyle="bold"/>
@@ -180,6 +187,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Pricelist"
                         android:textColor="@color/white"
                         android:textStyle="bold"/>
@@ -195,7 +203,7 @@
             android:text="Artikel"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintTop_toBottomOf="@+id/layoutServices"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp" />

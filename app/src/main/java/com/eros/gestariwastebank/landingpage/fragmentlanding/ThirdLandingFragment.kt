@@ -30,14 +30,8 @@ class ThirdLandingFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
-        binding.btnLogin.setOnClickListener {
+        binding.btnLetsStart.setOnClickListener {
             Intent(context, LoginActivity::class.java).also {
-                startActivity(it)
-            }
-        }
-
-        binding.btnRegister.setOnClickListener {
-            Intent(context, RegisterActivity::class.java).also {
                 startActivity(it)
             }
         }
