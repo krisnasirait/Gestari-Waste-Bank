@@ -9,20 +9,19 @@ object ApiClient {
     private const val BASE_URL = "https://hammerhead-app-zfi4g.ondigitalocean.app/"
 
     fun getInstance(): Retrofit {
-        var mHttpLoggingInterceptor = HttpLoggingInterceptor()
+        val mHttpLoggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        var mOkHttpClient = OkHttpClient
+        val mOkHttpClient = OkHttpClient
             .Builder()
             .addInterceptor(mHttpLoggingInterceptor)
             .build()
 
 
-        var retrofit: Retrofit = retrofit2.Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(mOkHttpClient)
             .build()
-        return retrofit
     }
 }
