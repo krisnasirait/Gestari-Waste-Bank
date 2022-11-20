@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         app:itemIconTint="@color/light_green"
         app:itemTextColor="@color/light_green"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:labelVisibilityMode="auto"
         android:background="@color/white"
         app:itemRippleColor="@color/medium_green"
