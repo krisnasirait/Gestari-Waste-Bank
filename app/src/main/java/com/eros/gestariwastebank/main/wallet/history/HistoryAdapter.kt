@@ -3,7 +3,9 @@ package com.eros.gestariwastebank.main.wallet.history
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.ItemHistoryBinding
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
@@ -17,10 +19,10 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
             itemBinding.tvStatus.text = history.status
             itemBinding.tvDate.text = history.tanggal
             if(itemBinding.tvStatus.text == "Penyetoran") {
-                itemBinding.tvAmountMoney.setTextColor(Color.GREEN)
+                itemBinding.tvAmountMoney.setTextColor(ContextCompat.getColor(itemBinding.tvAmountMoney.context, R.color.medium_green))
                 itemBinding.tvAmountMoney.text = "+ " + history.amount.toString()
             } else {
-                itemBinding.tvAmountMoney.setTextColor(Color.RED)
+                itemBinding.tvAmountMoney.setTextColor(ContextCompat.getColor(itemBinding.tvAmountMoney.context, R.color.red))
                 itemBinding.tvAmountMoney.text = "- " + history.amount.toString()
             }
         }
