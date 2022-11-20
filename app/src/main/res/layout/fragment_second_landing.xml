@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Help Us Save the Earth"
         android:textSize="26sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
         android:textColor="@color/medium_green"
         android:layout_marginTop="10dp"/>
 
@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:textColor="@color/medium_green"
         android:textSize="18sp"
         android:text="Progress is impossible without change, and those who cannot change their minds cannot change anything."/>
