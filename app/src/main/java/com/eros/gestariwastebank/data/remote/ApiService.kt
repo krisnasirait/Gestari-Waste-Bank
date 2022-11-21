@@ -11,6 +11,6 @@ interface ApiService {
     @POST("user/login")
     fun loginUser(@Body loginRequest: LoginRequest): retrofit2.Call<LoginResponse>
 
-    @GET("/katalog")
+//    @GET("/katalog")
 
 }
