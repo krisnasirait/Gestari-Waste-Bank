@@ -8,41 +8,41 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiClient {
     private const val BASE_URL = "https://hammerhead-app-zfi4g.ondigitalocean.app/"
 
-    fun getInstance(): Retrofit {
-        val mHttpLoggingInterceptor = HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
-
-        val mOkHttpClient = OkHttpClient
-            .Builder()
-            .addInterceptor(mHttpLoggingInterceptor)
-            .build()
-
-
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(mOkHttpClient)
-            .build()
-    }
-
-//    private val logging : HttpLoggingInterceptor
-//        get() {
-//            val httpLoggingInterceptor = HttpLoggingInterceptor()
-//            return httpLoggingInterceptor.apply {
-//                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-//            }
-//        }
+//    fun getInstance(): Retrofit {
+//        val mHttpLoggingInterceptor = HttpLoggingInterceptor()
+//            .setLevel(HttpLoggingInterceptor.Level.BODY)
 //
-//    private val client = OkHttpClient.Builder()
-//        .addInterceptor(logging)
-//        .build()
-//
-//    val instance : ApiService by lazy {
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .client(client)
-//            .addConverterFactory(GsonConverterFactory.create())
+//        val mOkHttpClient = OkHttpClient
+//            .Builder()
+//            .addInterceptor(mHttpLoggingInterceptor)
 //            .build()
-//        retrofit.create(ApiService::class.java)
+//
+//
+//        return Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .client(mOkHttpClient)
+//            .build()
 //    }
+
+    private val logging : HttpLoggingInterceptor
+        get() {
+            val httpLoggingInterceptor = HttpLoggingInterceptor()
+            return httpLoggingInterceptor.apply {
+                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            }
+        }
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
+
+    val instance : ApiService by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        retrofit.create(ApiService::class.java)
+    }
 }
