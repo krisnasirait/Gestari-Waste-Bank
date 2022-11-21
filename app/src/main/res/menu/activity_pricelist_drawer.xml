@@ -12,5 +12,21 @@
             android:id="@+id/nav_paper"
             android:icon="@drawable/paper"
             android:title="Kertas" />
+        <item
+            android:id="@+id/nav_plastic"
+            android:icon="@drawable/bag"
+            android:title="Plastik" />
+        <item
+            android:id="@+id/nav_metal"
+            android:icon="@drawable/beam"
+            android:title="Logam" />
+        <item
+            android:id="@+id/nav_glass"
+            android:icon="@drawable/glass"
+            android:title="Kaca/Beling" />
+        <item
+            android:id="@+id/nav_others"
+            android:icon="@drawable/other"
+            android:title="Lain-lain" />
     </group>
 </menu>

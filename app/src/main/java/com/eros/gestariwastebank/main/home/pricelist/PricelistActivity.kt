@@ -33,7 +33,12 @@ class PricelistActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_all, R.id.nav_paper
+                R.id.nav_all,
+                R.id.nav_paper,
+                R.id.nav_plastic,
+                R.id.nav_metal,
+                R.id.nav_glass,
+                R.id.nav_others
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
