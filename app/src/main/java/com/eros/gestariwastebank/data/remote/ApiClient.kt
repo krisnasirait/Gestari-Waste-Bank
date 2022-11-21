@@ -24,4 +24,25 @@ object ApiClient {
             .client(mOkHttpClient)
             .build()
     }
+
+//    private val logging : HttpLoggingInterceptor
+//        get() {
+//            val httpLoggingInterceptor = HttpLoggingInterceptor()
+//            return httpLoggingInterceptor.apply {
+//                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+//            }
+//        }
+//
+//    private val client = OkHttpClient.Builder()
+//        .addInterceptor(logging)
+//        .build()
+//
+//    val instance : ApiService by lazy {
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .client(client)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//        retrofit.create(ApiService::class.java)
+//    }
 }
