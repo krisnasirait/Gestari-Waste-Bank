@@ -1,11 +1,11 @@
-package com.eros.gestariwastebank.networking.response
+package com.eros.gestariwastebank.networking.response.katalog
 
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class CatalogResponse(
     @SerializedName("data")
-    val `data`: Data?,
+    val `data`: List<Catalog?>?,
     @SerializedName("status")
     val status: String?
 )

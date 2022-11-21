@@ -9,7 +9,7 @@ import com.eros.gestariwastebank.data.remote.ApiClient
 import com.eros.gestariwastebank.data.remote.ApiService
 import com.eros.gestariwastebank.databinding.ActivityLoginBinding
 import com.eros.gestariwastebank.networking.request.LoginRequest
-import com.eros.gestariwastebank.networking.response.LoginResponse
+import com.eros.gestariwastebank.networking.response.login.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

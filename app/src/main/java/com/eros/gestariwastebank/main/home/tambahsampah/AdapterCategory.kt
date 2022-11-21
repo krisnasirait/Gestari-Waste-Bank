@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.eros.gestariwastebank.R
 
 class AdapterCategory(var onclick: View.OnClickListener) : RecyclerView.Adapter<AdapterCategory.ItemHolder>() {
+
     private var category: ArrayList<String> = ArrayList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.rv_item_category, parent, false)
