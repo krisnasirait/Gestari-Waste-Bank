@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.main.home.pricelist.ui.others
+package com.eros.gestariwastebank.main.home.pricelist.ui.glass
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.FragmentAllBinding
-import com.eros.gestariwastebank.databinding.FragmentOthersBinding
+import com.eros.gestariwastebank.databinding.FragmentGlassBinding
 import com.eros.gestariwastebank.main.home.pricelist.ui.all.AllViewModel
 
-class OthersFragment : Fragment() {
-    private var _binding: FragmentOthersBinding? = null
+
+class GlassFragment : Fragment() {
+    private var _binding: FragmentGlassBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,7 +28,7 @@ class OthersFragment : Fragment() {
         val galleryViewModel =
             ViewModelProvider(this)[AllViewModel::class.java]
 
-        _binding = FragmentOthersBinding.inflate(inflater, container, false)
+        _binding = FragmentGlassBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.tvTitle
