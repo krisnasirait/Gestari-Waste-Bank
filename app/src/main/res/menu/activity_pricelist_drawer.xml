@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_semua"
+            android:icon="@drawable/all"
+            android:iconTint="@color/medium_green"
+            android:title="Semua" />
+        <item
+            android:id="@+id/nav_kertas"
+            android:icon="@drawable/paper"
+            android:iconTint="@color/medium_green"
+            android:title="Kertas" />
+        <item
+            android:id="@+id/nav_plastik"
+            android:icon="@drawable/bag"
+            android:iconTint="@color/medium_green"
+            android:title="Plastik" />
+        <item
+            android:id="@+id/nav_logam"
+            android:icon="@drawable/beam"
+            android:iconTint="@color/medium_green"
+            android:title="Logam" />
+        <item
+            android:id="@+id/nav_lainlain"
+            android:icon="@drawable/other"
+            android:iconTint="@color/medium_green"
+            android:title="Lain-lain" />
+    </group>
+</menu>

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <!-- Set the splash screen background, animated icon, and animation duration. -->
         <item name="windowSplashScreenBackground">@color/light_green</item>
@@ -27,8 +28,18 @@
         <!-- Required -->
         <item name="postSplashScreenTheme">@style/Theme.GestariWasteBank</item>
     </style>
+
     <style name="MyTransparentDialog" parent="@android:style/Theme.Material.Dialog">
         <item name="android:windowBackground">@drawable/background_white_radius_16</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.GestariWasteBank.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GestariWasteBank.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GestariWasteBank.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
