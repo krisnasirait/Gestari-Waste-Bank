@@ -20,6 +20,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemIconTint="@color/medium_green"
+        app:itemTextColor="@color/medium_green"
+        app:itemRippleColor="@color/light_green"
         app:headerLayout="@layout/nav_header_pricelist"
         app:menu="@menu/activity_pricelist_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>
