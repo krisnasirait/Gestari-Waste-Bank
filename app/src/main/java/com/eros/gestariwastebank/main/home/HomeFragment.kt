@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.databinding.FragmentHomeBinding
 import com.eros.gestariwastebank.main.home.artikel.ArtikelAdapter
+import com.eros.gestariwastebank.main.home.pricelist.PricelistActivity
 
 class HomeFragment : Fragment() {
 
@@ -39,6 +41,10 @@ class HomeFragment : Fragment() {
             )
 
         artikelAdapter.setData(Util.allArtikel)
+
+        binding.btnPricelist.setOnClickListener {
+            startActivity(Intent(context, PricelistActivity::class.java))
+        }
     }
 
 }
