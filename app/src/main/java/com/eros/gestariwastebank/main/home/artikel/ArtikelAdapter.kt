@@ -3,14 +3,14 @@ package com.eros.gestariwastebank.main.home.artikel
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.eros.gestariwastebank.databinding.ItemArtikelBinding
+import com.eros.gestariwastebank.databinding.RvItemArtikelBinding
 
 class ArtikelAdapter : RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
 
-    private lateinit var binding: ItemArtikelBinding
+    private lateinit var binding: RvItemArtikelBinding
     private val listArtikel = mutableListOf<Artikel>()
 
-    inner class ViewHolder(private val itemBinding: ItemArtikelBinding) :
+    inner class ViewHolder(private val itemBinding: RvItemArtikelBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(artikel: Artikel) {
             itemBinding.tvArtikelTitle.text = artikel.title
@@ -19,7 +19,7 @@ class ArtikelAdapter : RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = ItemArtikelBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = RvItemArtikelBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

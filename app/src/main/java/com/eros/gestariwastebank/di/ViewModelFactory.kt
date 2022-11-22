@@ -8,7 +8,7 @@ import com.eros.gestariwastebank.data.remote.RemoteDataSource
 import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.domain.Repository
 import com.eros.gestariwastebank.domain.RepositoryImp
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.PricelistViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,7 +19,7 @@ class ViewModelFactory(
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when(modelClass) {
-            PricelistViewModel::class.java -> PricelistViewModel(repository) as T
+            AllCatalogViewModel::class.java -> AllCatalogViewModel(repository) as T
             else -> throw UnsupportedOperationException()
         }
     }

@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.eros.gestariwastebank.R
-import com.eros.gestariwastebank.databinding.ItemHistoryBinding
+import com.eros.gestariwastebank.databinding.RvItemHistoryBinding
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    private lateinit var binding: ItemHistoryBinding
+    private lateinit var binding: RvItemHistoryBinding
     private val listHistory = mutableListOf<History>()
 
-    inner class ViewHolder(private val itemBinding: ItemHistoryBinding) :
+    inner class ViewHolder(private val itemBinding: RvItemHistoryBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(history: History) {
             itemBinding.tvStatus.text = history.status
@@ -29,7 +29,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = RvItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
