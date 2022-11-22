@@ -22,7 +22,19 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        checkLoginInfo()
         setOnClickListener()
+    }
+
+    private fun checkLoginInfo() {
+        val sharedPreferences = getSharedPreferences("prefGWA", 0)
+        val isLogin = sharedPreferences.getString("isLogin", "")
+        // Shared preference Login
+        if(!isLogin.isNullOrEmpty()) {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
     }
 
     private fun setOnClickListener() {
@@ -48,6 +60,8 @@ class LoginActivity : AppCompatActivity() {
                 response: Response<LoginResponse>
             ) {
                 // the response variable contains whole response
+                val sharedPreferences = getSharedPreferences("prefGWA", 0)
+                sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             }
 
