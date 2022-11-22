@@ -3,7 +3,7 @@
     android:layout_width="150dp"
     android:layout_height="190dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_margin="15dp"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
@@ -12,6 +12,18 @@
         android:orientation="vertical"
         android:gravity="bottom"
         android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/ivStuffImage"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KERTAS"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
@@ -38,7 +50,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="kg"
-                android:layout_marginStart="5dp"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_regular"/>
