@@ -38,18 +38,14 @@ class AllFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        setAllCatalogAdapter()
-
-//        viewModel.catalog.observe(requireActivity()) { data ->
-//            allCatalogAdapter.addAll(data!!)
-//        }
-//        viewModel.errorMessage.observe(requireActivity()) {
-//            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
-//        }
+        allCatalogAdapter = AllCatalogAdapter()
+        binding.rvFragmentAll.adapter = allCatalogAdapter
+        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
+        viewModel.catalog.observe(requireActivity()) {
+            allCatalogAdapter.addAll(it!!)
+        }
+        viewModel.getCatalog()
     }
 
-//    private fun setAllCatalogAdapter() {
-//        binding.rvFragmentAll.adapter = allCatalogAdapter
-//        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
-//    }
+
 }
