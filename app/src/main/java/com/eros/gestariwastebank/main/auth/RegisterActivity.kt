@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.auth
+package com.eros.gestariwastebank.main.auth
 
 import android.content.Intent
 import android.graphics.Color

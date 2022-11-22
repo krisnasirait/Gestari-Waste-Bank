@@ -1,16 +1,16 @@
-package com.eros.gestariwastebank.landingpage
+package com.eros.gestariwastebank.main.landingpage
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
-import com.eros.gestariwastebank.auth.LoginActivity
+import com.eros.gestariwastebank.main.auth.LoginActivity
 import com.eros.gestariwastebank.databinding.ActivityLandingPageBinding
-import com.eros.gestariwastebank.landingpage.adapter.ViewPagerAdapter
-import com.eros.gestariwastebank.landingpage.fragmentlanding.FirstLandingFragment
-import com.eros.gestariwastebank.landingpage.fragmentlanding.SecondLandingFragment
-import com.eros.gestariwastebank.landingpage.fragmentlanding.ThirdLandingFragment
+import com.eros.gestariwastebank.main.landingpage.adapter.ViewPagerAdapter
+import com.eros.gestariwastebank.main.landingpage.fragmentlanding.FirstLandingFragment
+import com.eros.gestariwastebank.main.landingpage.fragmentlanding.SecondLandingFragment
+import com.eros.gestariwastebank.main.landingpage.fragmentlanding.ThirdLandingFragment
 
 class LandingPageActivity : AppCompatActivity() {
 

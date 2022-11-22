@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.landingpage.fragmentlanding
+package com.eros.gestariwastebank.main.landingpage.fragmentlanding
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.eros.gestariwastebank.R
-import com.eros.gestariwastebank.auth.LoginActivity
-import com.eros.gestariwastebank.auth.RegisterActivity
+import com.eros.gestariwastebank.main.auth.LoginActivity
 import com.eros.gestariwastebank.databinding.FragmentThirdLandingBinding
 
 class ThirdLandingFragment : Fragment() {

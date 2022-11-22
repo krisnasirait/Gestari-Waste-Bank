@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.landingpage.adapter
+package com.eros.gestariwastebank.main.landingpage.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
