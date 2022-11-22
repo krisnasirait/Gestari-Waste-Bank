@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.networking.response.katalog
+package com.eros.gestariwastebank.data.model.catalog
 
 
 import com.google.gson.annotations.SerializedName

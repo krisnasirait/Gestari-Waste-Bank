@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.data.remote
+package com.eros.gestariwastebank.data.remote.networking
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
