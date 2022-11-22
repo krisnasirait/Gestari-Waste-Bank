@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.eros.gestariwastebank.databinding.FragmentAllBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.pricelist.ui.all.adapter.AllCatalogAdapter
@@ -38,18 +36,14 @@ class AllFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        setAllCatalogAdapter()
-
-//        viewModel.catalog.observe(requireActivity()) { data ->
-//            allCatalogAdapter.addAll(data!!)
-//        }
-//        viewModel.errorMessage.observe(requireActivity()) {
-//            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
-//        }
+        allCatalogAdapter = AllCatalogAdapter()
+        binding.rvFragmentAll.adapter = allCatalogAdapter
+        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
+        viewModel.catalog.observe(requireActivity()) {
+            allCatalogAdapter.addAll(it!!)
+        }
+        viewModel.getCatalog()
     }
 
-//    private fun setAllCatalogAdapter() {
-//        binding.rvFragmentAll.adapter = allCatalogAdapter
-//        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
-//    }
+
 }

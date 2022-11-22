@@ -8,6 +8,8 @@ data class Catalog(
     val createdAt: String?,
     @SerializedName("id")
     val id: Int?,
+    @SerializedName("image")
+    val image: String?,
     @SerializedName("kode_katalog")
     val kodeKatalog: String?,
     @SerializedName("name")

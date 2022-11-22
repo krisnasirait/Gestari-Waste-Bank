@@ -14,6 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(
     private val repository: Repository
 ) : ViewModelProvider.Factory {

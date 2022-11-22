@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.eros.gestariwastebank.databinding.RvItemCatalogBinding
 
@@ -15,8 +16,12 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
         val binding: RvItemCatalogBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(catalogData: Catalog) {
+            Glide.with(binding.root)
+                .load(catalogData.image)
+                .into(binding.ivStuffImage)
+            binding.tvCategory.text = catalogData.type
             binding.tvName.text = catalogData.name
-            binding.tvPrice.text = catalogData.price.toString()
+            binding.tvPrice.text = catalogData.price.toString() + ",-/"
             binding.tvSatuan.text = catalogData.satuan
         }
     }
