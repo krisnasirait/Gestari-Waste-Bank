@@ -20,9 +20,6 @@ class MetalFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this)[AllCatalogViewModel::class.java]
-
         _binding = FragmentMetalBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
