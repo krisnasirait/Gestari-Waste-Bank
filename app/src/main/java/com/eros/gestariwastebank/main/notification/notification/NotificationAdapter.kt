@@ -3,14 +3,14 @@ package com.eros.gestariwastebank.main.notification.notification
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.eros.gestariwastebank.databinding.ItemNotificationBinding
+import com.eros.gestariwastebank.databinding.RvItemNotificationBinding
 
 class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.ViewHolder>(){
 
-    private lateinit var binding: ItemNotificationBinding
+    private lateinit var binding: RvItemNotificationBinding
     private val listNotification = mutableListOf<Notification>()
 
-    inner class ViewHolder(private val itemBinding: ItemNotificationBinding) :
+    inner class ViewHolder(private val itemBinding: RvItemNotificationBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(notification: Notification) {
             itemBinding.tvDate.text = notification.date
@@ -20,7 +20,7 @@ class NotificationAdapter : RecyclerView.Adapter<NotificationAdapter.ViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = ItemNotificationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = RvItemNotificationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.eros.gestariwastebank.R
-import com.eros.gestariwastebank.databinding.FragmentAllBinding
 import com.eros.gestariwastebank.databinding.FragmentPlasticBinding
-import com.eros.gestariwastebank.main.home.pricelist.ui.all.AllViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
 
 
 class PlasticFragment : Fragment() {
@@ -25,16 +22,8 @@ class PlasticFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this)[AllViewModel::class.java]
-
         _binding = FragmentPlasticBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.tvTitle
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 
