@@ -3,12 +3,15 @@ package com.eros.gestariwastebank.main.auth
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.eros.gestariwastebank.MainActivity
-import com.eros.gestariwastebank.data.remote.networking.ApiClient
-import com.eros.gestariwastebank.databinding.ActivityLoginBinding
-import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.model.login.LoginResponse
+import com.eros.gestariwastebank.data.remote.networking.ApiClient
+import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.databinding.ActivityLoginBinding
+import com.eros.gestariwastebank.di.ViewModelFactory
+import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,6 +19,12 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
+    private val viewModel: LoginViewModel by viewModels(
+        factoryProducer = {
+            ViewModelFactory.getInstance(this)
+        }
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("prefGWA", 0)
         val isLogin = sharedPreferences.getString("isLogin", "")
         // Shared preference Login
-        if(!isLogin.isNullOrEmpty()) {
+        if (!isLogin.isNullOrEmpty()) {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
@@ -54,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun execLoginCall(request: LoginRequest) {
-        ApiClient.instance.loginUser(request).enqueue(object : Callback<LoginResponse> {
+        ApiClient.instance.loginUserApi(request).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(
                 call: Call<LoginResponse>,
                 response: Response<LoginResponse>
@@ -72,4 +81,6 @@ class LoginActivity : AppCompatActivity() {
 
         })
     }
+
+
 }

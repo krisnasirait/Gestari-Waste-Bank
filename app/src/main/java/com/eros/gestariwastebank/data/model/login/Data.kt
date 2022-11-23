@@ -3,7 +3,7 @@ package com.eros.gestariwastebank.data.model.login
 
 import com.google.gson.annotations.SerializedName
 
-data class Login(
+data class Data(
     @SerializedName("accessToken")
     val accessToken: String?,
     @SerializedName("user")
