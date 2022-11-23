@@ -5,6 +5,7 @@ import com.eros.gestariwastebank.data.model.catalog.CatalogResponse
 import com.eros.gestariwastebank.data.model.login.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import retrofit2.Response
 
 class RemoteDataSource(
     private val apiService: ApiService
@@ -13,7 +14,27 @@ class RemoteDataSource(
         return apiService.getCatalog()
     }
 
-    override suspend fun loginUser(loginRequest: LoginRequest): LoginResponse {
+    override suspend fun getCatalogPaper(): CatalogResponse {
+        return apiService.getCatalogPaper()
+    }
+
+    override suspend fun getCatalogPlastic(): CatalogResponse {
+        return apiService.getCatalogPlastic()
+    }
+
+    override suspend fun getCatalogMetal(): CatalogResponse {
+        return apiService.getCatalogMetal()
+    }
+
+    override suspend fun getCatalogGlass(): CatalogResponse {
+        return apiService.getCatalogGlass()
+    }
+
+    override suspend fun getCatalogOthers(): CatalogResponse {
+        return apiService.getCatalogOthers()
+    }
+
+    override suspend fun loginUser(loginRequest: LoginRequest): Response<LoginResponse> {
         return apiService.loginUser(loginRequest)
     }
 }

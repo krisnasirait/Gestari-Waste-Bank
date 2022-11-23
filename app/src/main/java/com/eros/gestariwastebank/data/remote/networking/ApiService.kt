@@ -4,6 +4,7 @@ import com.eros.gestariwastebank.data.model.catalog.CatalogResponse
 import com.eros.gestariwastebank.data.model.login.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -11,7 +12,10 @@ import retrofit2.http.POST
 interface ApiService {
 
     @POST("user/login")
-    fun loginUser(@Body loginRequest: LoginRequest) : LoginResponse
+    suspend fun loginUser(@Body loginRequest: LoginRequest) : Response<LoginResponse>
+
+    @POST("user/login")
+    fun loginUserApi(@Body loginRequest: LoginRequest): Call<LoginResponse>
 
     @GET("/katalog")
     suspend fun getCatalog() : CatalogResponse
@@ -31,7 +35,6 @@ interface ApiService {
     @GET("/katalog/type/khusus")
     suspend fun getCatalogOthers() : CatalogResponse
 
-    @POST("user/login")
-    fun loginUserApi(@Body loginRequest: LoginRequest): Call<LoginResponse>
+
 
 }
