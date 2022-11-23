@@ -10,6 +10,7 @@ import com.eros.gestariwastebank.domain.Repository
 import com.eros.gestariwastebank.domain.RepositoryImp
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.glass.viewmodel.GlassCatalogViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -22,6 +23,7 @@ class ViewModelFactory(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when(modelClass) {
             AllCatalogViewModel::class.java -> AllCatalogViewModel(repository) as T
+            GlassCatalogViewModel::class.java -> GlassCatalogViewModel(repository) as T
             LoginViewModel::class.java -> LoginViewModel(repository) as T
             else -> throw UnsupportedOperationException()
         }

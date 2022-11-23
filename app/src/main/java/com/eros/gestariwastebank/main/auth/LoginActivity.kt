@@ -2,19 +2,14 @@ package com.eros.gestariwastebank.main.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.eros.gestariwastebank.MainActivity
-import com.eros.gestariwastebank.data.model.login.LoginResponse
-import com.eros.gestariwastebank.data.remote.networking.ApiClient
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.ActivityLoginBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -58,28 +53,17 @@ class LoginActivity : AppCompatActivity() {
 
             val request = LoginRequest(email, password)
 
-            execLoginCall(request)
+            viewModel.getLogin(request).observe(this@LoginActivity) {
+                if (it != null) {
+                    val sharedPreferences = getSharedPreferences("prefGWA", 0)
+                    sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                } else {
+                    Log.d("loginNull : ", "data null")
+                }
+            }
+
         }
-    }
-
-    private fun execLoginCall(request: LoginRequest) {
-        ApiClient.instance.loginUserApi(request).enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(
-                call: Call<LoginResponse>,
-                response: Response<LoginResponse>
-            ) {
-                // the response variable contains whole response
-                val sharedPreferences = getSharedPreferences("prefGWA", 0)
-                sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            }
-
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, t.message.toString(), Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-        })
     }
 
 
