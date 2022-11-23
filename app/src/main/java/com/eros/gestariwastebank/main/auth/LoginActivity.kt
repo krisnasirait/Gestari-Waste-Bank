@@ -61,8 +61,10 @@ class LoginActivity : AppCompatActivity() {
 
             val request = LoginRequest(email, password)
 
-            viewModel.getLogin(request).observe(this@LoginActivity){
-                if (it!=null) {
+            viewModel.getLogin(request).observe(this@LoginActivity) {
+                if (it != null) {
+                    val sharedPreferences = getSharedPreferences("prefGWA", 0)
+                    sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 } else {
                     Log.d("loginNull : ", "data null")
