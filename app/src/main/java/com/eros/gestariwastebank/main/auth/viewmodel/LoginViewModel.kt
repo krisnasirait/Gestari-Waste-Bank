@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +18,7 @@ class LoginViewModel(
 
 
     private val _login: MutableLiveData<Login?> = MutableLiveData()
-    val user: LiveData<Login?> = _login
+    val login: LiveData<Login?> = _login
 
     private val _errorMessage : MutableLiveData<String> = MutableLiveData()
     val errorMessage : LiveData<String> = _errorMessage
@@ -30,11 +31,12 @@ class LoginViewModel(
                 }
             }.onSuccess { data ->
                 withContext(Dispatchers.Main){
-                    _login.value = data.login
+                    _login.value = data.result
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
+                    Log.d("errorStatus : ", _errorMessage.value.toString())
                 }
             }
         }
