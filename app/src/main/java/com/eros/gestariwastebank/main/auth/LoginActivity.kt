@@ -71,29 +71,8 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-//            execLoginCall(request)
         }
     }
-
-//    private fun execLoginCall(request: LoginRequest) {
-//        ApiClient.instance.loginUserApi(request).enqueue(object : Callback<LoginResponse> {
-//            override fun onResponse(
-//                call: Call<LoginResponse>,
-//                response: Response<LoginResponse>
-//            ) {
-//                // the response variable contains whole response
-//                val sharedPreferences = getSharedPreferences("prefGWA", 0)
-//                sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
-//                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                Toast.makeText(this@LoginActivity, t.message.toString(), Toast.LENGTH_SHORT)
-//                    .show()
-//            }
-//
-//        })
-//    }
 
 
 }
