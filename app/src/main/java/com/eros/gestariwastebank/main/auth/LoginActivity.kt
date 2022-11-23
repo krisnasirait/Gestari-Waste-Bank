@@ -3,21 +3,13 @@ package com.eros.gestariwastebank.main.auth
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.eros.gestariwastebank.MainActivity
-import com.eros.gestariwastebank.data.model.login.LoginResponse
-import com.eros.gestariwastebank.data.remote.networking.ApiClient
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.ActivityLoginBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
