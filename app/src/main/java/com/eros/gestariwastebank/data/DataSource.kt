@@ -19,7 +19,6 @@ interface DataSource {
 
     suspend fun getCatalogOthers() : CatalogResponse
 
-
     suspend fun loginUser(loginRequest: LoginRequest) : Response<LoginResponse>
 
 }
