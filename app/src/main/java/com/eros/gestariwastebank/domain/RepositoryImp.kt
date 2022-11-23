@@ -9,6 +9,7 @@ class RepositoryImp(
     private val localDataSource: DataSource,
     private val remoteDataSource: DataSource
 ) : Repository {
+
     override suspend fun getCatalog(): CatalogResponse {
         return remoteDataSource.getCatalog()
     }
