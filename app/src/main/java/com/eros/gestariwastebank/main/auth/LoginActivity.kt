@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
                     sharedPreferences?.edit()?.putString("savedMail", email)?.apply()
                     sharedPreferences?.edit()?.putString("savedPass", password)?.apply()
-                    Log.d("namaUser", it.data?.user?.name.toString())
+                    Log.d("namaUser", it.login?.user?.name.toString())
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 } else {
                     Log.d("loginNull : ", "data null")

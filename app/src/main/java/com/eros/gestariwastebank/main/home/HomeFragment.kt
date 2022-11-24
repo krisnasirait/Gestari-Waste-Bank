@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
         val loginCred = LoginRequest(loginEmail, loginPassword)
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.data?.user?.balance)
+            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.totalBalance.text = "Rp. $formAmount.00"
         }
 

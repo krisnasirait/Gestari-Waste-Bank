@@ -1,6 +1,7 @@
-package com.eros.gestariwastebank.data.model.catalog
+package com.eros.gestariwastebank.data.remote.networking.response
 
 
+import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.google.gson.annotations.SerializedName
 
 data class CatalogResponse(

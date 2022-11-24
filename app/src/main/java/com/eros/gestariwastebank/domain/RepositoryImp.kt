@@ -1,9 +1,11 @@
 package com.eros.gestariwastebank.domain
 
 import com.eros.gestariwastebank.data.DataSource
-import com.eros.gestariwastebank.data.model.catalog.CatalogResponse
-import com.eros.gestariwastebank.data.model.login.LoginResponse
+import com.eros.gestariwastebank.data.model.register.RegisterResponse
+import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
+import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import retrofit2.Response
 
 class RepositoryImp(
@@ -37,6 +39,10 @@ class RepositoryImp(
 
     override suspend fun loginUser(loginRequest: LoginRequest): Response<LoginResponse> {
         return remoteDataSource.loginUser(loginRequest)
+    }
+
+    override suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse> {
+        return remoteDataSource.registerUser(registerRequest)
     }
 
 }

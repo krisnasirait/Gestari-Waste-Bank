@@ -1,9 +1,13 @@
 package com.eros.gestariwastebank.data
 
-import com.eros.gestariwastebank.data.model.catalog.CatalogResponse
-import com.eros.gestariwastebank.data.model.login.LoginResponse
+import com.eros.gestariwastebank.data.model.register.RegisterResponse
+import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
+import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface DataSource {
 
@@ -20,5 +24,7 @@ interface DataSource {
     suspend fun getCatalogOthers() : CatalogResponse
 
     suspend fun loginUser(loginRequest: LoginRequest) : Response<LoginResponse>
+
+    suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
 
 }

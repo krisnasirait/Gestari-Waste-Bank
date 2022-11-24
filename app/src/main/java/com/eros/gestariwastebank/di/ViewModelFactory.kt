@@ -9,6 +9,7 @@ import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.domain.Repository
 import com.eros.gestariwastebank.domain.RepositoryImp
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
+import com.eros.gestariwastebank.main.auth.viewmodel.RegisterViewModel
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.AllCatalogViewModel
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.GlassCatalogViewModel
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.MetalCatalogViewModel
@@ -33,6 +34,7 @@ class ViewModelFactory(
             GlassCatalogViewModel::class.java -> GlassCatalogViewModel(repository) as T
             OthersCatalogViewModel::class.java -> OthersCatalogViewModel(repository) as T
             LoginViewModel::class.java -> LoginViewModel(repository) as T
+            RegisterViewModel::class.java -> RegisterViewModel(repository) as T
             else -> throw UnsupportedOperationException()
         }
     }

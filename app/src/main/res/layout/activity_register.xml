@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,128 +8,196 @@
     android:padding="20dp"
     tools:context=".main.auth.RegisterActivity">
 
-    <TextView
-        android:id="@+id/titleLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Let's sign you in."
-        android:textSize="20sp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/medium_green"
-        android:layout_marginTop="40dp"/>
-
-    <TextView
-        android:id="@+id/textWelcomeBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome back."
-        android:textColor="@color/medium_green"
-        android:textSize="16sp"
-        android:fontFamily="@font/poppins_regular"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textMissed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You've been missed!"
-        android:textSize="16sp"
-        android:textColor="@color/medium_green" />
-
-    <EditText
-        android:id="@+id/etFullName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Full name"
-        android:fontFamily="@font/poppins_regular"
-        android:maxLines="1"
-        android:textColorHint="@color/black"
-        android:inputType="textCapSentences"
-        android:background="@drawable/bg_auth"
-        app:layout_constraintTop_toBottomOf="@id/textMissed"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"/>
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:maxLines="1"
-        android:inputType="textEmailAddress"
-        android:fontFamily="@font/poppins_regular"
-        android:background="@drawable/bg_auth"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:maxLines="1"
-        android:inputType="textPassword"
-        android:fontFamily="@font/poppins_regular"
-        android:background="@drawable/bg_auth"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
-
-    <EditText
-        android:id="@+id/etConfPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:maxLines="1"
-        android:inputType="textPassword"
-        android:textColorHint="@color/black"
-        android:fontFamily="@font/poppins_regular"
-        android:background="@drawable/bg_auth"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
-
-    <TextView
-        android:id="@+id/tvPrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password do not match"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:layout_marginTop="5dp"/>
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
+            android:id="@+id/titleLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Have an account?"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            android:textSize="12sp"/>
+            android:text="Let's sign you in."
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/medium_green"
+            android:layout_marginTop="40dp"/>
 
         <TextView
-            android:id="@+id/tvLogin"
+            android:id="@+id/textWelcomeBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:layout_marginStart="5dp"
-            android:textSize="12sp"
+            android:text="Welcome back."
+            android:textColor="@color/medium_green"
+            android:textSize="16sp"
             android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/medium_green"/>
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/textMissed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You've been missed!"
+            android:textSize="16sp"
+            android:textColor="@color/medium_green" />
+
+        <EditText
+            android:id="@+id/etFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full name"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:textColorHint="@color/black"
+            android:inputType="textCapSentences"
+            android:background="@drawable/bg_auth"
+            app:layout_constraintTop_toBottomOf="@id/textMissed"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etAdress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:maxLines="1"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone number"
+            android:maxLines="1"
+            android:inputType="phone"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etBirthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Birthdate (yyyy-mm-dd)"
+            android:maxLines="1"
+            android:inputType="date"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etBirthPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Birthplace"
+            android:maxLines="1"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etNik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="NIK"
+            android:maxLines="1"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:textColorHint="@color/black"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:textColorHint="@color/black"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etConfPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/bg_auth"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/tvPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_semibold"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Have an account?"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/medium_green"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_login"
+            android:layout_marginTop="30dp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:background="@drawable/bg_button_login"
-        android:layout_marginTop="30dp" />
-
-</LinearLayout>
+</ScrollView>

@@ -1,8 +1,10 @@
 package com.eros.gestariwastebank.data.remote.networking
 
-import com.eros.gestariwastebank.data.model.catalog.CatalogResponse
-import com.eros.gestariwastebank.data.model.login.LoginResponse
+import com.eros.gestariwastebank.data.model.register.RegisterResponse
+import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
+import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -14,8 +16,8 @@ interface ApiService {
     @POST("user/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest) : Response<LoginResponse>
 
-    @POST("user/login")
-    fun loginUserApi(@Body loginRequest: LoginRequest): Call<LoginResponse>
+    @POST("user/register")
+    suspend fun registerUser(@Body registerRequest: RegisterRequest) : Response<RegisterResponse>
 
     @GET("/katalog")
     suspend fun getCatalog() : CatalogResponse
