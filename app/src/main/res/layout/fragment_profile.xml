@@ -69,8 +69,8 @@
                         android:id="@+id/tvNama"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/medium_green"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Ivanna"
                         android:textSize="14sp"
                         android:layout_marginStart="42dp" />
                 </LinearLayout>
@@ -91,8 +91,8 @@
                         android:id="@+id/tvNoTlp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/medium_green"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="089765434678"
                         android:textSize="14sp"
                         android:layout_marginStart="41dp" />
                 </LinearLayout>
@@ -113,9 +113,9 @@
                         android:id="@+id/tvAlamat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kasihan, Bantul"
                         android:fontFamily="@font/poppins_regular"
                         android:textSize="14sp"
+                        android:textColor="@color/medium_green"
                         android:layout_marginStart="35dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -135,32 +135,10 @@
                         android:id="@+id/tvEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ivanaxx@gmail.com"
                         android:textSize="14sp"
+                        android:textColor="@color/medium_green"
                         android:fontFamily="@font/poppins_regular"
                         android:layout_marginStart="50dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:id="@+id/tvTitlePassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Password"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvPassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="************"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/poppins_regular"
-                        android:layout_marginStart="20dp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -187,9 +165,10 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tvBalance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 38,650.00"
+                    android:textColor="@color/medium_green"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:fontFamily="@font/poppins_regular"
