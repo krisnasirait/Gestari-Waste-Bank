@@ -34,10 +34,9 @@ class RegisterActivity : AppCompatActivity() {
                     startActivity(it)
                 }
             } else if (fullName.isNullOrEmpty() || email.isNullOrEmpty() || password.isNullOrEmpty() || confPassword.isNullOrEmpty()){
-                binding.tvPrompt.setTextColor(Color.RED)
-                binding.tvPrompt.text = "Please fill all the form"
+
             }else {
-                binding.tvPrompt.setTextColor(Color.RED)
+
             }
         }
     }
