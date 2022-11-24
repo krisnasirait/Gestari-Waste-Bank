@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.data.remote.networking
 
+import com.eros.gestariwastebank.data.model.register.RegisterResponse
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
@@ -14,6 +15,9 @@ interface ApiService {
 
     @POST("user/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest) : Response<LoginResponse>
+
+    @POST("user/register")
+    suspend fun registerUser(@Body registerRequest: RegisterRequest) : Response<RegisterResponse>
 
     @GET("/katalog")
     suspend fun getCatalog() : CatalogResponse

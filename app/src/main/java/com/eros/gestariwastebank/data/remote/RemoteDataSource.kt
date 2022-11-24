@@ -1,10 +1,12 @@
 package com.eros.gestariwastebank.data.remote
 
 import com.eros.gestariwastebank.data.DataSource
+import com.eros.gestariwastebank.data.model.register.RegisterResponse
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import retrofit2.Response
 
 class RemoteDataSource(
@@ -36,5 +38,9 @@ class RemoteDataSource(
 
     override suspend fun loginUser(loginRequest: LoginRequest): Response<LoginResponse> {
         return apiService.loginUser(loginRequest)
+    }
+
+    override suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse> {
+        return apiService.registerUser(registerRequest)
     }
 }

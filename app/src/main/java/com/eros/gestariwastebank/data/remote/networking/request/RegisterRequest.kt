@@ -9,6 +9,6 @@ data class RegisterRequest(
     @SerializedName("email") var email: String? = null,
     @SerializedName("birthdate") var birthdate: String? = null,
     @SerializedName("birthplace") var birthplace: String? = null,
-    @SerializedName("nik") var nik: String? = null,
+    @SerializedName("NIK") var nik: String? = null,
     @SerializedName("password") var password: String? = null
 )
