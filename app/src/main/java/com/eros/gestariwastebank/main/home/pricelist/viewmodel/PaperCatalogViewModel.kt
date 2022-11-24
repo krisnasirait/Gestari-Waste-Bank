@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.main.home.pricelist.ui.others.viewmodel
+package com.eros.gestariwastebank.main.home.pricelist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class OthersCatalogViewModel(
+class PaperCatalogViewModel(
     private val repository: Repository
 )  : ViewModel(){
 
@@ -20,11 +20,11 @@ class OthersCatalogViewModel(
     private val _errorMessage : MutableLiveData<String> = MutableLiveData()
     val errorMessage : LiveData<String> = _errorMessage
 
-    fun getCatalogOthers() {
+    fun getCatalogPaper() {
         viewModelScope.launch {
             kotlin.runCatching {
                 withContext(Dispatchers.IO){
-                    repository.getCatalogOthers()
+                    repository.getCatalogPaper()
                 }
             }.onSuccess { data ->
                 withContext(Dispatchers.Main){

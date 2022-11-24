@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.main.home.pricelist.ui.all.adapter
+package com.eros.gestariwastebank.main.home.pricelist.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

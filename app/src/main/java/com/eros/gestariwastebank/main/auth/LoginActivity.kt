@@ -57,6 +57,9 @@ class LoginActivity : AppCompatActivity() {
                 if (it != null) {
                     val sharedPreferences = getSharedPreferences("prefGWA", 0)
                     sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
+                    sharedPreferences?.edit()?.putString("savedMail", email)?.apply()
+                    sharedPreferences?.edit()?.putString("savedPass", password)?.apply()
+                    Log.d("namaUser", it.data?.user?.name.toString())
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 } else {
                     Log.d("loginNull : ", "data null")

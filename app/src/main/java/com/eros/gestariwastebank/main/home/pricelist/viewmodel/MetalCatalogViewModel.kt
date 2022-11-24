@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.main.home.pricelist.ui.metal.viewmodel
+package com.eros.gestariwastebank.main.home.pricelist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
