@@ -60,7 +60,6 @@
             android:layout_height="wrap_content"
             android:hint="Address"
             android:maxLines="1"
-            android:inputType="textPassword"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"
@@ -73,7 +72,7 @@
             android:layout_height="wrap_content"
             android:hint="Phone number"
             android:maxLines="1"
-            android:inputType="textPassword"
+            android:inputType="phone"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"
@@ -86,7 +85,7 @@
             android:layout_height="wrap_content"
             android:hint="Birthdate (yyyy-mm-dd)"
             android:maxLines="1"
-            android:inputType="textPassword"
+            android:inputType="date"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"
@@ -99,7 +98,6 @@
             android:layout_height="wrap_content"
             android:hint="Birthplace"
             android:maxLines="1"
-            android:inputType="textPassword"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"
@@ -112,7 +110,7 @@
             android:layout_height="wrap_content"
             android:hint="NIK"
             android:maxLines="1"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"
@@ -157,6 +155,14 @@
             android:background="@drawable/bg_auth"
             android:layout_marginTop="15dp"
             android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/tvPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_semibold"/>
 
 
         <LinearLayout
