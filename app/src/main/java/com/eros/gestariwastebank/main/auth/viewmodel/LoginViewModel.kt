@@ -22,7 +22,7 @@ class LoginViewModel(
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
-    suspend fun requestLogin(loginRequest: LoginRequest): Response<LoginResponse> {
+    private suspend fun requestLogin(loginRequest: LoginRequest): Response<LoginResponse> {
         return repository.loginUser(loginRequest)
     }
 

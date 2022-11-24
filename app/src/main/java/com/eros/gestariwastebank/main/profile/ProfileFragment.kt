@@ -50,11 +50,11 @@ class ProfileFragment : Fragment() {
         val loginCred = LoginRequest(loginEmail, loginPassword)
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            binding.tvNama.text = response?.data?.user?.name.toString()
-            binding.tvNoTlp.text = response?.data?.user?.phone.toString()
-            binding.tvAlamat.text = response?.data?.user?.address.toString()
-            binding.tvEmail.text = response?.data?.user?.email.toString()
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.data?.user?.balance)
+            binding.tvNama.text = response?.login?.user?.name.toString()
+            binding.tvNoTlp.text = response?.login?.user?.phone.toString()
+            binding.tvAlamat.text = response?.login?.user?.address.toString()
+            binding.tvEmail.text = response?.login?.user?.email.toString()
+            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.tvBalance.text = "Rp. $formAmount.00"
         }
 
