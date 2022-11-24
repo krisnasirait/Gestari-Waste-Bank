@@ -1,25 +1,25 @@
-package com.eros.gestariwastebank.main.home.pricelist.ui.all
+package com.eros.gestariwastebank.main.home.pricelist.ui
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.eros.gestariwastebank.databinding.FragmentAllBinding
+import com.eros.gestariwastebank.databinding.FragmentGlassBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
-import com.eros.gestariwastebank.main.home.pricelist.ui.all.adapter.AllCatalogAdapter
-import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
-
-class AllFragment : Fragment() {
+import com.eros.gestariwastebank.main.home.pricelist.adapter.AllCatalogAdapter
+import com.eros.gestariwastebank.main.home.pricelist.viewmodel.GlassCatalogViewModel
 
 
-    private lateinit var binding: FragmentAllBinding
+class GlassFragment : Fragment() {
+
+    private lateinit var binding: FragmentGlassBinding
 
     private lateinit var allCatalogAdapter: AllCatalogAdapter
 
-    private val viewModel: AllCatalogViewModel by activityViewModels(
+    private val viewModel: GlassCatalogViewModel by activityViewModels(
         factoryProducer = {
             ViewModelFactory.getInstance(requireContext())
         }
@@ -30,20 +30,18 @@ class AllFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAllBinding.inflate(layoutInflater, container, false)
+        binding = FragmentGlassBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         allCatalogAdapter = AllCatalogAdapter()
-        binding.rvFragmentAll.adapter = allCatalogAdapter
-        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
+        binding.rvFragmentGlass.adapter = allCatalogAdapter
+        binding.rvFragmentGlass.layoutManager = GridLayoutManager(context, 2)
         viewModel.catalog.observe(requireActivity()) {
             allCatalogAdapter.addAll(it!!)
         }
-        viewModel.getCatalog()
+        viewModel.getCatalogGlass()
     }
-
-
 }
