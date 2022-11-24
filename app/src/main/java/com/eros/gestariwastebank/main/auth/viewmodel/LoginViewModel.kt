@@ -1,20 +1,16 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eros.gestariwastebank.data.model.login.Data
-import com.eros.gestariwastebank.data.model.login.LoginResponse
+import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.domain.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
-import java.lang.Exception
-import kotlin.math.log
 
 class LoginViewModel(
     private val repository: Repository
