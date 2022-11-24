@@ -25,6 +25,6 @@ interface DataSource {
 
     suspend fun loginUser(loginRequest: LoginRequest) : Response<LoginResponse>
 
-    suspend fun registerUser(@Body registerRequest: RegisterRequest) : Response<RegisterResponse>
+    suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
 
 }
