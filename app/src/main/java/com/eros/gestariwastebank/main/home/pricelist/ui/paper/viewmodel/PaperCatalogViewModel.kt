@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PaperViewModel(
+class PaperCatalogViewModel(
     private val repository: Repository
 )  : ViewModel(){
 

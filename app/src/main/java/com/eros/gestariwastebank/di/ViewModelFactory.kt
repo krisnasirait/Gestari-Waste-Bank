@@ -11,6 +11,10 @@ import com.eros.gestariwastebank.domain.RepositoryImp
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
 import com.eros.gestariwastebank.main.home.pricelist.ui.glass.viewmodel.GlassCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.metal.viewmodel.MetalCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.others.viewmodel.OthersCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.paper.viewmodel.PaperCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.plastic.viewmodel.PlasticCatalogViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -23,7 +27,11 @@ class ViewModelFactory(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when(modelClass) {
             AllCatalogViewModel::class.java -> AllCatalogViewModel(repository) as T
+            PaperCatalogViewModel::class.java -> PaperCatalogViewModel(repository) as T
+            PlasticCatalogViewModel::class.java -> PlasticCatalogViewModel(repository) as T
+            MetalCatalogViewModel::class.java -> MetalCatalogViewModel(repository) as T
             GlassCatalogViewModel::class.java -> GlassCatalogViewModel(repository) as T
+            OthersCatalogViewModel::class.java -> OthersCatalogViewModel(repository) as T
             LoginViewModel::class.java -> LoginViewModel(repository) as T
             else -> throw UnsupportedOperationException()
         }

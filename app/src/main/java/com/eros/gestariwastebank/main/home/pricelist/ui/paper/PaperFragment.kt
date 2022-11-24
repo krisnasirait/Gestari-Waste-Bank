@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.eros.gestariwastebank.databinding.FragmentMetalBinding
 import com.eros.gestariwastebank.databinding.FragmentPaperBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.pricelist.ui.all.adapter.AllCatalogAdapter
-import com.eros.gestariwastebank.main.home.pricelist.ui.all.viewmodel.AllCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.ui.metal.viewmodel.MetalCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.ui.paper.viewmodel.PaperViewModel
+import com.eros.gestariwastebank.main.home.pricelist.ui.paper.viewmodel.PaperCatalogViewModel
 
 
 class PaperFragment : Fragment() {
@@ -22,7 +18,7 @@ class PaperFragment : Fragment() {
 
     private lateinit var allCatalogAdapter: AllCatalogAdapter
 
-    private val viewModel: PaperViewModel by activityViewModels(
+    private val viewModel: PaperCatalogViewModel by activityViewModels(
         factoryProducer = {
             ViewModelFactory.getInstance(requireContext())
         }
