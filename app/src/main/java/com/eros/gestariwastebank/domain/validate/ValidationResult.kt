@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.domain.validating
+package com.eros.gestariwastebank.domain.validate
 
 data class ValidationResult(
     val successful: Boolean,

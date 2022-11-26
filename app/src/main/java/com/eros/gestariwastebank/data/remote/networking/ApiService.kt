@@ -1,11 +1,9 @@
 package com.eros.gestariwastebank.data.remote.networking
 
-import com.eros.gestariwastebank.data.model.register.RegisterResponse
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

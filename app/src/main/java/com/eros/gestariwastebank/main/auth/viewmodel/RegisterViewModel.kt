@@ -3,8 +3,8 @@ package com.eros.gestariwastebank.main.auth.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eros.gestariwastebank.data.model.register.RegisterResponse
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
+import com.eros.gestariwastebank.data.remote.networking.response.RegisterResponse
 import com.eros.gestariwastebank.domain.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.domain.validating
+package com.eros.gestariwastebank.domain.validate
 
 import android.util.Patterns
 

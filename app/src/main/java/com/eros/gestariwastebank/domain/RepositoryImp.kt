@@ -1,7 +1,6 @@
 package com.eros.gestariwastebank.domain
 
 import com.eros.gestariwastebank.data.DataSource
-import com.eros.gestariwastebank.data.model.register.RegisterResponse
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest

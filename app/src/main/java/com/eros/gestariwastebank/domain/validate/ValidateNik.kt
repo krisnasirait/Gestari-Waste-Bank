@@ -1,4 +1,4 @@
-package com.eros.gestariwastebank.domain.validating
+package com.eros.gestariwastebank.domain.validate
 
 class ValidateNik {
     fun executer(nik: String): ValidationResult {

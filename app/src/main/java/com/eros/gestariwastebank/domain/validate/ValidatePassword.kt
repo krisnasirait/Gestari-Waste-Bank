@@ -1,6 +1,4 @@
-package com.eros.gestariwastebank.domain.validating
-
-import android.util.Patterns
+package com.eros.gestariwastebank.domain.validate
 
 class ValidatePassword {
     fun executer(password: String, confPassword: String): ValidationResult {
