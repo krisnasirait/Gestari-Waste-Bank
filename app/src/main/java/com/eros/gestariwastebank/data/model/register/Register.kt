@@ -5,19 +5,23 @@ import com.google.gson.annotations.SerializedName
 
 data class Register(
     @SerializedName("address")
-    val address: String?,
+    val address: Any?,
     @SerializedName("balance")
-    val balance: Int?,
+    val balance: Any?,
     @SerializedName("birthdate")
-    val birthdate: String?,
+    val birthdate: Any?,
     @SerializedName("birthplace")
-    val birthplace: String?,
+    val birthplace: Any?,
     @SerializedName("createdAt")
     val createdAt: String?,
     @SerializedName("email")
     val email: String?,
+    @SerializedName("gender")
+    val gender: Any?,
     @SerializedName("id")
     val id: Int?,
+    @SerializedName("id_member")
+    val idMember: Any?,
     @SerializedName("NIK")
     val nIK: String?,
     @SerializedName("name")
@@ -26,6 +30,8 @@ data class Register(
     val password: String?,
     @SerializedName("phone")
     val phone: String?,
+    @SerializedName("profile_picture")
+    val profilePicture: Any?,
     @SerializedName("role")
     val role: String?,
     @SerializedName("updatedAt")

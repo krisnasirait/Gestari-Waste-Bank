@@ -55,49 +55,12 @@
             android:padding="10dp"/>
 
         <EditText
-            android:id="@+id/etAdress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address"
-            android:maxLines="1"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            android:background="@drawable/bg_auth"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"/>
-
-        <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone number"
             android:maxLines="1"
             android:inputType="phone"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            android:background="@drawable/bg_auth"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"/>
-
-        <EditText
-            android:id="@+id/etBirthdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Birthdate (yyyy-mm-dd)"
-            android:maxLines="1"
-            android:inputType="date"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            android:background="@drawable/bg_auth"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"/>
-
-        <EditText
-            android:id="@+id/etBirthPlace"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Birthplace"
-            android:maxLines="1"
             android:textColorHint="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:background="@drawable/bg_auth"

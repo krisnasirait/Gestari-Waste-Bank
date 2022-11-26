@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable-xxxhdpi/bg_auth_red.xml" value="0.28" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_auth.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login_landingpage.xml" value="0.279" />

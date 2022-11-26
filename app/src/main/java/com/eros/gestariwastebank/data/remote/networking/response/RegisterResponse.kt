@@ -1,6 +1,7 @@
-package com.eros.gestariwastebank.data.model.register
+package com.eros.gestariwastebank.data.remote.networking.response
 
 
+import com.eros.gestariwastebank.data.model.register.Register
 import com.google.gson.annotations.SerializedName
 
 data class RegisterResponse(
