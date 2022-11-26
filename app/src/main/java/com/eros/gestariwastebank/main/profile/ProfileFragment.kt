@@ -52,7 +52,9 @@ class ProfileFragment : Fragment() {
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
             binding.tvNama.text = response?.login?.user?.name.toString()
             binding.tvNoTlp.text = response?.login?.user?.phone.toString()
-            binding.tvAlamat.text = response?.login?.user?.address.toString()
+            if (response?.login?.user?.address == "null") {
+                binding.tvAlamat.text == "-"
+            }
             binding.tvEmail.text = response?.login?.user?.email.toString()
             val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.tvBalance.text = "Rp. $formAmount.00"

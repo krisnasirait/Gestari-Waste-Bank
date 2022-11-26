@@ -9,9 +9,9 @@ import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import com.eros.gestariwastebank.databinding.ActivityRegisterBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
+import com.eros.gestariwastebank.domain.validate.*
 import com.eros.gestariwastebank.main.auth.viewmodel.RegisterViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -50,31 +50,60 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
             val confPassword = binding.etConfPassword.text.toString()
 
-            val request = RegisterRequest(fullName, phone, email, nik, password)
-            if(password != confPassword) {
-                binding.etConfPassword.error = "Konfirmasi tidak sama!"
-                binding.etConfPassword.setBackgroundResource(R.drawable.bg_auth_red)
-            }else if(nik.length > 12) {
-                binding.etNik.error = "NIK tidak valid!"
-                binding.etNik.setBackgroundResource(R.drawable.bg_auth_red)
-            }else if(phone.length < 10) {
-                binding.etPhone.error = "No telp tidak valid"
-                binding.etPhone.setBackgroundResource(R.drawable.bg_auth_red)
-            } else {
+            val resCheck = checkAllFields(fullName, phone, email, nik, password, confPassword)
+
+            if (resCheck == true) {
+                val request = RegisterRequest(fullName, phone, email, nik, password)
                 sentReq(request)
             }
-
-
-
-
         }
     }
 
+    private fun checkAllFields(name:String, phone: String, email: String, nik: String, password:String, confPass:String) : Boolean{
+        if (password != confPass && password.isNotBlank() && confPass.isNotBlank()) {
+            binding.etConfPassword.error = "Konfirmasi tidak sama!"
+            binding.etConfPassword.setBackgroundResource(R.drawable.bg_auth_red)
+            return false
+        }
+        if (nik.length > 12 && nik.isNotBlank() && nik.length < 12) {
+            binding.etNik.error = "NIK tidak valid!"
+            binding.etNik.setBackgroundResource(R.drawable.bg_auth_red)
+            return false
+        }
+        if (phone.length < 10 && phone.isNotBlank()) {
+            binding.etPhone.error = "No telp tidak valid"
+            binding.etPhone.setBackgroundResource(R.drawable.bg_auth_red)
+            return false
+        }
+        if (phone.isBlank() || email.isBlank() || name.isBlank() || nik.isBlank() || password.isBlank() || confPass.isBlank()) {
+            binding.etPhone.error = "Data tidak boleh kosong!"
+            binding.etPhone.setBackgroundResource(R.drawable.bg_auth_red)
+
+            binding.etEmail.error = "Data tidak boleh kosong!"
+            binding.etEmail.setBackgroundResource(R.drawable.bg_auth_red)
+
+            binding.etFullName.error = "Data tidak boleh kosong!"
+            binding.etFullName.setBackgroundResource(R.drawable.bg_auth_red)
+
+            binding.etNik.error = "Data tidak boleh kosong!"
+            binding.etNik.setBackgroundResource(R.drawable.bg_auth_red)
+
+            binding.etPassword.error = "Data tidak boleh kosong!"
+            binding.etPassword.setBackgroundResource(R.drawable.bg_auth_red)
+
+            binding.etConfPassword.error = "Data tidak boleh kosong!"
+            binding.etConfPassword.setBackgroundResource(R.drawable.bg_auth_red)
+            return false
+        }
+
+        return true
+    }
+
     private fun sentReq(request: RegisterRequest) {
-        viewModel.getRegister(request).observe(this@RegisterActivity){response ->
+        viewModel.getRegister(request).observe(this@RegisterActivity) { response ->
             if (response?.status.toString() == "success") {
                 Toast.makeText(this, "Register success", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
             } else {
                 Toast.makeText(this, "Register failed", Toast.LENGTH_SHORT).show()
             }
