@@ -7,17 +7,17 @@ class ValidatePassword {
         if (password.isBlank()) {
             return ValidationResult(
                 false,
-                "The password can't be blank!"
+                "Password tidak boleh kosong!"
             )
         } else if (password != confPassword) {
             return ValidationResult(
                 false,
-                "Password and confirmation is not same!"
+                "Password and konfirmasi tidak sama!"
             )
         } else if (confPassword.isBlank()) {
             return ValidationResult(
                 false,
-                "Password confirmation can't be blank!"
+                "Konfirmasi password tidak boleh kosong!"
             )
         }
         val containsLetterAndDigits = password.any {
@@ -28,7 +28,7 @@ class ValidatePassword {
         if (containsLetterAndDigits) {
             return ValidationResult(
                 false,
-                "Password need to contain letter and digit!"
+                "Password harus kombinasi angka dan huruf!"
             )
         }
         return ValidationResult(
