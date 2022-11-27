@@ -9,6 +9,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivBackround"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_card_main"/>
         <TextView
             android:id="@+id/tvTitleProfile"
             android:layout_width="wrap_content"
@@ -16,10 +24,24 @@
             android:text="Profile"
             android:fontFamily="@font/poppins_regular"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Edit Profile"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textColor="@color/medium_green"
+            android:background="@drawable/bg_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBackround"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"/>
 
         <androidx.cardview.widget.CardView
@@ -36,15 +58,51 @@
                 android:id="@+id/ivProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/elon"/>
+                android:src="@drawable/profile"/>
         </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/ivStatusProfile"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/verified"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutProfile"/>
+
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/medium_green"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/ivStatusProfile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Abdul Gani" />
+
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/medium_green"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvNama"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="UID : 9" />
+
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/layoutIdent"
-            app:layout_constraintTop_toBottomOf="@id/layoutProfile"
+            app:layout_constraintTop_toBottomOf="@id/tvId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_margin="20dp"
             app:cardCornerRadius="5dp"
             android:elevation="15dp">
@@ -56,36 +114,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:id="@+id/tvTitleNama"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Nama"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvNama"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/medium_green"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp"
-                        android:layout_marginStart="42dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:id="@+id/tvTitleNoTlp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No. Tlp"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/phone"/>
 
                     <TextView
                         android:id="@+id/tvNoTlp"
@@ -94,42 +128,20 @@
                         android:textColor="@color/medium_green"
                         android:fontFamily="@font/poppins_regular"
                         android:textSize="14sp"
-                        android:layout_marginStart="41dp" />
+                        android:layout_marginStart="10dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:id="@+id/tvTitleAlamat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Alamat"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvAlamat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp"
-                        android:textColor="@color/medium_green"
-                        android:layout_marginStart="35dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
-                    <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="10dp">
+                    <ImageView
                         android:id="@+id/tvTitleEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Email"
-                        android:textSize="14sp" />
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/email" />
 
                     <TextView
                         android:id="@+id/tvEmail"
@@ -138,7 +150,7 @@
                         android:textSize="14sp"
                         android:textColor="@color/medium_green"
                         android:fontFamily="@font/poppins_regular"
-                        android:layout_marginStart="50dp" />
+                        android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
