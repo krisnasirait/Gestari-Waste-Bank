@@ -12,29 +12,39 @@ import retrofit2.http.POST
 
 interface ApiService {
 
+    //user login
     @POST("user/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest) : Response<LoginResponse>
 
+    //user register
     @POST("user/register")
     suspend fun registerUser(@Body registerRequest: RegisterRequest) : Response<RegisterResponse>
 
+    //catalog
     @GET("/katalog")
     suspend fun getCatalog() : CatalogResponse
 
+    //catalog kertas
     @GET("/katalog/type/kertas")
     suspend fun getCatalogPaper() : CatalogResponse
 
+    //catalog plastik
     @GET("/katalog/type/plastik")
     suspend fun getCatalogPlastic() : CatalogResponse
 
+    //catalog logam
     @GET("/katalog/type/logam")
     suspend fun getCatalogMetal() : CatalogResponse
 
+    //catalog kaca
     @GET("/katalog/type/kaca")
     suspend fun getCatalogGlass() : CatalogResponse
 
+    //catalog lainnya
     @GET("/katalog/type/khusus")
     suspend fun getCatalogOthers() : CatalogResponse
+
+
 
 
 
