@@ -5,6 +5,7 @@ import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
+import com.eros.gestariwastebank.data.remote.networking.response.NewsResponse
 import com.eros.gestariwastebank.data.remote.networking.response.RegisterResponse
 import retrofit2.Response
 
@@ -43,6 +44,10 @@ class RepositoryImp(
 
     override suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse> {
         return remoteDataSource.registerUser(registerRequest)
+    }
+
+    override suspend fun getNews(category: String, country: String, apiKey: String): NewsResponse {
+        return remoteDataSource.getNews(category, country, apiKey)
     }
 
 }

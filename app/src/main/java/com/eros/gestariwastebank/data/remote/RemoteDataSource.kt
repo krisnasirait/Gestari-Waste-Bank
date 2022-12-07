@@ -6,11 +6,13 @@ import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
+import com.eros.gestariwastebank.data.remote.networking.response.NewsResponse
 import com.eros.gestariwastebank.data.remote.networking.response.RegisterResponse
 import retrofit2.Response
 
 class RemoteDataSource(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val apiNewsService : ApiService
 ) : DataSource {
     override suspend fun getCatalog(): CatalogResponse {
         return apiService.getCatalog()
@@ -42,5 +44,9 @@ class RemoteDataSource(
 
     override suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse> {
         return apiService.registerUser(registerRequest)
+    }
+
+    override suspend fun getNews(category: String, country: String, apiKey: String): NewsResponse {
+        return apiNewsService.getNews(category, country, apiKey)
     }
 }
