@@ -10,7 +10,8 @@ import com.eros.gestariwastebank.data.remote.networking.response.RegisterRespons
 import retrofit2.Response
 
 class RemoteDataSource(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val apiNewsService : ApiService
 ) : DataSource {
     override suspend fun getCatalog(): CatalogResponse {
         return apiService.getCatalog()

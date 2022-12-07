@@ -10,12 +10,7 @@ import com.eros.gestariwastebank.domain.Repository
 import com.eros.gestariwastebank.domain.RepositoryImp
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.auth.viewmodel.RegisterViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.AllCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.GlassCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.MetalCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.OthersCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.PaperCatalogViewModel
-import com.eros.gestariwastebank.main.home.pricelist.viewmodel.PlasticCatalogViewModel
+import com.eros.gestariwastebank.main.home.pricelist.viewmodel.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -42,6 +37,7 @@ class ViewModelFactory(
     companion object {
 
         private const val BASE_URL = "https://hammerhead-app-zfi4g.ondigitalocean.app/"
+        private const val NEWS_URL = "https://newsapi.org/v2/top-headlines"
 
         private val logging : HttpLoggingInterceptor
             get() {
@@ -64,7 +60,17 @@ class ViewModelFactory(
             retrofit.create(ApiService::class.java)
         }
 
-        private val remoteDataSource = RemoteDataSource(remote)
+        //retrofit call from 2 different api url (newsapi and hammerhead) using same retrofit instance
+        private val remoteNews : ApiService by lazy {
+            val retrofit = Retrofit.Builder()
+                .baseUrl(NEWS_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            retrofit.create(ApiService::class.java)
+        }
+
+        private val remoteDataSource = RemoteDataSource(remote, remoteNews)
 
         @Volatile
         private var INSTANCE : ViewModelFactory? = null
@@ -77,4 +83,5 @@ class ViewModelFactory(
             ). also { INSTANCE = it }
         }
     }
+
 }
