@@ -13,7 +13,8 @@ import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentHomeBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
-import com.eros.gestariwastebank.main.home.artikel.ArtikelAdapter
+import com.eros.gestariwastebank.main.home.artikel.NewsAdapter
+import com.eros.gestariwastebank.main.home.artikel.viewmodel.NewsViewModel
 import com.eros.gestariwastebank.main.home.pricelist.PricelistActivity
 import java.text.NumberFormat
 import java.util.*
@@ -21,9 +22,15 @@ import java.util.*
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var artikelAdapter: ArtikelAdapter
+    private lateinit var newsAdapter: NewsAdapter
 
     private val viewModel: LoginViewModel by activityViewModels(
+        factoryProducer = {
+            ViewModelFactory.getInstance(requireContext())
+        }
+    )
+
+    private val newsViewModel: NewsViewModel by activityViewModels(
         factoryProducer = {
             ViewModelFactory.getInstance(requireContext())
         }
@@ -41,24 +48,27 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        artikelAdapter = ArtikelAdapter()
+        setOnClickListener()
+        getDataLogin()
+        getNews()
+    }
 
-        binding.rvHome.adapter = artikelAdapter
-
-        binding.rvHome.layoutManager =
+    private fun getNews() {
+        newsAdapter = NewsAdapter()
+        binding.rvArticle.adapter = newsAdapter
+        binding.rvArticle.layoutManager =
             LinearLayoutManager(
                 context,
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-
-        artikelAdapter.setData(Util.allArtikel)
-
-        setOnClickListener()
-        getData()
+        newsViewModel.news.observe(requireActivity()) {
+            newsAdapter.addAll(it!!)
+        }
+        newsViewModel.getNews()
     }
 
-    private fun getData() {
+    private fun getDataLogin() {
         val sharedPreferences = activity?.getSharedPreferences("prefGWA", 0)
         val loginEmail = sharedPreferences?.getString("savedMail", "")
         val loginPassword = sharedPreferences?.getString("savedPass", "")
@@ -68,6 +78,7 @@ class HomeFragment : Fragment() {
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
             val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.totalBalance.text = "Rp. $formAmount.00"
+            binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
         }
 
     }

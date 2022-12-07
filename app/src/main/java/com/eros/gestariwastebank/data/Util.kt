@@ -1,6 +1,6 @@
 package com.eros.gestariwastebank.data
 
-import com.eros.gestariwastebank.main.home.artikel.Artikel
+import com.eros.gestariwastebank.main.home.artikel.News
 import com.eros.gestariwastebank.main.notification.notification.Notification
 import com.eros.gestariwastebank.main.wallet.history.History
 
@@ -8,17 +8,17 @@ object Util {
 
     const val apiKey = "52a1b6b4382749eda3567e187c1772ea"
 
-    val allArtikel = arrayListOf(
-        Artikel("How to create a valueable compose waste", "Adalah bencana 1"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 2"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 3"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 4"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 5"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 6"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 7"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 8"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 9"),
-        Artikel("How to create a valueable compose waste", "Adalah bencana 10"),
+    val allNews = arrayListOf(
+        News("How to create a valueable compose waste", "Adalah bencana 1"),
+        News("How to create a valueable compose waste", "Adalah bencana 2"),
+        News("How to create a valueable compose waste", "Adalah bencana 3"),
+        News("How to create a valueable compose waste", "Adalah bencana 4"),
+        News("How to create a valueable compose waste", "Adalah bencana 5"),
+        News("How to create a valueable compose waste", "Adalah bencana 6"),
+        News("How to create a valueable compose waste", "Adalah bencana 7"),
+        News("How to create a valueable compose waste", "Adalah bencana 8"),
+        News("How to create a valueable compose waste", "Adalah bencana 9"),
+        News("How to create a valueable compose waste", "Adalah bencana 10"),
     )
 
     val allNotification = arrayListOf(

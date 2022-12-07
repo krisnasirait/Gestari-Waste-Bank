@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.data.model.news
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class Article(

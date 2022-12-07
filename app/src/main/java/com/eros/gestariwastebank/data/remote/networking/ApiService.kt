@@ -47,11 +47,11 @@ interface ApiService {
     suspend fun getCatalogOthers() : CatalogResponse
 
     //news
-    @GET("/top-headlines")
+    @GET("top-headlines")
     suspend fun getNews(
-        @Query("api_key") apiKey: String,
-        @Query("country") country: String,
         @Query("category") category: String,
+        @Query("country") country: String,
+        @Query("apiKey") apiKey: String
     ) : NewsResponse
 
 

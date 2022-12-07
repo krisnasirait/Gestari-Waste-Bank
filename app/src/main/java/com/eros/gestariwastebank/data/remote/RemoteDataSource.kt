@@ -46,7 +46,7 @@ class RemoteDataSource(
         return apiService.registerUser(registerRequest)
     }
 
-    override suspend fun getNews(country: String, category: String, apiKey: String): NewsResponse {
-        return apiService.getNews(country, category, apiKey)
+    override suspend fun getNews(category: String, country: String, apiKey: String): NewsResponse {
+        return apiNewsService.getNews(category, country, apiKey)
     }
 }

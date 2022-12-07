@@ -27,8 +27,8 @@ interface Repository {
     suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
 
     suspend fun getNews(
-        country: String,
         category: String,
+        country: String,
         apiKey: String
     ): NewsResponse
 }
