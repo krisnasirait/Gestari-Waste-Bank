@@ -5,6 +5,7 @@ import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
+import com.eros.gestariwastebank.data.remote.networking.response.NewsResponse
 import com.eros.gestariwastebank.data.remote.networking.response.RegisterResponse
 import retrofit2.Response
 
@@ -38,6 +39,10 @@ class LocalDataSource : DataSource {
     }
 
     override suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse> {
+        throw UnsupportedOperationException("Use Remote Data Source!")
+    }
+
+    override suspend fun getNews(country: String, category: String, apiKey: String): NewsResponse {
         throw UnsupportedOperationException("Use Remote Data Source!")
     }
 }
