@@ -37,7 +37,7 @@ class ViewModelFactory(
     companion object {
 
         private const val BASE_URL = "https://hammerhead-app-zfi4g.ondigitalocean.app/"
-        private const val NEWS_URL = "https://newsapi.org/v2/top-headlines"
+        private const val NEWS_URL = "https://newsapi.org/v2/"
 
         private val logging : HttpLoggingInterceptor
             get() {
