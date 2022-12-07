@@ -6,6 +6,8 @@ import com.eros.gestariwastebank.main.wallet.history.History
 
 object Util {
 
+    const val apiKey = "52a1b6b4382749eda3567e187c1772ea"
+
     val allArtikel = arrayListOf(
         Artikel("How to create a valueable compose waste", "Adalah bencana 1"),
         Artikel("How to create a valueable compose waste", "Adalah bencana 2"),
