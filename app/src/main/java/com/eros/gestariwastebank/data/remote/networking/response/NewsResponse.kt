@@ -1,14 +1,18 @@
 package com.eros.gestariwastebank.data.remote.networking.response
 
 
-import com.eros.gestariwastebank.data.model.news.Article
+import com.eros.gestariwastebank.data.model.news.News
 import com.google.gson.annotations.SerializedName
 
 data class NewsResponse(
-    @SerializedName("articles")
-    val articles: List<Article?>?,
+    @SerializedName("code")
+    val code: Int?,
+    @SerializedName("data")
+    val `data`: List<News?>?,
+    @SerializedName("messages")
+    val messages: String?,
     @SerializedName("status")
     val status: String?,
-    @SerializedName("totalResults")
-    val totalResults: Int?
+    @SerializedName("total")
+    val total: Int?
 )

@@ -26,10 +26,6 @@ interface DataSource {
 
     suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
 
-    suspend fun getNews(
-        category: String,
-        country: String,
-        apiKey: String
-    ): NewsResponse
+    suspend fun getNews(): NewsResponse
 
 }
