@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.eros.gestariwastebank.data.model.catalog.Catalog
-import com.eros.gestariwastebank.data.model.news.Article
+import com.eros.gestariwastebank.data.model.news.News
 import com.eros.gestariwastebank.databinding.RvItemArtikelBinding
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private lateinit var binding: RvItemArtikelBinding
-    private val itemNews = mutableListOf<Article?>()
+    private val itemNews = mutableListOf<News?>()
 
     inner class ViewHolder(private val itemBinding: RvItemArtikelBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(newsData: Article) {
+        fun bind(newsData: News) {
             itemBinding.tvArtikelTitle.text = newsData.title
             Glide.with(binding.root)
-                .load(newsData.urlToImage)
+                .load(newsData.image)
                 .into(itemBinding.ivPoster)
         }
     }
@@ -38,7 +37,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addAll(item : List<Article?>) {
+    fun addAll(item : List<News?>) {
         itemNews.addAll(item)
         notifyDataSetChanged()
     }

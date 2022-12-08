@@ -46,8 +46,8 @@ class RepositoryImp(
         return remoteDataSource.registerUser(registerRequest)
     }
 
-    override suspend fun getNews(category: String, country: String, apiKey: String): NewsResponse {
-        return remoteDataSource.getNews(category, country, apiKey)
+    override suspend fun getNews(): NewsResponse {
+        return remoteDataSource.getNews()
     }
 
 }

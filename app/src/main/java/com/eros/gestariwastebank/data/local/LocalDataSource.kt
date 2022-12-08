@@ -42,7 +42,7 @@ class LocalDataSource : DataSource {
         throw UnsupportedOperationException("Use Remote Data Source!")
     }
 
-    override suspend fun getNews(category: String, country: String, apiKey: String): NewsResponse {
+    override suspend fun getNews(): NewsResponse {
         throw UnsupportedOperationException("Use Remote Data Source!")
     }
 }
