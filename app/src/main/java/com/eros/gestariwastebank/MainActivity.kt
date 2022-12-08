@@ -124,11 +124,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateDummyData(): ArrayList<String> {
         val data = ArrayList<String>()
-        data.add("")
-        data.add("")
-        data.add("")
-        data.add("")
-        data.add("")
+        data.add("Plastik")
+        data.add("Kertas")
+        data.add("Kaca")
+        data.add("Logam")
+        data.add("Organik")
         return data
     }
 }

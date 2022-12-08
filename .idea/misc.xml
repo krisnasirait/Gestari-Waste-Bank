@@ -41,9 +41,15 @@
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/item_history.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/item_notification.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/nav_header_pricelist.xml" value="0.2916666666666667" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/pop_up_category.xml" value="0.23958333333333334" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/pop_up_dialog_item.xml" value="0.23958333333333334" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/pop_up_dialog_schedule.xml" value="0.23958333333333334" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/pop_up_order_confirmed.xml" value="0.23958333333333334" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/rv_item_artikel.xml" value="0.30570652173913043" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/rv_item_catalog.xml" value="0.33" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/rv_item_category.xml" value="0.23958333333333334" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/rv_item_data.xml" value="0.22780797101449277" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/rv_item_history.xml" value="0.23958333333333334" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/menu/activity_pricelist_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/menu/bottom_nav_menu.xml" value="0.365625" />
