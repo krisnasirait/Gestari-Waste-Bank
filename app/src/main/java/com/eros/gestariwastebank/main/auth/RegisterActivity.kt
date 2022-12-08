@@ -2,6 +2,7 @@ package com.eros.gestariwastebank.main.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.btnRegister.setOnClickListener {
+            binding.lottieView.visibility = View.GONE
             val fullName = binding.etFullName.text.toString()
             val phone = binding.etPhone.text.toString()
             val email = binding.etEmail.text.toString()
@@ -100,6 +102,13 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun sentReq(request: RegisterRequest) {
+        viewModel.isLoading.observe(this@RegisterActivity) { isLoading ->
+            if(!isLoading) {
+                binding.lottieView.visibility = View.GONE
+            } else {
+                binding.lottieView.visibility = View.VISIBLE
+            }
+        }
         viewModel.getRegister(request).observe(this@RegisterActivity) { response ->
             if (response?.status.toString() == "success") {
                 Toast.makeText(this, "Register success", Toast.LENGTH_SHORT).show()
