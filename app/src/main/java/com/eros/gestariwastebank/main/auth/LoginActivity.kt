@@ -3,6 +3,7 @@ package com.eros.gestariwastebank.main.auth
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.eros.gestariwastebank.MainActivity
@@ -42,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListener() {
+        binding.lottieView.visibility = View.GONE
+
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
@@ -52,6 +55,13 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
 
             val request = LoginRequest(email, password)
+            viewModel.isLoading.observe(this@LoginActivity) { isLoading ->
+                if(!isLoading) {
+                    binding.lottieView.visibility = View.GONE
+                } else {
+                    binding.lottieView.visibility = View.VISIBLE
+                }
+            }
 
             viewModel.getLogin(request).observe(this@LoginActivity) {
                 if (it != null) {
