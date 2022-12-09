@@ -13,6 +13,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"/>
     <TextView
+        android:id="@+id/tvNamaItem"
         android:text="Plastik"
         android:textSize="18sp"
         android:layout_marginHorizontal="8dp"

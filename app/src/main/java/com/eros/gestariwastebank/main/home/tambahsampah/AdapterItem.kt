@@ -1,29 +1,41 @@
 package com.eros.gestariwastebank.main.home.tambahsampah
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.eros.gestariwastebank.R
+import com.bumptech.glide.Glide
+import com.eros.gestariwastebank.databinding.RvItemDataBinding
+import com.eros.gestariwastebank.main.home.tambahsampah.itemsampah.Sampah
 
 class AdapterItem : RecyclerView.Adapter<AdapterItem.ItemHolder>() {
-    private var category: ArrayList<String> = ArrayList()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-        return ItemHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.rv_item_data, parent, false)
-        )
+
+    private lateinit var binding: RvItemDataBinding
+    private val listItem = mutableListOf<Sampah>()
+
+    inner class ItemHolder(private val itemBinding: RvItemDataBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(sampah: Sampah) {
+            itemBinding.tvNamaItem.text = sampah.nama
+            Glide.with(binding.root)
+                .load(sampah.image)
+                .into(itemBinding.ivImage)
+        }
     }
-    fun addCategory(category: ArrayList<String>){
-        this.category.addAll(category)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
+        binding = RvItemDataBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ItemHolder(binding)
+    }
+
+    override fun getItemCount(): Int = listItem.size
+
+    fun addItem(item: List<Sampah>) {
+        listItem.addAll(item)
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
+        holder.bind(listItem[position])
     }
 
-    override fun getItemCount(): Int = category.size
-    inner class ItemHolder(var view: View) : RecyclerView.ViewHolder(view) {
-        fun bind() {
-        }
-    }
 }
