@@ -50,7 +50,6 @@ class WalletFragment : Fragment() {
                 LinearLayoutManager.VERTICAL,
                 false
             )
-
         historyAdapter.setData(Util.allHistory)
         getData()
     }

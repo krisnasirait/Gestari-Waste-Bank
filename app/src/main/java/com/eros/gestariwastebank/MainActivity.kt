@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.databinding.ActivityMainBinding
 import com.eros.gestariwastebank.main.home.tambahsampah.AdapterCategory
 import com.eros.gestariwastebank.main.home.tambahsampah.AdapterItem
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         }
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
-        adapter.addCategory(generateDummyCategory())
+        adapter.addItem(Util.allItem)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()

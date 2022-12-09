@@ -1,5 +1,7 @@
 package com.eros.gestariwastebank.data
 
+import com.eros.gestariwastebank.R
+import com.eros.gestariwastebank.main.home.tambahsampah.itemsampah.Sampah
 import com.eros.gestariwastebank.main.notification.notification.Notification
 import com.eros.gestariwastebank.main.wallet.history.History
 
@@ -43,5 +45,13 @@ object Util {
         History("Penarikan", "20 Oktober 2022", 78500),
         History("Penyetoran", "20 Oktober 2022", 39500),
         History("Penarikan", "20 Oktober 2022", 70500),
+    )
+
+    val allItem = arrayListOf(
+        Sampah("Gelas Aqua", R.drawable.gelas_aqua),
+        Sampah("Plastik", R.drawable.plastik),
+        Sampah("Gelas Ale-Ale", R.drawable.gelas_ale_ale),
+        Sampah("Hanger Baju", R.drawable.hanger),
+        Sampah("Botol Shampoo", R.drawable.botol_shampoo),
     )
 }
