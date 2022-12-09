@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.eros.gestariwastebank.R
 
 
 class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
     RecyclerView.Adapter<AdapterSchedule.ItemHolder>() {
-    private var category: ArrayList<String> = ArrayList()
+    private var schedule: ArrayList<String> = ArrayList()
     private var positionSelected: Int = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder(
@@ -18,8 +19,8 @@ class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
         )
     }
 
-    fun addCategory(category: ArrayList<String>) {
-        this.category.addAll(category)
+    fun addSchedule(schedule: ArrayList<String>) {
+        this.schedule.addAll(schedule)
         notifyDataSetChanged()
     }
 
@@ -27,20 +28,20 @@ class AdapterSchedule(val onclick: (positionSelected: Int) -> Unit) :
         holder.bind()
     }
 
-    override fun getItemCount(): Int = category.size
+    override fun getItemCount(): Int = schedule.size
     inner class ItemHolder(var view: View) : RecyclerView.ViewHolder(view) {
         private var rb: RadioButton? = null
-
+        private var title: TextView? = null
         init {
             rb = view.findViewById(R.id.rb)
-
+            title = view.findViewById(R.id.tvText)
         }
 
         fun bind() {
+            title?.text  = schedule[adapterPosition]
             rb?.isChecked = positionSelected == layoutPosition
             rb?.setOnCheckedChangeListener { _, b ->
                 val temp = positionSelected
-
                 if (b) {
                     positionSelected = layoutPosition
                 }

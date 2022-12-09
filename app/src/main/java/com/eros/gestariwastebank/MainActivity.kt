@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
-        adapter.addCategory(generateDummyData())
+        adapter.addCategory(generateDummyCategory())
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
-        adapter.addCategory(generateDummyData())
+        adapter.addCategory(generateDummyCategory())
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         }
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = adapter
-        adapter.addCategory(generateDummyData())
+        adapter.addSchedule(generateDummySchedule())
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(view)
         dialog.show()
@@ -122,13 +122,24 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun generateDummyData(): ArrayList<String> {
+    private fun generateDummyCategory(): ArrayList<String> {
         val data = ArrayList<String>()
         data.add("Plastik")
         data.add("Kertas")
         data.add("Kaca")
         data.add("Logam")
         data.add("Organik")
+        return data
+    }
+
+    private fun generateDummySchedule(): ArrayList<String> {
+        val data = ArrayList<String>()
+        data.add("08:00 - 10:00")
+        data.add("10:00 - 11:00")
+        data.add("11:00 - 12:00")
+        data.add("13:00 - 14:00")
+        data.add("14:00 - 15:00")
+        data.add("15:00 - 16:00")
         return data
     }
 }

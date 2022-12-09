@@ -31,6 +31,7 @@ class AdapterCategory(var onclick: View.OnClickListener) : RecyclerView.Adapter<
         private var title: TextView? = null
         fun bind() {
             title = view.findViewById(R.id.tvText)
+            title?.text = category[adapterPosition]
             itemView.setOnClickListener {
                 onclick.onClick(view)
             }
