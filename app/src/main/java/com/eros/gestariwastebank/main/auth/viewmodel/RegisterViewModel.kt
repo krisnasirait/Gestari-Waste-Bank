@@ -20,8 +20,8 @@ class RegisterViewModel(
 
     private val _errorMessage = MutableLiveData<String>()
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val _isLoading = MutableLiveData<String>()
+    val isLoading: LiveData<String> = _isLoading
 
     private suspend fun requestRegister(registerRequest: RegisterRequest) : Response<RegisterResponse> {
         return repository.registerUser(registerRequest)
@@ -30,19 +30,19 @@ class RegisterViewModel(
     fun getRegister(registerRequest: RegisterRequest) : MutableLiveData<RegisterResponse?> {
         viewModelScope.launch {
             kotlin.runCatching {
-                _isLoading.value = true
+                _isLoading.value = "loading"
                 withContext(Dispatchers.IO) {
                     requestRegister(registerRequest)
                 }
             }.onSuccess { response ->
                 withContext(Dispatchers.Main) {
                     _register.value = response.body()
-                    _isLoading.value = false
+                    _isLoading.value = "done"
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
-                    _isLoading.value = false
+                    _isLoading.value = "error"
                 }
             }
         }

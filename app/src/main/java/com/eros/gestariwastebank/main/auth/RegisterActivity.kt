@@ -10,20 +10,11 @@ import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import com.eros.gestariwastebank.databinding.ActivityRegisterBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
-import com.eros.gestariwastebank.domain.validate.*
 import com.eros.gestariwastebank.main.auth.viewmodel.RegisterViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-
-    private val name = MutableStateFlow("")
-    private val phone = MutableStateFlow("")
-    private val email = MutableStateFlow("")
-    private val nik = MutableStateFlow("")
-    private val password = MutableStateFlow("")
-    private val passwordAgain = MutableStateFlow("")
 
     private val viewModel: RegisterViewModel by viewModels(
         factoryProducer = {
@@ -55,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
 
             val resCheck = checkAllFields(fullName, phone, email, nik, password, confPassword)
 
-            if (resCheck == true) {
+            if (resCheck) {
                 val request = RegisterRequest(fullName, phone, email, nik, password)
                 sentReq(request)
             }
@@ -104,10 +95,23 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun sentReq(request: RegisterRequest) {
         viewModel.isLoading.observe(this@RegisterActivity) { isLoading ->
-            if(!isLoading) {
-                binding.lottieView.visibility = View.GONE
-            } else {
-                binding.lottieView.visibility = View.VISIBLE
+            when (isLoading) {
+                "loading" -> {
+                    binding.lottieView.visibility = View.VISIBLE
+                }
+                "success" -> {
+                    binding.lottieView.visibility = View.GONE
+                }
+                else -> {
+                    binding.lottieView.visibility = View.VISIBLE
+                    binding.lottieView.setAnimation("121635-failed.json")
+                    binding.lottieView.repeatCount = 0
+                    binding.lottieView.playAnimation()
+                    binding.lottieView.postDelayed({
+                        binding.lottieView.visibility = View.GONE
+                    }, 1500)
+
+                }
             }
         }
         viewModel.getRegister(request).observe(this@RegisterActivity) { response ->
