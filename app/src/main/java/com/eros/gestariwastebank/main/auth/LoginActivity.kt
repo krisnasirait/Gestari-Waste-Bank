@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.eros.gestariwastebank.MainActivity
@@ -54,41 +55,59 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
-            val request = LoginRequest(email, password)
-            viewModel.isLoading.observe(this@LoginActivity) { isLoading ->
-                when (isLoading) {
-                    "loading" -> {
-                        binding.lottieView.visibility = View.VISIBLE
+            if (isFormValid()) {
+                val request = LoginRequest(email, password)
+                viewModel.getLogin(request).observe(this@LoginActivity) {
+                    if (it != null) {
+                        val sharedPreferences = getSharedPreferences("prefGWA", 0)
+                        sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
+                        sharedPreferences?.edit()?.putString("savedMail", email)?.apply()
+                        sharedPreferences?.edit()?.putString("savedPass", password)?.apply()
+                        Log.d("namaUser", it.login?.user?.name.toString())
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     }
-                    "success" -> {
-                        binding.lottieView.visibility = View.GONE
-                    }
-                    else -> {
-                        binding.lottieView.visibility = View.VISIBLE
-                        binding.lottieView.setAnimation("121635-failed.json")
-                        binding.lottieView.repeatCount = 0
-                        binding.lottieView.playAnimation()
-                        binding.lottieView.postDelayed({
+                }
+                viewModel.isLoading.observe(this@LoginActivity) { isLoading ->
+                    when (isLoading) {
+                        "loading" -> {
+                            binding.lottieView.visibility = View.VISIBLE
+                        }
+                        "success" -> {
                             binding.lottieView.visibility = View.GONE
-                        }, 1500)
+                        }
+                        else -> {
+                            binding.lottieView.visibility = View.VISIBLE
+                            binding.lottieView.setAnimation("121635-failed.json")
+                            binding.lottieView.repeatCount = 0
+                            binding.lottieView.playAnimation()
+                            binding.lottieView.postDelayed({
+                                binding.lottieView.visibility = View.GONE
+                            }, 1500)
 
+                        }
                     }
                 }
+            } else {
+                binding.lottieView.visibility = View.VISIBLE
+                binding.lottieView.setAnimation("121635-failed.json")
+                binding.lottieView.repeatCount = 0
+                binding.lottieView.playAnimation()
+                binding.lottieView.postDelayed({
+                    binding.lottieView.visibility = View.GONE
+                }, 1500)
+                Toast.makeText(this, "Login tidak valid", Toast.LENGTH_SHORT).show()
             }
 
-            viewModel.getLogin(request).observe(this@LoginActivity) {
-                if (it != null) {
-                    val sharedPreferences = getSharedPreferences("prefGWA", 0)
-                    sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
-                    sharedPreferences?.edit()?.putString("savedMail", email)?.apply()
-                    sharedPreferences?.edit()?.putString("savedPass", password)?.apply()
-                    Log.d("namaUser", it.login?.user?.name.toString())
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                }
-            }
 
         }
     }
 
+    //use function isFormValid() from LoginViewModel to check if the form is valid or not before calling the login function
+    private fun isFormValid(): Boolean {
+        return viewModel.isFormValid(
+            binding.etEmail.text.toString(),
+            binding.etPassword.text.toString()
+        )
+    }
 
 }

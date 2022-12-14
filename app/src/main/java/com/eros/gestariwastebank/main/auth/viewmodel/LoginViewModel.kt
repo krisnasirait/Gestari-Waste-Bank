@@ -51,4 +51,22 @@ class LoginViewModel(
         return _login
     }
 
+    //create function to check if form is valid or not in LoginActivity.kt file
+    fun isFormValid(
+        email: String,
+        password: String
+    ): Boolean {
+        return when {
+            email.isEmpty() -> {
+                _errorMessage.value = "Email tidak boleh kosong"
+                false
+            }
+            password.isEmpty() -> {
+                _errorMessage.value = "Password tidak boleh kosong"
+                false
+            }
+            else -> true
+        }
+    }
+
 }
