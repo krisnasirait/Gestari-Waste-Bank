@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.data.remote.networking.request.RegisterRequest
 import com.eros.gestariwastebank.databinding.ActivityRegisterBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
@@ -53,44 +52,21 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkAllFields(name:String, phone: String, email: String, nik: String, password:String, confPass:String) : Boolean{
-        if (password != confPass && password.isNotBlank() && confPass.isNotBlank()) {
-            binding.etConfPassword.error = "Konfirmasi tidak sama!"
-            binding.etConfPassword.setBackgroundResource(R.drawable.bg_auth_red)
-            return false
+    //use function isFormValid() in RegisterViewModel to check all fields are valid before sending request to server
+    private fun checkAllFields(
+        fullName: String,
+        phone: String,
+        email: String,
+        nik: String,
+        password: String,
+        confPassword: String
+    ): Boolean {
+        return if (viewModel.isFormValid(fullName, phone, email, nik, password, confPassword)) {
+            true
+        } else {
+            Toast.makeText(this, "Harap isi semua data", Toast.LENGTH_SHORT).show()
+            false
         }
-        if (nik.length > 12 && nik.isNotBlank() && nik.length < 12) {
-            binding.etNik.error = "NIK tidak valid!"
-            binding.etNik.setBackgroundResource(R.drawable.bg_auth_red)
-            return false
-        }
-        if (phone.length < 10 && phone.isNotBlank()) {
-            binding.etPhone.error = "No telp tidak valid"
-            binding.etPhone.setBackgroundResource(R.drawable.bg_auth_red)
-            return false
-        }
-        if (phone.isBlank() || email.isBlank() || name.isBlank() || nik.isBlank() || password.isBlank() || confPass.isBlank()) {
-            binding.etPhone.error = "Data tidak boleh kosong!"
-            binding.etPhone.setBackgroundResource(R.drawable.bg_auth_red)
-
-            binding.etEmail.error = "Data tidak boleh kosong!"
-            binding.etEmail.setBackgroundResource(R.drawable.bg_auth_red)
-
-            binding.etFullName.error = "Data tidak boleh kosong!"
-            binding.etFullName.setBackgroundResource(R.drawable.bg_auth_red)
-
-            binding.etNik.error = "Data tidak boleh kosong!"
-            binding.etNik.setBackgroundResource(R.drawable.bg_auth_red)
-
-            binding.etPassword.error = "Data tidak boleh kosong!"
-            binding.etPassword.setBackgroundResource(R.drawable.bg_auth_red)
-
-            binding.etConfPassword.error = "Data tidak boleh kosong!"
-            binding.etConfPassword.setBackgroundResource(R.drawable.bg_auth_red)
-            return false
-        }
-
-        return true
     }
 
     private fun sentReq(request: RegisterRequest) {

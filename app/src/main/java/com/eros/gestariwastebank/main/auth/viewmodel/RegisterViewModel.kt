@@ -49,4 +49,45 @@ class RegisterViewModel(
         return _register
     }
 
+    fun isFormValid(
+        name: String,
+        phone: String,
+        email: String,
+        nik: String,
+        password: String,
+        confPassword: String,
+    ): Boolean {
+        return when {
+            name.isEmpty() -> {
+                _errorMessage.value = "Nama tidak boleh kosong"
+                false
+            }
+            phone.isEmpty() -> {
+                _errorMessage.value = "Nomor telepon tidak boleh kosong"
+                false
+            }
+            email.isEmpty() -> {
+                _errorMessage.value = "Email tidak boleh kosong"
+                false
+            }
+            password.isEmpty() -> {
+                _errorMessage.value = "Password tidak boleh kosong"
+                false
+            }
+            nik.isEmpty() -> {
+                _errorMessage.value = "NIK tidak boleh kosong"
+                false
+            }
+            confPassword.isEmpty() -> {
+                _errorMessage.value = "Konfirmasi password tidak boleh kosong"
+                false
+            }
+            password != confPassword -> {
+                _errorMessage.value = "Password tidak sama"
+                false
+            }
+            else -> true
+        }
+    }
+
 }

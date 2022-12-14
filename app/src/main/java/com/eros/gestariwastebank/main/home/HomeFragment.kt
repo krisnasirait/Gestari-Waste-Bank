@@ -2,9 +2,11 @@ package com.eros.gestariwastebank.main.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -78,6 +80,7 @@ class HomeFragment : Fragment() {
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
             val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.totalBalance.text = "Rp. $formAmount.00"
+            Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
             binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
         }
 
