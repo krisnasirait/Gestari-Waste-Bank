@@ -1,23 +1,22 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.*
 import com.eros.gestariwastebank.data.helpers.SharedPreferenceHelper
-import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
+import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.domain.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
-import java.util.*
 
 class LoginViewModel(
     private val repository: Repository,
-    application: Application
-) : AndroidViewModel(application) {
-
-    private val sharedPreferenceHelper = SharedPreferenceHelper(getApplication())
+    context: Context
+) : ViewModel() {
+    private val sharedPreferenceHelper = SharedPreferenceHelper(context.applicationContext)
 
     private val _login = MutableLiveData<LoginResponse?>()
     val login: LiveData<LoginResponse?> = _login
@@ -73,7 +72,7 @@ class LoginViewModel(
     }
 
     fun saveCredentials(email: String, password: String) {
-        sharedPreferenceHelper.saveLoginCredentials(email, password)
+        sharedPreferenceHelper.saveCredentials(email, password)
     }
 
     fun getEmail(): String? {
@@ -83,7 +82,5 @@ class LoginViewModel(
     fun getPassword(): String? {
         return sharedPreferenceHelper.getPassword()
     }
-
-
 
 }

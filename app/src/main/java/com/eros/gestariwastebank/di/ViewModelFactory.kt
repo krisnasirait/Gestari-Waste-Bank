@@ -19,7 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory(
-    private val repository: Repository
+    private val repository: Repository,
+    private val context: Context
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when(modelClass) {
@@ -29,7 +30,7 @@ class ViewModelFactory(
             MetalCatalogViewModel::class.java -> MetalCatalogViewModel(repository) as T
             GlassCatalogViewModel::class.java -> GlassCatalogViewModel(repository) as T
             OthersCatalogViewModel::class.java -> OthersCatalogViewModel(repository) as T
-            LoginViewModel::class.java -> LoginViewModel(repository) as T
+            LoginViewModel::class.java -> LoginViewModel(repository, context) as T
             RegisterViewModel::class.java -> RegisterViewModel(repository) as T
             NewsViewModel::class.java -> NewsViewModel(repository) as T
             else -> throw UnsupportedOperationException()
@@ -81,7 +82,8 @@ class ViewModelFactory(
                 RepositoryImp(
                     remoteDataSource = remoteDataSource,
                     localDataSource = LocalDataSource()
-                )
+                ),
+                context
             ). also { INSTANCE = it }
         }
     }

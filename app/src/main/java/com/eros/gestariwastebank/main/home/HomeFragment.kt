@@ -71,15 +71,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun getDataLogin() {
-        val sharedPreferences = activity?.getSharedPreferences("prefGWA", 0)
-        val loginEmail = sharedPreferences?.getString("savedMail", "")
-        val loginPassword = sharedPreferences?.getString("savedPass", "")
 
-        val loginCred = LoginRequest(loginEmail, loginPassword)
+        val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.totalBalance.text = "Rp. $formAmount.00"
+//            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
+            binding.totalBalance.text = "Rp. ${response?.login?.user?.balance.toString()} .00"
             Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
             binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
         }

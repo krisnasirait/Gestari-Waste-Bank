@@ -4,15 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class SharedPreferenceHelper(context: Context) {
-    private val PREFS_FILENAME = "com.eros.gestariwastebank.prefs"
+    private val PREFS_FILENAME = "badi.prefs"
     private val PREF_KEY_EMAIL = "email"
     private val PREF_KEY_PASSWORD = "password"
-    private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
+    private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE)
 
-    fun saveLoginCredentials(email: String, password: String) {
+    fun saveCredentials(email: String, password: String) {
         val editor = prefs.edit()
-        prefs.edit().putString(PREF_KEY_EMAIL, email)
-        prefs.edit().putString(PREF_KEY_PASSWORD, password)
+        editor.putString(PREF_KEY_EMAIL, email)
+        editor.putString(PREF_KEY_PASSWORD, password)
         editor.apply()
     }
 
