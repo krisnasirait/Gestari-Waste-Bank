@@ -29,18 +29,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.lifecycleOwner = this
 
-        checkLoginInfo()
         setOnClickListener()
     }
 
-    private fun checkLoginInfo() {
-        val sharedPreferences = getSharedPreferences("prefGWA", 0)
-        val isLogin = sharedPreferences.getString("isLogin", "")
-        // Shared preference Login
-        if (!isLogin.isNullOrEmpty()) {
-            startActivity(Intent(this, MainActivity::class.java))
+    override fun onStart() {
+        super.onStart()
+        val email = viewModel.getEmail()
+        val password = viewModel.getPassword()
+        if(email != null && password != null) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
-
     }
 
     private fun setOnClickListener() {
@@ -59,11 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 val request = LoginRequest(email, password)
                 viewModel.getLogin(request).observe(this@LoginActivity) {
                     if (it != null) {
-                        val sharedPreferences = getSharedPreferences("prefGWA", 0)
-                        sharedPreferences?.edit()?.putString("isLogin", "true")?.apply()
-                        sharedPreferences?.edit()?.putString("savedMail", email)?.apply()
-                        sharedPreferences?.edit()?.putString("savedPass", password)?.apply()
-                        Log.d("namaUser", it.login?.user?.name.toString())
+                        viewModel.saveCredentials(email, password)
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     }
                 }

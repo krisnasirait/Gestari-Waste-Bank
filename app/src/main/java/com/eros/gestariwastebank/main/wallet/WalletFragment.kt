@@ -55,11 +55,8 @@ class WalletFragment : Fragment() {
     }
 
     private fun getData() {
-        val sharedPreferences = activity?.getSharedPreferences("prefGWA", 0)
-        val loginEmail = sharedPreferences?.getString("savedMail", "")
-        val loginPassword = sharedPreferences?.getString("savedPass", "")
 
-        val loginCred = LoginRequest(loginEmail, loginPassword)
+        val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
             val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)

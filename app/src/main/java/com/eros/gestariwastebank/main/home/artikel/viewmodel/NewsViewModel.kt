@@ -22,20 +22,26 @@ class NewsViewModel(
     private val _errorMessage : MutableLiveData<String> = MutableLiveData()
     val errorMessage : LiveData<String> = _errorMessage
 
+    private val _isLoading = MutableLiveData<String>()
+    val isLoading: LiveData<String> = _isLoading
+
     fun getNews() {
         viewModelScope.launch {
             kotlin.runCatching {
+                _isLoading.value = "loading"
                 withContext(Dispatchers.IO){
                     repository.getNews()
                 }
             }.onSuccess { data ->
                 withContext(Dispatchers.Main){
                     _news.value = data.data
+                    _isLoading.value = "done"
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main){
                     _errorMessage.value = error.message
                     Log.d("errorNews", "getNews: ${error.message}")
+                    _isLoading.value = "error"
                 }
             }
         }

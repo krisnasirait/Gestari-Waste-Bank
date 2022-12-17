@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentHomeBinding
+import com.eros.gestariwastebank.databinding.RvItemArtikelBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.home.artikel.NewsAdapter
@@ -52,6 +53,7 @@ class HomeFragment : Fragment() {
 
         setOnClickListener()
         getDataLogin()
+        binding.cvArtikelLoading.visibility = View.VISIBLE
         getNews()
     }
 
@@ -65,21 +67,19 @@ class HomeFragment : Fragment() {
                 false
             )
         newsViewModel.news.observe(requireActivity()) {
+            binding.cvArtikelLoading.visibility = View.GONE
             newsAdapter.addAll(it!!)
         }
         newsViewModel.getNews()
     }
 
     private fun getDataLogin() {
-        val sharedPreferences = activity?.getSharedPreferences("prefGWA", 0)
-        val loginEmail = sharedPreferences?.getString("savedMail", "")
-        val loginPassword = sharedPreferences?.getString("savedPass", "")
 
-        val loginCred = LoginRequest(loginEmail, loginPassword)
+        val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.totalBalance.text = "Rp. $formAmount.00"
+//            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
+            binding.totalBalance.text = "Rp. ${response?.login?.user?.balance.toString()} .00"
             Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
             binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
         }
