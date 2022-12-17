@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.lifecycleOwner = this
 
         checkLoginInfo()
         setOnClickListener()
@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                         "loading" -> {
                             binding.lottieView.visibility = View.VISIBLE
                         }
-                        "success" -> {
+                        "done" -> {
                             binding.lottieView.visibility = View.GONE
                         }
                         else -> {
