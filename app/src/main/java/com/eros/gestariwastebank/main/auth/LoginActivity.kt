@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         val email = viewModel.getEmail()
         val password = viewModel.getPassword()
         if(email != null && password != null) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
     }
 

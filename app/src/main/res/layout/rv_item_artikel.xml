@@ -27,7 +27,7 @@
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toStartOf="@id/ivPoster"
-           app:layout_constraintBottom_toBottomOf="parent"/>
+           app:layout_constraintBottom_toBottomOf="parent" />
        <ImageView
            android:id="@+id/ivPoster"
            android:layout_width="130dp"
@@ -38,7 +38,20 @@
            app:layout_constraintStart_toEndOf="@id/tvArtikelTitle"
            android:scaleType="fitCenter"
            android:adjustViewBounds="true"
-           android:src="@drawable/article_display"/>
+           android:src="@drawable/article_display" />
+
+       <com.airbnb.lottie.LottieAnimationView
+           android:id="@+id/lottieView"
+           android:layout_width="200dp"
+           android:layout_height="100dp"
+           app:lottie_fileName="15590-content-loading-indicator.json"
+           app:lottie_loop="true"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:lottie_autoPlay="true"
+           android:visibility="gone"/>
 
 
    </androidx.constraintlayout.widget.ConstraintLayout>

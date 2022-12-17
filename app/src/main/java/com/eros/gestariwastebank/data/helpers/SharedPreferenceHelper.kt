@@ -7,7 +7,7 @@ class SharedPreferenceHelper(context: Context) {
     private val PREFS_FILENAME = "badi.prefs"
     private val PREF_KEY_EMAIL = "email"
     private val PREF_KEY_PASSWORD = "password"
-    private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE)
+    private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
 
     fun saveCredentials(email: String, password: String) {
         val editor = prefs.edit()
