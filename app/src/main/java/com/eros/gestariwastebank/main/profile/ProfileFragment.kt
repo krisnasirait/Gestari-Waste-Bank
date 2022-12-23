@@ -58,11 +58,7 @@ class ProfileFragment : Fragment() {
 
     private fun setOnClickListener() {
         binding.btnLogOut.setOnClickListener {
-            val sharedPreferences = this.activity?.getSharedPreferences("prefGWA", 0)
-            sharedPreferences?.edit()?.putString("isLogin", "")?.apply()
-            sharedPreferences?.edit()?.putString("savedMail", "")?.apply()
-            sharedPreferences?.edit()?.putString("savedPass", "")?.apply()
-
+            viewModel.clearCredentials()
             Intent(context, LoginActivity::class.java).also {
                 startActivity(it)
             }

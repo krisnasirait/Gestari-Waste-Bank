@@ -55,7 +55,9 @@
                 android:background="@drawable/bg_auth"
                 app:layout_constraintTop_toBottomOf="@id/textMissed"
                 android:layout_marginTop="20dp"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <EditText
                 android:id="@+id/etPhone"
@@ -68,7 +70,9 @@
                 android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/bg_auth"
                 android:layout_marginTop="15dp"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <EditText
                 android:id="@+id/etNik"
@@ -81,7 +85,9 @@
                 android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/bg_auth"
                 android:layout_marginTop="15dp"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -94,20 +100,24 @@
                 android:background="@drawable/bg_auth"
                 android:textColorHint="@color/black"
                 android:layout_marginTop="15dp"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                android:maxLines="1"
-                android:inputType="textPassword"
-                android:fontFamily="@font/poppins_regular"
-                android:background="@drawable/bg_auth"
-                android:textColorHint="@color/black"
                 android:layout_marginTop="15dp"
-                android:padding="10dp"/>
+                android:background="@drawable/bg_auth"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <EditText
                 android:id="@+id/etConfPassword"
@@ -120,7 +130,9 @@
                 android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/bg_auth"
                 android:layout_marginTop="15dp"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <TextView
                 android:id="@+id/tvPrompt"
@@ -142,7 +154,7 @@
                     android:text="Have an account?"
                     android:textColor="@color/black"
                     android:fontFamily="@font/poppins_regular"
-                    android:textSize="12sp"/>
+                    android:textSize="14sp"/>
 
                 <TextView
                     android:id="@+id/tvLogin"
@@ -150,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:text="Login"
                     android:layout_marginStart="5dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/medium_green"/>
             </LinearLayout>

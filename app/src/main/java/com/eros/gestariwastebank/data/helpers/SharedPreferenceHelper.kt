@@ -23,4 +23,11 @@ class SharedPreferenceHelper(context: Context) {
     fun getPassword(): String? {
         return prefs.getString(PREF_KEY_PASSWORD, null)
     }
+
+    fun clearCreds() {
+        val editor = prefs.edit()
+        editor.remove(PREF_KEY_EMAIL)
+        editor.remove(PREF_KEY_PASSWORD)
+        editor.apply()
+    }
 }
