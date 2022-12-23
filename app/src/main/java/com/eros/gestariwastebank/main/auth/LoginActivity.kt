@@ -1,9 +1,10 @@
 package com.eros.gestariwastebank.main.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val email = viewModel.getEmail()
         val password = viewModel.getPassword()
-        if(email != null && password != null) {
+        if (email != null && password != null) {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
     }
@@ -48,7 +49,20 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // TODO: Prompt Should be added here
+        binding.etEmail.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                val imm = v.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+            }
+        }
+
+        binding.etPassword.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                val imm = v.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+            }
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()

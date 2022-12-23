@@ -83,4 +83,8 @@ class LoginViewModel(
         return sharedPreferenceHelper.getPassword()
     }
 
+    fun clearCredentials() {
+        sharedPreferenceHelper.clearCreds()
+    }
+
 }
