@@ -1,60 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="190dp"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
-    app:cardCornerRadius="8dp">
+    android:layout_margin="8dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="bottom"
-        android:layout_margin="10dp">
+   <androidx.cardview.widget.CardView
+       android:layout_width="130dp"
+       android:layout_height="230dp"
+       app:cardCornerRadius="10dp"
+       android:backgroundTint="@color/light_grey"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:gravity="bottom"
+           android:layout_margin="10dp">
 
-        <ImageView
-            android:id="@+id/ivStuffImage"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>
-        <TextView
-            android:id="@+id/tvCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KERTAS"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kardus Tebal"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+           <ImageView
+               android:id="@+id/ivStuffImage"
+               android:layout_width="match_parent"
+               android:layout_height="100dp"/>
+           <TextView
+               android:id="@+id/tvCategory"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="KERTAS"
+               android:fontFamily="@font/poppins_semibold"
+               android:textColor="@color/black"/>
+           <TextView
+               android:id="@+id/tvName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Kardus Tebal"
+               android:textSize="14sp"
+               android:textColor="@color/black"
+               android:fontFamily="@font/poppins_regular"/>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2500"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_regular"/>
-            <TextView
-                android:id="@+id/tvSatuan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="kg"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_regular"/>
+               <TextView
+                   android:id="@+id/tvPrice"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="2500"
+                   android:textSize="14sp"
+                   android:textColor="@color/black"
+                   android:fontFamily="@font/poppins_regular"/>
+               <TextView
+                   android:id="@+id/tvSatuan"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="kg"
+                   android:textSize="14sp"
+                   android:textColor="@color/black"
+                   android:fontFamily="@font/poppins_regular"/>
 
-        </LinearLayout>
-    </LinearLayout>
+           </LinearLayout>
+       </LinearLayout>
+   </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

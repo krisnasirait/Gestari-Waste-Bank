@@ -1,12 +1,15 @@
 package com.eros.gestariwastebank.main.home.pricelist.ui
 
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.eros.gestariwastebank.databinding.FragmentAllBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.pricelist.adapter.AllCatalogAdapter
@@ -36,9 +39,13 @@ class AllFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val screenWidth = resources.displayMetrics.widthPixels
+        val spanCount = screenWidth / 400 // 180 is the width of each grid item in pixels
+        val layoutManager = GridLayoutManager(context, spanCount)
         allCatalogAdapter = AllCatalogAdapter()
         binding.rvFragmentAll.adapter = allCatalogAdapter
-        binding.rvFragmentAll.layoutManager = GridLayoutManager(context, 2)
+        binding.rvFragmentAll.layoutManager = layoutManager
         viewModel.catalog.observe(requireActivity()) {
             allCatalogAdapter.addAll(it!!)
         }
