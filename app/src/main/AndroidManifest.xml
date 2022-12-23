@@ -16,7 +16,7 @@
         android:theme="@style/Theme.GestariWasteBank"
         tools:targetApi="31">
         <activity
-            android:name=".TransactionActivity"
+            android:name=".main.home.transaction.TransactionActivity"
             android:exported="false" />
         <activity
             android:name=".main.home.pricelist.PricelistActivity"

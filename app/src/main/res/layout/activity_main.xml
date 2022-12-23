@@ -38,6 +38,7 @@
 
         <Button
             android:id="@+id/fabAdd"
+            android:name="androidx.navigation.fragment.NavHostTransactionFragment"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/plus"

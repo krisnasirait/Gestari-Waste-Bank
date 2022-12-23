@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="60dp">
             <ImageView
                 android:id="@+id/ivSemua"
                 android:layout_width="35dp"
@@ -139,7 +139,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clHeader"
         android:layout_width="0dp"
-        android:layout_height="66dp"
+        android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/llMenu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,6 +169,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment
+        android:id="@+id/fragmentTransaction"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/llMenu"
