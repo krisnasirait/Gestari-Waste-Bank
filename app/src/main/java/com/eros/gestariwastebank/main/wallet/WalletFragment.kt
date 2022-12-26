@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.eros.gestariwastebank.databinding.FragmentWalletBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.wallet.history.HistoryAdapter
+import io.reactivex.disposables.Disposable
 import java.text.NumberFormat
 import java.util.*
 
@@ -21,6 +23,7 @@ class WalletFragment : Fragment() {
 
     private lateinit var binding: FragmentWalletBinding
     private lateinit var historyAdapter: HistoryAdapter
+    private lateinit var disposeable: Disposable
 
     private val viewModel: LoginViewModel by activityViewModels(
         factoryProducer = {
@@ -41,6 +44,9 @@ class WalletFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         historyAdapter = HistoryAdapter()
+        disposeable = historyAdapter.clickEvent.subscribe { item ->
+
+        }
 
         binding.rvHistory.adapter = historyAdapter
 
