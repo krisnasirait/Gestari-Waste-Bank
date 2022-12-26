@@ -1,12 +1,10 @@
 package com.eros.gestariwastebank.main.home.transaction
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.ActivityTransactionBinding
-import com.eros.gestariwastebank.main.home.pricelist.adapter.AllCatalogAdapter
 
 class TransactionActivity : AppCompatActivity() {
 

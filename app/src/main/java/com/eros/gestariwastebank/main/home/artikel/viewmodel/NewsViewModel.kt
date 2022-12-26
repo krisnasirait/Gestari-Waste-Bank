@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.data.model.news.News
 import com.eros.gestariwastebank.domain.Repository
 import kotlinx.coroutines.Dispatchers
@@ -20,10 +19,8 @@ class NewsViewModel(
     val news: LiveData<List<News?>?> = _news
 
     private val _errorMessage : MutableLiveData<String> = MutableLiveData()
-    val errorMessage : LiveData<String> = _errorMessage
 
     private val _isLoading = MutableLiveData<String>()
-    val isLoading: LiveData<String> = _isLoading
 
     fun getNews() {
         viewModelScope.launch {

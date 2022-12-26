@@ -36,7 +36,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        listHistory[position]?.let {
+        listHistory[position].let {
             holder.bind(it)
             holder.itemView.setOnClickListener {
                 clickSubject.onNext(listHistory[position]!!)

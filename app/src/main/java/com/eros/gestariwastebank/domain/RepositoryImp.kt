@@ -10,7 +10,6 @@ import com.eros.gestariwastebank.data.remote.networking.response.RegisterRespons
 import retrofit2.Response
 
 class RepositoryImp(
-    private val localDataSource: DataSource,
     private val remoteDataSource: DataSource
 ) : Repository {
 
