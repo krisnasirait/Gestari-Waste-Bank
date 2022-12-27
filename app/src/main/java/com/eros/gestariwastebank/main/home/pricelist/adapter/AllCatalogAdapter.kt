@@ -42,7 +42,7 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
     override fun onBindViewHolder(holder: AllCatalogViewHolder, position: Int) {
         itemCatalog[position]?.let {
             holder.bind(it)
-            holder.itemView.setOnClickListener {
+            holder.binding.fabAdd.setOnClickListener {
                 clickSubject.onNext(itemCatalog[position]!!)
             }
         }
