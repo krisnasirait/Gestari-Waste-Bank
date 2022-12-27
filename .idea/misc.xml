@@ -14,13 +14,16 @@
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_pricelist.xml" value="0.2916666666666667" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_transaction.xml" value="0.25" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/app_bar_pricelist.xml" value="0.17831813576494426" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/bg_circle_indicator.xml" value="0.17831813576494426" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/content_pricelist.xml" value="0.2916666666666667" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/custom_history_dialog_layout.xml" value="0.5" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_all.xml" value="0.22780797101449277" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_first_landing.xml" value="0.36666666666666664" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_gallery.xml" value="0.2916666666666667" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_glass.xml" value="0.17831813576494426" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_history_dialog.xml" value="0.23324275362318841" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_kaca.xml" value="0.2916666666666667" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/fragment_kertas.xml" value="0.36666666666666664" />

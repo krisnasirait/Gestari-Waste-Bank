@@ -18,7 +18,6 @@ class PlasticCatalogViewModel(
     val catalog: LiveData<List<Catalog?>?> = _catalog
 
     private val _errorMessage : MutableLiveData<String> = MutableLiveData()
-    val errorMessage : LiveData<String> = _errorMessage
 
     fun getCatalogPlastic() {
         viewModelScope.launch {

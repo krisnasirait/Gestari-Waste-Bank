@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.eros.gestariwastebank.databinding.RvItemCatalogBinding
+import io.reactivex.subjects.PublishSubject
 
 class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewHolder>() {
 
     private val itemCatalog = mutableListOf<Catalog?>()
+    private val clickSubject = PublishSubject.create<Catalog>()
+    val clickEvent: io.reactivex.Observable<Catalog> = clickSubject
 
     inner class AllCatalogViewHolder(
         val binding: RvItemCatalogBinding,
@@ -37,7 +40,12 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
     }
 
     override fun onBindViewHolder(holder: AllCatalogViewHolder, position: Int) {
-        itemCatalog[position]?.let { holder.bind(it) }
+        itemCatalog[position]?.let {
+            holder.bind(it)
+            holder.itemView.setOnClickListener {
+                clickSubject.onNext(itemCatalog[position]!!)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,12 +53,12 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addAll(item : List<Catalog?>) {
+    fun addAll(item: List<Catalog?>) {
         itemCatalog.addAll(item)
         notifyDataSetChanged()
     }
 
-    fun clearData(){
-        itemCatalog.clear()
-    }
+//    fun clearData() {
+//        itemCatalog.clear()
+//    }
 }

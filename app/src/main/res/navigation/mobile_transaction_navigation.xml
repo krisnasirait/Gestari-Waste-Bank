@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_transaction_navigation"
+    app:startDestination="@id/fragment_all">
+
+    <fragment
+        android:id="@+id/fragment_all"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.AllFragment"
+        android:label="Semua"
+        tools:layout="@layout/fragment_all" />
+    <fragment
+        android:id="@+id/fragment_paper"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.PaperFragment"
+        android:label="Kertas"
+        tools:layout="@layout/fragment_paper" />
+    <fragment
+        android:id="@+id/fragment_plastic"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.PlasticFragment"
+        android:label="Plastik"
+        tools:layout="@layout/fragment_plastic" />
+    <fragment
+        android:id="@+id/fragment_metal"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.MetalFragment"
+        android:label="Logam"
+        tools:layout="@layout/fragment_metal" />
+    <fragment
+        android:id="@+id/fragment_kaca"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.GlassFragment"
+        android:label="Kaca/Beling"
+        tools:layout="@layout/fragment_glass" />
+    <fragment
+        android:id="@+id/fragment_others"
+        android:name="com.eros.gestariwastebank.main.home.pricelist.ui.OthersFragment"
+        android:label="Lain-lain"
+        tools:layout="@layout/fragment_others" />
+</navigation>

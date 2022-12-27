@@ -1,17 +1,19 @@
 package com.eros.gestariwastebank.main.wallet.history
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.RvItemHistoryBinding
+import io.reactivex.subjects.PublishSubject
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     private lateinit var binding: RvItemHistoryBinding
     private val listHistory = mutableListOf<History>()
+    private val clickSubject = PublishSubject.create<History>()
+    val clickEvent: io.reactivex.Observable<History> = clickSubject
 
     inner class ViewHolder(private val itemBinding: RvItemHistoryBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
@@ -34,7 +36,13 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listHistory[position])
+        listHistory[position].let {
+            holder.bind(it)
+            holder.itemView.setOnClickListener {
+                clickSubject.onNext(listHistory[position]!!)
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {

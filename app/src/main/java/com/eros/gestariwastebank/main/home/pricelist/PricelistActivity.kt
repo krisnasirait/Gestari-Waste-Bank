@@ -1,7 +1,6 @@
 package com.eros.gestariwastebank.main.home.pricelist
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController

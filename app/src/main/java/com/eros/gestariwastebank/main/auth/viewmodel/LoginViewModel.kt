@@ -1,8 +1,10 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
-import android.app.Application
 import android.content.Context
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.eros.gestariwastebank.data.helpers.SharedPreferenceHelper
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
@@ -22,7 +24,6 @@ class LoginViewModel(
     val login: LiveData<LoginResponse?> = _login
 
     private val _errorMessage = MutableLiveData<String>()
-    val errorMessage: LiveData<String> = _errorMessage
 
     private val _isLoading = MutableLiveData<String>()
     val isLoading: LiveData<String> = _isLoading

@@ -6,14 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentHomeBinding
-import com.eros.gestariwastebank.databinding.RvItemArtikelBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.home.artikel.NewsAdapter
@@ -42,7 +39,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -78,8 +75,8 @@ class HomeFragment : Fragment() {
         val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
 
         viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-//            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.totalBalance.text = "Rp. ${response?.login?.user?.balance.toString()} .00"
+            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
+            binding.totalBalance.text = "Rp. ${formAmount}.00"
             Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
             binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
         }
