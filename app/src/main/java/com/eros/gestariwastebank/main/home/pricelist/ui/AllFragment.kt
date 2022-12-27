@@ -12,7 +12,11 @@ import com.eros.gestariwastebank.databinding.FragmentAllBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.pricelist.adapter.AllCatalogAdapter
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.AllCatalogViewModel
+import com.eros.gestariwastebank.main.home.transaction.AddTransactionDialogFragment
+import com.eros.gestariwastebank.main.wallet.HistoryDialogFragment
 import io.reactivex.disposables.Disposable
+import java.text.NumberFormat
+import java.util.*
 
 class AllFragment : Fragment() {
 
@@ -44,7 +48,19 @@ class AllFragment : Fragment() {
         val layoutManager = GridLayoutManager(context, spanCount)
         allCatalogAdapter = AllCatalogAdapter()
         disposeable = allCatalogAdapter.clickEvent.subscribe { item ->
-            Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
+            val itemName = item.name
+            val price = NumberFormat.getNumberInstance(Locale.US).format(item.price)
+            val itemImage = item.image
+            val bundle = Bundle()
+
+            bundle.putString("itemName", itemName)
+            bundle.putString("itemPrice", price)
+            bundle.putString("itemImage", itemImage)
+
+
+            val dialog = AddTransactionDialogFragment()
+            dialog.show(childFragmentManager, "AddTransactionDialogFragment")
+            dialog.arguments = bundle
         }
         binding.rvFragmentAll.adapter = allCatalogAdapter
         binding.rvFragmentAll.layoutManager = layoutManager
