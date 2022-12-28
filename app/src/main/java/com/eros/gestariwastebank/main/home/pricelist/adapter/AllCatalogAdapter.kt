@@ -45,6 +45,9 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
             holder.binding.fabAdd.setOnClickListener {
                 clickSubject.onNext(itemCatalog[position]!!)
             }
+            holder.itemView.setOnClickListener {
+                clickSubject.onNext(itemCatalog[position]!!)
+            }
         }
     }
 
