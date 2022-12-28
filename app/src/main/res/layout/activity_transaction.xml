@@ -26,8 +26,9 @@
                 android:id="@+id/ivSemua"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_semua"
-                android:layout_gravity="center"/>
+                android:src="@drawable/all"
+                android:layout_gravity="center"
+                app:tint="@color/medium_green" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +47,8 @@
                 android:id="@+id/ivKertas"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_kertas"
+                app:tint="@color/medium_green"
+                android:src="@drawable/paper"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +68,8 @@
                 android:id="@+id/ivPlastik"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_plastik"
+                android:src="@drawable/plastik"
+                app:tint="@color/medium_green"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -86,7 +89,8 @@
                 android:id="@+id/ivLogam"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_logam"
+                android:src="@drawable/beam"
+                app:tint="@color/medium_green"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -106,7 +110,8 @@
                 android:id="@+id/ivKaca"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_kaca"
+                android:src="@drawable/glass"
+                app:tint="@color/medium_green"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -126,7 +131,8 @@
                 android:id="@+id/ivLain"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_other"
+                android:src="@drawable/other"
+                app:tint="@color/medium_green"
                 android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
