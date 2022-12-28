@@ -21,6 +21,7 @@ class AddTransactionDialogFragment : DialogFragment() {
         val builder = AlertDialog.Builder(activity)
         binding = FragmentAddTransactionDialogBinding.inflate(LayoutInflater.from(context), null, false)
 
+        var quantity = 1
         val itemName = arguments?.getString("itemName")
         val itemPrice = arguments?.getString("itemPrice")
         val itemImage = arguments?.getString("itemImage")
@@ -30,6 +31,21 @@ class AddTransactionDialogFragment : DialogFragment() {
         Glide.with(binding.root)
             .load(itemImage)
             .into(binding.ivItem)
+
+        binding.btnPlus.setOnClickListener {
+            quantity++
+            binding.tvTrashAmount.text = quantity.toString()
+        }
+
+        binding.btnMinus.setOnClickListener {
+            if (quantity > 1) {
+                quantity--
+                binding.tvTrashAmount.text = quantity.toString()
+            }else {
+                quantity = 1
+                binding.tvTrashAmount.text = quantity.toString()
+            }
+        }
 
         binding.ivClose.setOnClickListener {
             dismiss()
