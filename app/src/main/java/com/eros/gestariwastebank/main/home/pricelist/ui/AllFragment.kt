@@ -57,7 +57,6 @@ class AllFragment : Fragment() {
             bundle.putString("itemPrice", price)
             bundle.putString("itemImage", itemImage)
 
-
             val dialog = AddTransactionDialogFragment()
             dialog.show(childFragmentManager, "AddTransactionDialogFragment")
             dialog.arguments = bundle
