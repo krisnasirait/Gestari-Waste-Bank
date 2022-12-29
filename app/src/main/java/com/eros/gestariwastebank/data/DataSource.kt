@@ -43,4 +43,8 @@ interface DataSource {
         cart: Cart
     )
 
+    suspend fun addOrInsertCartById(
+        id: Int, name: String, itemImage: String, amount: Int, price: Int
+    )
+
 }

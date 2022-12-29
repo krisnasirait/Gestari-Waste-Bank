@@ -1,10 +1,12 @@
 package com.eros.gestariwastebank.main.home.transaction
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.ActivityTransactionBinding
+import com.eros.gestariwastebank.main.home.cart.CartActivity
 
 class TransactionActivity : AppCompatActivity() {
 
@@ -41,6 +43,10 @@ class TransactionActivity : AppCompatActivity() {
 
         binding.llLain.setOnClickListener {
             navController.navigate(R.id.fragment_others)
+        }
+
+        binding.ivCart.setOnClickListener{
+            startActivity(Intent(this, CartActivity::class.java))
         }
 
 

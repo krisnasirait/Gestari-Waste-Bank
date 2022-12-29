@@ -13,6 +13,7 @@ import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.auth.viewmodel.RegisterViewModel
 import com.eros.gestariwastebank.main.home.artikel.viewmodel.NewsViewModel
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.*
+import com.eros.gestariwastebank.main.home.transaction.viewmodel.AddTranscationViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -34,6 +35,7 @@ class ViewModelFactory(
             LoginViewModel::class.java -> LoginViewModel(repository, context) as T
             RegisterViewModel::class.java -> RegisterViewModel(repository) as T
             NewsViewModel::class.java -> NewsViewModel(repository) as T
+            AddTranscationViewModel::class.java -> AddTranscationViewModel(repository) as T
             else -> throw UnsupportedOperationException()
         }
     }

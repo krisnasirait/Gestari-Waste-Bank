@@ -65,4 +65,12 @@ class LocalDataSource(
     override suspend fun deleteCart(cart: Cart) {
         return cartDatabase.cartDao().delete(cart)
     }
+
+    override suspend fun addOrInsertCartById(
+        id: Int, name: String, itemImage: String, amount: Int, price: Int
+    ) {
+        return cartDatabase.cartDao().addOrInsertById(id, name, itemImage, amount, price)
+    }
+
+
 }

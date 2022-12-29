@@ -11,21 +11,21 @@ import retrofit2.Response
 
 interface Repository {
 
-    suspend fun getCatalog() : CatalogResponse
+    suspend fun getCatalog(): CatalogResponse
 
-    suspend fun getCatalogPaper() : CatalogResponse
+    suspend fun getCatalogPaper(): CatalogResponse
 
-    suspend fun getCatalogPlastic() : CatalogResponse
+    suspend fun getCatalogPlastic(): CatalogResponse
 
-    suspend fun getCatalogMetal() : CatalogResponse
+    suspend fun getCatalogMetal(): CatalogResponse
 
-    suspend fun getCatalogGlass() : CatalogResponse
+    suspend fun getCatalogGlass(): CatalogResponse
 
-    suspend fun getCatalogOthers() : CatalogResponse
+    suspend fun getCatalogOthers(): CatalogResponse
 
-    suspend fun loginUser(loginRequest: LoginRequest) : Response<LoginResponse>
+    suspend fun loginUser(loginRequest: LoginRequest): Response<LoginResponse>
 
-    suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
+    suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse>
 
     suspend fun getNews(): NewsResponse
 
@@ -41,5 +41,9 @@ interface Repository {
 
     suspend fun deleteCart(
         cart: Cart
+    )
+
+    suspend fun addOrInsertCartById(
+        id: Int, name: String, itemImage: String, amount: Int, price: Int
     )
 }

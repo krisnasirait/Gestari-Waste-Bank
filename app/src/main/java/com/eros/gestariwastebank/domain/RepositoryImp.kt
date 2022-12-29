@@ -67,4 +67,10 @@ class RepositoryImp(
         return localDataSource.deleteCart(cart)
     }
 
+    override suspend fun addOrInsertCartById(
+        id: Int, name: String, itemImage: String, amount: Int, price: Int
+    ) {
+        return localDataSource.addOrInsertCartById(id, name, itemImage, amount, price)
+    }
+
 }

@@ -13,5 +13,5 @@ data class Cart(
     var name : String?,
     var itemImage : String?,
     var amount : Int?,
-    var price : Int?
+    var price : String?
 ) : Parcelable

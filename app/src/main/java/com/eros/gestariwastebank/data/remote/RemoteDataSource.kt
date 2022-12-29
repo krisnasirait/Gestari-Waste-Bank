@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.data.remote
 
 import com.eros.gestariwastebank.data.DataSource
+import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.ApiService
@@ -49,4 +50,28 @@ class RemoteDataSource(
     override suspend fun getNews(): NewsResponse {
         return apiNewsService.getNews()
     }
+
+    override suspend fun getCart(): List<Cart> {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun insertCart(cart: Cart) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun updateCart(cart: Cart) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun deleteCart(cart: Cart) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun addOrInsertCartById(
+        id: Int, name: String, itemImage: String, amount: Int, price: Int
+    ) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+
 }
