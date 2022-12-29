@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.domain
 
 import com.eros.gestariwastebank.data.DataSource
+import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
@@ -10,6 +11,7 @@ import com.eros.gestariwastebank.data.remote.networking.response.RegisterRespons
 import retrofit2.Response
 
 class RepositoryImp(
+    private val localDataSource: DataSource,
     private val remoteDataSource: DataSource
 ) : Repository {
 
@@ -47,6 +49,22 @@ class RepositoryImp(
 
     override suspend fun getNews(): NewsResponse {
         return remoteDataSource.getNews()
+    }
+
+    override suspend fun getCart(): List<Cart> {
+        return localDataSource.getCart()
+    }
+
+    override suspend fun insertCart(cart: Cart) {
+        return localDataSource.insertCart(cart)
+    }
+
+    override suspend fun updateCart(cart: Cart) {
+        return localDataSource.updateCart(cart)
+    }
+
+    override suspend fun deleteCart(cart: Cart) {
+        return localDataSource.deleteCart(cart)
     }
 
 }

@@ -1,6 +1,8 @@
 package com.eros.gestariwastebank.data.local
 
 import com.eros.gestariwastebank.data.DataSource
+import com.eros.gestariwastebank.data.local.room.CartDatabase
+import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
@@ -9,7 +11,9 @@ import com.eros.gestariwastebank.data.remote.networking.response.NewsResponse
 import com.eros.gestariwastebank.data.remote.networking.response.RegisterResponse
 import retrofit2.Response
 
-class LocalDataSource : DataSource {
+class LocalDataSource(
+    private val cartDatabase: CartDatabase
+) : DataSource {
     override suspend fun getCatalog(): CatalogResponse {
         throw UnsupportedOperationException("Use Remote Data Source!")
     }
@@ -44,5 +48,21 @@ class LocalDataSource : DataSource {
 
     override suspend fun getNews(): NewsResponse {
         throw UnsupportedOperationException("Use Remote Data Source!")
+    }
+
+    override suspend fun getCart(): List<Cart> {
+        return cartDatabase.cartDao().getAll()
+    }
+
+    override suspend fun insertCart(cart: Cart) {
+        return cartDatabase.cartDao().insert(cart)
+    }
+
+    override suspend fun updateCart(cart: Cart) {
+        return cartDatabase.cartDao().update(cart)
+    }
+
+    override suspend fun deleteCart(cart: Cart) {
+        return cartDatabase.cartDao().delete(cart)
     }
 }

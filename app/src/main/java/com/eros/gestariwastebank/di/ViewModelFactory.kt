@@ -3,6 +3,8 @@ package com.eros.gestariwastebank.di
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.eros.gestariwastebank.data.local.LocalDataSource
+import com.eros.gestariwastebank.data.local.room.CartDatabase
 import com.eros.gestariwastebank.data.remote.RemoteDataSource
 import com.eros.gestariwastebank.data.remote.networking.ApiService
 import com.eros.gestariwastebank.domain.Repository
@@ -79,7 +81,8 @@ class ViewModelFactory(
         fun getInstance(context : Context)= synchronized(ViewModelFactory::class.java){
             INSTANCE ?: ViewModelFactory(
                 RepositoryImp(
-                    remoteDataSource = remoteDataSource
+                    remoteDataSource = remoteDataSource,
+                    localDataSource = LocalDataSource(CartDatabase.getInstance(context))
                 ),
                 context
             ). also { INSTANCE = it }

@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.data
 
+import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.data.remote.networking.response.CatalogResponse
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
@@ -27,5 +28,19 @@ interface DataSource {
     suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
 
     suspend fun getNews(): NewsResponse
+
+    suspend fun getCart(): List<Cart>
+
+    suspend fun insertCart(
+        cart: Cart
+    )
+
+    suspend fun updateCart(
+        cart: Cart
+    )
+
+    suspend fun deleteCart(
+        cart: Cart
+    )
 
 }
