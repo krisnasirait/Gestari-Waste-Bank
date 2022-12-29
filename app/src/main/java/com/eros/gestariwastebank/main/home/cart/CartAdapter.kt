@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.databinding.RvItemCartBinding
+import java.text.NumberFormat
+import java.util.*
 
 class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
@@ -17,7 +19,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(cart: Cart) {
             itemBinding.tvItemName.text = cart.name
-            itemBinding.tvPrice.text = cart.price.toString()
+            itemBinding.tvPrice.text = "Rp " + NumberFormat.getNumberInstance(Locale.US).format(cart.price?.toInt()).toString()
             Glide.with(binding.root)
                 .load(cart.itemImage)
                 .into(itemBinding.ivItem)

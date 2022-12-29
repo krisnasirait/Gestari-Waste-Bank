@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable-xxhdpi/background_gray_rounded.xml" value="0.1565" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable-xxhdpi/background_grenn_rounded.xml" value="0.1565" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable-xxhdpi/background_white_radius_16.xml" value="0.1565" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable-xxxhdpi/bg_auth_red.xml" value="0.28" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_auth.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_button_login_landingpage.xml" value="0.279" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_circle_indicator.xml" value="0.1405" />
+        <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/drawable/bg_item_cart.xml" value="0.1565" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/font/font.xml" value="0.3958333333333333" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_cart.xml" value="0.5" />
         <entry key="..\:/Project/Kotlin/GestariWasteBank/app/src/main/res/layout/activity_landing_page.xml" value="0.25" />
