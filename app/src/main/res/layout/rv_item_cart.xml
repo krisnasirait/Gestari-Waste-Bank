@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/light_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +35,17 @@
             android:fontFamily="@font/poppins_regular"
             app:layout_constraintTop_toBottomOf="@id/tvItemName"
             app:layout_constraintStart_toStartOf="@id/tvItemName" />
+
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity : 2 kg"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintTop_toBottomOf="@id/tvPrice"
+            app:layout_constraintStart_toStartOf="@id/tvPrice" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvMain"

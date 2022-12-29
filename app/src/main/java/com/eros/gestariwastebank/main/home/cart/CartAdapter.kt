@@ -21,6 +21,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
             Glide.with(binding.root)
                 .load(cart.itemImage)
                 .into(itemBinding.ivItem)
+            itemBinding.tvQuantity.text = "Quantity : ${cart.amount} kg"
         }
     }
 

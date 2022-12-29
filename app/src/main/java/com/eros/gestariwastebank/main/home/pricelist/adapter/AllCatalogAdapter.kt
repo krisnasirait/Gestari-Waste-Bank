@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.eros.gestariwastebank.databinding.RvItemCatalogBinding
 import io.reactivex.subjects.PublishSubject
+import java.text.NumberFormat
+import java.util.*
 
 class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewHolder>() {
 
@@ -24,7 +26,7 @@ class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewH
                 .into(binding.ivStuffImage)
             binding.tvCategory.text = catalogData.type
             binding.tvName.text = catalogData.name
-            binding.tvPrice.text = catalogData.price.toString() + ",-/"
+            binding.tvPrice.text = NumberFormat.getNumberInstance(Locale.US).format(catalogData.price).toString() + "-/"
             binding.tvSatuan.text = catalogData.satuan
         }
     }
