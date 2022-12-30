@@ -54,4 +54,32 @@ class AddTranscationViewModel(
             }
         }
     }
+
+    fun increaseAmount(id: Int) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.incrementQuantity(id)
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main){
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+    }
+
+    fun decreaseAmount(id: Int) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.decrementQuantity(id)
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main){
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+    }
 }
