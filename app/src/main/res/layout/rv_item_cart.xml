@@ -41,12 +41,58 @@
             android:id="@+id/tvQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quantity : 2 kg"
+            android:text="Quantity :"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_regular"
             app:layout_constraintTop_toBottomOf="@id/tvPrice"
             app:layout_constraintStart_toStartOf="@id/tvPrice" />
+
+        <LinearLayout
+            android:id="@+id/llBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvQuantity"
+            app:layout_constraintStart_toStartOf="@id/tvQuantity">
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/minus_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTrashAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="kg"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/plus_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvMain"
