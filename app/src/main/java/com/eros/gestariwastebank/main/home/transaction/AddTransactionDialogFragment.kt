@@ -73,7 +73,7 @@ class AddTransactionDialogFragment : DialogFragment() {
                 quantity,
                 itemPrice?.toInt()!!
             )
-            Toast.makeText(context, "$quantity", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Item berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }
 
         binding.ivClose.setOnClickListener {

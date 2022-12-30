@@ -11,21 +11,21 @@ import retrofit2.Response
 
 interface DataSource {
 
-    suspend fun getCatalog() : CatalogResponse
+    suspend fun getCatalog(): CatalogResponse
 
-    suspend fun getCatalogPaper() : CatalogResponse
+    suspend fun getCatalogPaper(): CatalogResponse
 
-    suspend fun getCatalogPlastic() : CatalogResponse
+    suspend fun getCatalogPlastic(): CatalogResponse
 
-    suspend fun getCatalogMetal() : CatalogResponse
+    suspend fun getCatalogMetal(): CatalogResponse
 
-    suspend fun getCatalogGlass() : CatalogResponse
+    suspend fun getCatalogGlass(): CatalogResponse
 
-    suspend fun getCatalogOthers() : CatalogResponse
+    suspend fun getCatalogOthers(): CatalogResponse
 
-    suspend fun loginUser(loginRequest: LoginRequest) : Response<LoginResponse>
+    suspend fun loginUser(loginRequest: LoginRequest): Response<LoginResponse>
 
-    suspend fun registerUser(registerRequest: RegisterRequest) : Response<RegisterResponse>
+    suspend fun registerUser(registerRequest: RegisterRequest): Response<RegisterResponse>
 
     suspend fun getNews(): NewsResponse
 
@@ -46,5 +46,11 @@ interface DataSource {
     suspend fun addOrInsertCartById(
         id: Int, name: String, itemImage: String, amount: Int, price: Int
     )
+
+    suspend fun getRowCount(): Int
+
+    suspend fun decrementQuantity(productId: Int)
+
+    suspend fun incrementQuantity(productId: Int)
 
 }

@@ -73,5 +73,17 @@ class RemoteDataSource(
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
+    override suspend fun getRowCount(): Int {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun decrementQuantity(productId: Int) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun incrementQuantity(productId: Int) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
 
 }

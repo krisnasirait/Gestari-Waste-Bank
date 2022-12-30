@@ -46,4 +46,10 @@ interface Repository {
     suspend fun addOrInsertCartById(
         id: Int, name: String, itemImage: String, amount: Int, price: Int
     )
+
+    suspend fun getRowCount(): Int
+
+    suspend fun decrementQuantity(productId: Int)
+
+    suspend fun incrementQuantity(productId: Int)
 }

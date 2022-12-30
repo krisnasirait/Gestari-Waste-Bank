@@ -72,5 +72,17 @@ class LocalDataSource(
         return cartDatabase.cartDao().addOrInsertById(id, name, itemImage, amount, price)
     }
 
+    override suspend fun getRowCount(): Int {
+        return cartDatabase.cartDao().getRowCount()
+    }
+
+    override suspend fun decrementQuantity(productId: Int) {
+        return cartDatabase.cartDao().decrementQuantity(productId)
+    }
+
+    override suspend fun incrementQuantity(productId: Int) {
+        return cartDatabase.cartDao().incrementQuantity(productId)
+    }
+
 
 }

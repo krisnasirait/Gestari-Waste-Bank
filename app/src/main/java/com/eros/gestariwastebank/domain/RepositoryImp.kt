@@ -73,4 +73,17 @@ class RepositoryImp(
         return localDataSource.addOrInsertCartById(id, name, itemImage, amount, price)
     }
 
+    override suspend fun getRowCount(): Int {
+        return localDataSource.getRowCount()
+    }
+
+    override suspend fun decrementQuantity(productId: Int) {
+        return localDataSource.decrementQuantity(productId)
+    }
+
+    override suspend fun incrementQuantity(productId: Int) {
+        return localDataSource.incrementQuantity(productId)
+    }
+
+
 }
