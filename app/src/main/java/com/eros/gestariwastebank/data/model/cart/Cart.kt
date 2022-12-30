@@ -1,17 +1,20 @@
 package com.eros.gestariwastebank.data.model.cart
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import com.google.gson.annotations.SerializedName
 
-@Parcelize
 @Entity
 data class Cart(
     @PrimaryKey(autoGenerate = true)
-    var id : Int?,
-    var name : String?,
-    var itemImage : String?,
-    var amount : Int?,
-    var price : String?
-) : Parcelable
+    @SerializedName("id")
+    val id : Int?,
+    @SerializedName("name")
+    val name : String?,
+    @SerializedName("itemImage")
+    val itemImage : String?,
+    @SerializedName("amount")
+    val amount : Int?,
+    @SerializedName("price")
+    val price : String?
+)

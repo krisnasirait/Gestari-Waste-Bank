@@ -49,8 +49,10 @@ interface DataSource {
 
     suspend fun getRowCount(): Int
 
-    suspend fun decrementQuantity(productId: Int)
+    suspend fun decrementQuantity(id: Int)
 
-    suspend fun incrementQuantity(productId: Int)
+    suspend fun incrementQuantity(id: Int)
+
+    suspend fun getProductById(id: Int): Cart
 
 }

@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.main.home.transaction.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -69,11 +70,11 @@ class AddTranscationViewModel(
         }
     }
 
-    fun decreaseAmount(id: Int) {
+    fun getProductById(id: Int) {
         viewModelScope.launch {
             kotlin.runCatching {
                 withContext(Dispatchers.IO) {
-                    repository.decrementQuantity(id)
+                    repository.getProductById(id)
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main){

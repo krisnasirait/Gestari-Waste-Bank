@@ -32,4 +32,7 @@ interface CartDao {
 
     @Query("UPDATE cart SET amount = amount + 1 WHERE id = :id")
     fun incrementQuantity(id: Int)
+
+    @Query("SELECT * FROM cart WHERE id = :id")
+    fun getProduct(id: Int): Cart
 }

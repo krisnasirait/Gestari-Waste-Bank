@@ -77,11 +77,15 @@ class RemoteDataSource(
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
-    override suspend fun decrementQuantity(productId: Int) {
+    override suspend fun decrementQuantity(id: Int) {
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
-    override suspend fun incrementQuantity(productId: Int) {
+    override suspend fun incrementQuantity(id: Int) {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
+    override suspend fun getProductById(id: Int): Cart {
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
