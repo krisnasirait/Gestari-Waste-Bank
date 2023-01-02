@@ -43,13 +43,15 @@ class GlassFragment : Fragment() {
         allCatalogAdapter = AllCatalogAdapter()
         disposeable = allCatalogAdapter.clickEvent.subscribe { item ->
             val itemName = item.name
-            val price = NumberFormat.getNumberInstance(Locale.US).format(item.price)
+            val itemId = item.id
+            val price = item.price.toString()
             val itemImage = item.image
             val bundle = Bundle()
 
             bundle.putString("itemName", itemName)
             bundle.putString("itemPrice", price)
             bundle.putString("itemImage", itemImage)
+            bundle.putString("itemId", itemId.toString())
 
             val dialog = AddTransactionDialogFragment()
             dialog.show(childFragmentManager, "AddTransactionDialogFragment")
