@@ -3,8 +3,6 @@ package com.eros.gestariwastebank.main.home.cart
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.cart.Cart
@@ -53,11 +51,13 @@ class CartAdapter(
         itemCart[position]?.let {
             holder.bind(it)
             holder.binding.btnMinus.setOnClickListener {
-                clickSubject.onNext(itemCart[position]!!)
+                addTranscationViewModel.decreaseAmount(itemCart[position]?.id!!)
+                itemCart[position]?.amount = itemCart[position]?.amount?.minus(1)
+                notifyDataSetChanged()
             }
             holder.binding.btnPlus.setOnClickListener {
-                addTranscationViewModel.increaseAmount(itemCart[position]!!.id!!)
-                itemCart[position]!!.amount = itemCart[position]!!.amount?.plus(1)
+                addTranscationViewModel.increaseAmount(itemCart[position]?.id!!)
+                itemCart[position]?.amount = itemCart[position]?.amount?.plus(1)
                 notifyDataSetChanged()
             }
         }

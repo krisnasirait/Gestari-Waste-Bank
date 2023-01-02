@@ -15,26 +15,26 @@ class AddTranscationViewModel(
 ) : ViewModel() {
 
     private val _cartItem = MutableLiveData<List<Cart>>()
-    val cartItem : LiveData<List<Cart>> = _cartItem
+    val cartItem: LiveData<List<Cart>> = _cartItem
 
     private val _deleteFavorite = MutableLiveData<Unit>()
-    val deleteFavorite : LiveData<Unit> = _deleteFavorite
+    val deleteFavorite: LiveData<Unit> = _deleteFavorite
 
     private val _errorMessage = MutableLiveData<String>()
-    val errorMessage : LiveData<String> = _errorMessage
+    val errorMessage: LiveData<String> = _errorMessage
 
-    fun getDataCart () {
+    fun getDataCart() {
         viewModelScope.launch {
             kotlin.runCatching {
-                withContext(Dispatchers.IO){
+                withContext(Dispatchers.IO) {
                     repository.getCart()
                 }
             }.onSuccess { data ->
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     _cartItem.value = data
                 }
             }.onFailure { error ->
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
                 }
             }
@@ -48,7 +48,7 @@ class AddTranscationViewModel(
                     repository.addOrInsertCartById(id, name, itemImage, amount, price)
                 }
             }.onFailure { error ->
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
                 }
             }
@@ -62,7 +62,21 @@ class AddTranscationViewModel(
                     repository.incrementQuantity(id)
                 }
             }.onFailure { error ->
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+    }
+
+    fun decreaseAmount(id: Int) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.decrementQuantity(id)
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
                 }
             }
@@ -76,7 +90,7 @@ class AddTranscationViewModel(
                     repository.getProductById(id)
                 }
             }.onFailure { error ->
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
                 }
             }
