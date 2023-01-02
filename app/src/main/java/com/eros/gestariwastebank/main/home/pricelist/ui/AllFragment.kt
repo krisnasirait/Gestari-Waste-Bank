@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,10 +12,7 @@ import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.pricelist.adapter.AllCatalogAdapter
 import com.eros.gestariwastebank.main.home.pricelist.viewmodel.AllCatalogViewModel
 import com.eros.gestariwastebank.main.home.transaction.AddTransactionDialogFragment
-import com.eros.gestariwastebank.main.wallet.HistoryDialogFragment
 import io.reactivex.disposables.Disposable
-import java.text.NumberFormat
-import java.util.*
 
 class AllFragment : Fragment() {
 

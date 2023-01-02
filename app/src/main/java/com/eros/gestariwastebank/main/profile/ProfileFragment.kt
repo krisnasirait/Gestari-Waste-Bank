@@ -12,6 +12,7 @@ import com.eros.gestariwastebank.databinding.FragmentProfileBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.LoginActivity
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
+import com.eros.gestariwastebank.main.home.transaction.viewmodel.AddTranscationViewModel
 import java.text.NumberFormat
 import java.util.*
 
@@ -21,6 +22,12 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
 
     private val viewModel: LoginViewModel by activityViewModels(
+        factoryProducer = {
+            ViewModelFactory.getInstance(requireContext())
+        }
+    )
+
+    private val addTranscationViewModel: AddTranscationViewModel by activityViewModels(
         factoryProducer = {
             ViewModelFactory.getInstance(requireContext())
         }

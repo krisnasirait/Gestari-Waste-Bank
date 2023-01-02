@@ -63,8 +63,8 @@ class RepositoryImp(
         return localDataSource.updateCart(cart)
     }
 
-    override suspend fun deleteCart(cart: Cart) {
-        return localDataSource.deleteCart(cart)
+    override suspend fun deleteCart(item: Cart) {
+        return localDataSource.deleteCart(item)
     }
 
     override suspend fun addOrInsertCartById(

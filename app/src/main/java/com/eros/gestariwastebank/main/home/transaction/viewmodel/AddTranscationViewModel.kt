@@ -83,6 +83,24 @@ class AddTranscationViewModel(
         }
     }
 
+    fun deleteData(item: Cart) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.deleteCart(item)
+                }
+            }.onSuccess {
+                withContext(Dispatchers.Main) {
+                    _deleteFavorite.value = Unit
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main) {
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+    }
+
     fun getProductById(id: Int) {
         viewModelScope.launch {
             kotlin.runCatching {

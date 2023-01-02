@@ -62,8 +62,8 @@ class LocalDataSource(
         return cartDatabase.cartDao().update(cart)
     }
 
-    override suspend fun deleteCart(cart: Cart) {
-        return cartDatabase.cartDao().delete(cart)
+    override suspend fun deleteCart(item: Cart) {
+        return cartDatabase.cartDao().delete(item)
     }
 
     override suspend fun addOrInsertCartById(

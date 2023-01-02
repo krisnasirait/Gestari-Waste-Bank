@@ -39,9 +39,7 @@ interface DataSource {
         cart: Cart
     )
 
-    suspend fun deleteCart(
-        cart: Cart
-    )
+    suspend fun deleteCart(item: Cart)
 
     suspend fun addOrInsertCartById(
         id: Int, name: String, itemImage: String, amount: Int, price: Int

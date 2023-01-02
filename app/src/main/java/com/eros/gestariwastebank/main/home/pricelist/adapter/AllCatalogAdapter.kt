@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.data.model.catalog.Catalog
 import com.eros.gestariwastebank.databinding.RvItemCatalogBinding
 import io.reactivex.subjects.PublishSubject
 import java.text.NumberFormat
 import java.util.*
-import kotlin.properties.Delegates
 
 class AllCatalogAdapter : RecyclerView.Adapter<AllCatalogAdapter.AllCatalogViewHolder>() {
 

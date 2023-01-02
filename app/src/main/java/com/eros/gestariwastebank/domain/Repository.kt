@@ -40,7 +40,7 @@ interface Repository {
     )
 
     suspend fun deleteCart(
-        cart: Cart
+        item: Cart
     )
 
     suspend fun addOrInsertCartById(
