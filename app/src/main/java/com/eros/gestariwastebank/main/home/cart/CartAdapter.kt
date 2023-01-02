@@ -3,7 +3,8 @@ package com.eros.gestariwastebank.main.home.cart
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eros.gestariwastebank.data.model.cart.Cart
@@ -18,6 +19,7 @@ class CartAdapter(
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     private val itemCart = mutableListOf<Cart?>()
+
     private val clickSubject = PublishSubject.create<Cart>()
     val clickEvent: io.reactivex.Observable<Cart> = clickSubject
 
@@ -55,6 +57,8 @@ class CartAdapter(
             }
             holder.binding.btnPlus.setOnClickListener {
                 addTranscationViewModel.increaseAmount(itemCart[position]!!.id!!)
+                itemCart[position]!!.amount = itemCart[position]!!.amount?.plus(1)
+                notifyDataSetChanged()
             }
         }
     }
@@ -65,6 +69,7 @@ class CartAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun addAll(item: List<Cart?>) {
+        itemCart.clear()
         itemCart.addAll(item)
         notifyDataSetChanged()
     }

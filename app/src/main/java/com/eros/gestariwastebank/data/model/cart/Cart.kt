@@ -14,7 +14,7 @@ data class Cart(
     @SerializedName("itemImage")
     val itemImage : String?,
     @SerializedName("amount")
-    val amount : Int?,
+    var amount : Int?,
     @SerializedName("price")
     val price : String?
 )

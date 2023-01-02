@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eros.gestariwastebank.databinding.ActivityCartBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.transaction.viewmodel.AddTranscationViewModel
-import io.reactivex.disposables.Disposable
 
 class CartActivity : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class CartActivity : AppCompatActivity() {
         cartAdapter = CartAdapter(viewModel)
         binding.rvItemCart.adapter = cartAdapter
         binding.rvItemCart.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        viewModel.cartItem.observe(this) {
+        viewModel.cartItem.observeForever {
             cartAdapter.addAll(it)
         }
         viewModel.getDataCart()
