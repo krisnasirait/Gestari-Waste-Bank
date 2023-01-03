@@ -172,6 +172,24 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layoutAmount"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:cardCornerRadius="250dp"
+            app:layout_constraintTop_toTopOf="@id/ivCart"
+            app:layout_constraintEnd_toEndOf="@id/ivCart"
+            android:backgroundTint="@color/medium_green">
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="20"
+                android:textSize="10sp"/>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment

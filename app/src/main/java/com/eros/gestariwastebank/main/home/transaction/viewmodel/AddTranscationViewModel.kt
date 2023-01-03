@@ -101,6 +101,26 @@ class AddTranscationViewModel(
         }
     }
 
+    fun getRowCount(): Int {
+        var count = 0
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.getRowCount()
+                }
+            }.onSuccess { data ->
+                withContext(Dispatchers.Main) {
+                    count = data
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main) {
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+        return count
+    }
+
     fun getProductById(id: Int) {
         viewModelScope.launch {
             kotlin.runCatching {
