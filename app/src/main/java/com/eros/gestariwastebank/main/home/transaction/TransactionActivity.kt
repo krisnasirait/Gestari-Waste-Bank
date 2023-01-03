@@ -3,6 +3,7 @@ package com.eros.gestariwastebank.main.home.transaction
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,10 @@ import kotlin.math.log
 class TransactionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTransactionBinding
+
+    fun getTvAmount(): TextView {
+        return binding.tvAmount
+    }
 
     private val viewModel: AddTranscationViewModel by viewModels(
         factoryProducer = {

@@ -12,6 +12,7 @@ import com.eros.gestariwastebank.data.model.cart.Cart
 import com.eros.gestariwastebank.databinding.FragmentAddTransactionDialogBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.transaction.viewmodel.AddTranscationViewModel
+import kotlinx.android.synthetic.main.activity_transaction.*
 import java.text.NumberFormat
 import java.util.*
 
@@ -26,6 +27,7 @@ class AddTransactionDialogFragment : DialogFragment() {
     )
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val activityTransaction = activity as TransactionActivity
         val builder = AlertDialog.Builder(activity)
         binding =
             FragmentAddTransactionDialogBinding.inflate(LayoutInflater.from(context), null, false)
@@ -59,13 +61,6 @@ class AddTransactionDialogFragment : DialogFragment() {
         }
 
         binding.btnAddTransaction.setOnClickListener {
-            val cart = Cart(
-                id = itemId?.toInt(),
-                itemName,
-                itemImage,
-                quantity,
-                itemPrice
-            )
             viewModel.insertDataCart(
                 id = itemId?.toInt()!!,
                 itemName!!,
@@ -74,6 +69,8 @@ class AddTransactionDialogFragment : DialogFragment() {
                 itemPrice?.toInt()!!
             )
             Toast.makeText(context, "Item berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            activityTransaction.tvAmount.text = viewModel.getRowCount().toString()
+            dismiss()
         }
 
         binding.ivClose.setOnClickListener {
