@@ -2,15 +2,30 @@ package com.eros.gestariwastebank.main.home.transaction
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.eros.gestariwastebank.R
 import com.eros.gestariwastebank.databinding.ActivityTransactionBinding
+import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.home.cart.CartActivity
+import com.eros.gestariwastebank.main.home.pricelist.viewmodel.AllCatalogViewModel
+import com.eros.gestariwastebank.main.home.transaction.viewmodel.AddTranscationViewModel
+import kotlin.math.log
 
 class TransactionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTransactionBinding
+
+    private val viewModel: AddTranscationViewModel by viewModels(
+        factoryProducer = {
+            ViewModelFactory.getInstance(this)
+        }
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +65,10 @@ class TransactionActivity : AppCompatActivity() {
         }
 
 
+        viewModel.totalItem.observe(this, {
+            binding.tvAmount.text = it.toString()
+        })
+        viewModel.getRowCount()
 
     }
 }

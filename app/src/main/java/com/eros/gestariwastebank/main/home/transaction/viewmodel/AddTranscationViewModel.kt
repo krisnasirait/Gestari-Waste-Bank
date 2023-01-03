@@ -1,5 +1,6 @@
 package com.eros.gestariwastebank.main.home.transaction.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,6 +23,9 @@ class AddTranscationViewModel(
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
+
+    private val _totalItem = MutableLiveData<Int>()
+    val totalItem: LiveData<Int> = _totalItem
 
     fun getDataCart() {
         viewModelScope.launch {
@@ -102,7 +106,6 @@ class AddTranscationViewModel(
     }
 
     fun getRowCount(): Int {
-        var count = 0
         viewModelScope.launch {
             kotlin.runCatching {
                 withContext(Dispatchers.IO) {
@@ -110,7 +113,7 @@ class AddTranscationViewModel(
                 }
             }.onSuccess { data ->
                 withContext(Dispatchers.Main) {
-                    count = data
+                    _totalItem.value = data
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main) {
@@ -118,7 +121,7 @@ class AddTranscationViewModel(
                 }
             }
         }
-        return count
+        return _totalItem.value ?: 0
     }
 
     fun getProductById(id: Int) {

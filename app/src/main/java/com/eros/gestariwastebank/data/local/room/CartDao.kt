@@ -21,7 +21,7 @@ interface CartDao {
     @Query("INSERT OR REPLACE INTO Cart(id, name, itemImage, amount, price) VALUES (:id, :name, :itemImage, COALESCE((SELECT amount FROM Cart WHERE id = :id), 0) + :amount, :price)")
     fun addOrInsertById(id: Int, name: String, itemImage: String, amount: Int, price: Int)
 
-    @Query("SELECT COUNT(*) FROM cart")
+    @Query("SELECT COUNT(*) FROM Cart")
     fun getRowCount(): Int
 
     @Query("UPDATE cart SET amount = amount - 1 WHERE id = :id AND amount >= 1")
