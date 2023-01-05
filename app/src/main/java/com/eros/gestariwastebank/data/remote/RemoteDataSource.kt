@@ -89,5 +89,9 @@ class RemoteDataSource(
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
+    override suspend fun dropDatabase() {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
 
 }

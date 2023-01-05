@@ -88,5 +88,7 @@ class LocalDataSource(
         return cartDatabase.cartDao().getProduct(id)
     }
 
-
+    override suspend fun dropDatabase() {
+        return cartDatabase.cartDao().dropDatabase()
+    }
 }

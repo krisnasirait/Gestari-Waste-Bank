@@ -53,4 +53,6 @@ interface DataSource {
 
     suspend fun getProductById(id: Int): Cart
 
+    suspend fun dropDatabase()
+
 }

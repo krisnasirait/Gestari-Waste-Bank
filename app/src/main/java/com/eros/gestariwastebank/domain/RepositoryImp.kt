@@ -89,5 +89,7 @@ class RepositoryImp(
         return localDataSource.getProductById(id)
     }
 
-
+    override suspend fun dropDatabase() {
+        return localDataSource.dropDatabase()
+    }
 }
