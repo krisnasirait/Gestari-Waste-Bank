@@ -60,11 +60,13 @@ class CartAdapter(
             holder.binding.btnMinus.setOnClickListener {
                 addTranscationViewModel.decreaseAmount(itemCart[position]?.id!!)
                 itemCart[position]?.amount = itemCart[position]?.amount?.minus(1)
+                addTranscationViewModel.getTotalGet()
                 notifyDataSetChanged()
             }
             holder.binding.btnPlus.setOnClickListener {
                 addTranscationViewModel.increaseAmount(itemCart[position]?.id!!)
                 itemCart[position]?.amount = itemCart[position]?.amount?.plus(1)
+                addTranscationViewModel.getTotalGet()
                 notifyDataSetChanged()
             }
         }

@@ -93,5 +93,9 @@ class RemoteDataSource(
         throw UnsupportedOperationException("Use Local Data Source!")
     }
 
+    override suspend fun getTotalGet(): Int {
+        throw UnsupportedOperationException("Use Local Data Source!")
+    }
+
 
 }

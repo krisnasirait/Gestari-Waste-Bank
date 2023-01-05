@@ -92,4 +92,8 @@ class RepositoryImp(
     override suspend fun dropDatabase() {
         return localDataSource.dropDatabase()
     }
+
+    override suspend fun getTotalGet(): Int {
+        return localDataSource.getTotalGet()
+    }
 }

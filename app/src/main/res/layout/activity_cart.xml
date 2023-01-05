@@ -8,7 +8,7 @@
     tools:context=".main.home.cart.CartActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white">
         <TextView
             android:id="@+id/tvCheckCollect"
@@ -208,7 +208,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

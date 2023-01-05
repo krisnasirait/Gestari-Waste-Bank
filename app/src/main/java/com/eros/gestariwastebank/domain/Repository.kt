@@ -56,4 +56,6 @@ interface Repository {
     suspend fun getProductById(id: Int): Cart
 
     suspend fun dropDatabase()
+
+    suspend fun getTotalGet(): Int
 }

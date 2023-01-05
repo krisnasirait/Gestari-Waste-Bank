@@ -40,5 +40,5 @@ interface CartDao {
     fun dropDatabase()
 
     @Query("SELECT SUM(amount * price) AS total FROM cart")
-    fun getTotalGet(): Double
+    fun getTotalGet(): Int
 }

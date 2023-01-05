@@ -55,4 +55,6 @@ interface DataSource {
 
     suspend fun dropDatabase()
 
+    suspend fun getTotalGet(): Int
+
 }

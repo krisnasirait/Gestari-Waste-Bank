@@ -91,4 +91,8 @@ class LocalDataSource(
     override suspend fun dropDatabase() {
         return cartDatabase.cartDao().dropDatabase()
     }
+
+    override suspend fun getTotalGet(): Int {
+        return cartDatabase.cartDao().getTotalGet()
+    }
 }
