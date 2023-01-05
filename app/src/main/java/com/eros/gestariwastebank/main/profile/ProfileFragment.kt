@@ -66,6 +66,7 @@ class ProfileFragment : Fragment() {
     private fun setOnClickListener() {
         binding.btnLogOut.setOnClickListener {
             viewModel.clearCredentials()
+            addTranscationViewModel.dropDatabase()
             Intent(context, LoginActivity::class.java).also {
                 startActivity(it)
             }

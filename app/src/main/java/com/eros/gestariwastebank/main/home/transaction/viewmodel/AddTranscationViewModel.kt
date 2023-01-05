@@ -137,4 +137,18 @@ class AddTranscationViewModel(
             }
         }
     }
+
+    fun dropDatabase() {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                withContext(Dispatchers.IO) {
+                    repository.dropDatabase()
+                }
+            }.onFailure { error ->
+                withContext(Dispatchers.Main) {
+                    _errorMessage.value = error.message
+                }
+            }
+        }
+    }
 }

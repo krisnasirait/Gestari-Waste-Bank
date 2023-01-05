@@ -36,6 +36,6 @@ interface CartDao {
     @Query("SELECT * FROM cart WHERE id = :id")
     fun getProduct(id: Int): Cart
 
-    @Query("DROP DATABASE my_database")
+    @Query("DELETE FROM cart")
     fun dropDatabase()
 }
