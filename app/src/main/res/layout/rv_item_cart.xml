@@ -38,6 +38,18 @@
             app:layout_constraintStart_toStartOf="@id/tvItemName" />
 
         <TextView
+            android:id="@+id/tvYouWillGet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Est. Rp 3.500"
+            android:textSize="12sp"
+            android:textColor="@color/medium_green"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintTop_toBottomOf="@id/tvItemName"
+            app:layout_constraintStart_toEndOf="@id/tvPrice"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
             android:id="@+id/tvQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

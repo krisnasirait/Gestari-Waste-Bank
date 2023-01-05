@@ -27,6 +27,9 @@ class CartAdapter(
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(cart: Cart) {
+            val itemPrice = cart.price?.toInt()
+            val itemAmount = cart.amount?.toInt()
+            val totalGet = itemPrice?.times(itemAmount ?: 0)
             binding.tvItemName.text = cart.name
             binding.tvPrice.text =
                 "Rp " + NumberFormat.getNumberInstance(Locale.US).format(cart.price?.toInt())
@@ -34,6 +37,9 @@ class CartAdapter(
             Glide.with(binding.root)
                 .load(cart.itemImage)
                 .into(binding.ivItem)
+            binding.tvYouWillGet.text = "Rp " + NumberFormat.getNumberInstance(Locale.US)
+                .format(totalGet)
+                .toString()
             binding.tvTrashAmount.text = "${cart.amount}"
         }
     }

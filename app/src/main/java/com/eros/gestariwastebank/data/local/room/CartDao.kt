@@ -38,4 +38,7 @@ interface CartDao {
 
     @Query("DELETE FROM cart")
     fun dropDatabase()
+
+    @Query("SELECT SUM(amount * price) AS total FROM cart")
+    fun getTotalGet(): Double
 }

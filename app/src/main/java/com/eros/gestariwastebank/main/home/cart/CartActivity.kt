@@ -36,10 +36,16 @@ class CartActivity : AppCompatActivity() {
             binding.ivCartEmpty.visibility = android.view.View.VISIBLE
             binding.tvIsEmpty.visibility = android.view.View.VISIBLE
             binding.rvItemCart.visibility = android.view.View.GONE
+            binding.clTime.visibility = android.view.View.GONE
+            binding.clSummary.visibility = android.view.View.GONE
+            binding.btnConfirm.visibility = android.view.View.GONE
         }else {
             binding.ivCartEmpty.visibility = android.view.View.GONE
             binding.tvIsEmpty.visibility = android.view.View.GONE
             binding.rvItemCart.visibility = android.view.View.VISIBLE
+            binding.clTime.visibility = android.view.View.VISIBLE
+            binding.clSummary.visibility = android.view.View.VISIBLE
+            binding.btnConfirm.visibility = android.view.View.VISIBLE
             viewModel.getDataCart()
         }
     }
