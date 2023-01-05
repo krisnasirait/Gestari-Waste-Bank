@@ -59,6 +59,7 @@ class CartActivity : AppCompatActivity() {
                     .format(totalGet)
                     .toString()
                 viewModel.getTotalGet()
+                viewModel.getRowCount()
             }
             viewModel.totalItem.observeForever { jumlah ->
                 binding.tvItemAmount.text = "$jumlah"
