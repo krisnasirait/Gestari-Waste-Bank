@@ -24,12 +24,23 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val itemAmount = intent.getStringExtra("itemAmount")
+
         cartAdapter = CartAdapter(viewModel)
         binding.rvItemCart.adapter = cartAdapter
         binding.rvItemCart.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         viewModel.cartItem.observeForever {
             cartAdapter.addAll(it)
         }
-        viewModel.getDataCart()
+        if (itemAmount == "0") {
+            binding.ivCartEmpty.visibility = android.view.View.VISIBLE
+            binding.tvIsEmpty.visibility = android.view.View.VISIBLE
+            binding.rvItemCart.visibility = android.view.View.GONE
+        }else {
+            binding.ivCartEmpty.visibility = android.view.View.GONE
+            binding.tvIsEmpty.visibility = android.view.View.GONE
+            binding.rvItemCart.visibility = android.view.View.VISIBLE
+            viewModel.getDataCart()
+        }
     }
 }

@@ -60,7 +60,6 @@ class ProfileFragment : Fragment() {
             val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
             binding.tvBalance.text = "Rp. $formAmount.00"
         }
-
     }
 
     private fun setOnClickListener() {

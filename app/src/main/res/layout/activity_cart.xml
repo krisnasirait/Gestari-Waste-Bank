@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".main.home.cart.CartActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +27,29 @@
             android:id="@+id/rvItemCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCheckCollect"/>
+
+        <ImageView
+            android:id="@+id/ivCartEmpty"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/empty_cart"
+            app:layout_constraintTop_toBottomOf="@id/tvCheckCollect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvIsEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Cart is Empty!!!"
+            app:layout_constraintTop_toBottomOf="@id/ivCartEmpty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
