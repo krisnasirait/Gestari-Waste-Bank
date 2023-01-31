@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all"
+            android:icon="@drawable/all"
+            android:title="Semua" />
+        <item
+            android:id="@+id/nav_paper"
+            android:icon="@drawable/paper"
+            android:title="Kertas" />
+        <item
+            android:id="@+id/nav_plastic"
+            android:icon="@drawable/bag"
+            android:title="Plastik" />
+        <item
+            android:id="@+id/nav_metal"
+            android:icon="@drawable/beam"
+            android:title="Logam" />
+        <item
+            android:id="@+id/nav_glass"
+            android:icon="@drawable/glass"
+            android:title="Kaca/Beling" />
+        <item
+            android:id="@+id/nav_others"
+            android:icon="@drawable/other"
+            android:title="Lain-lain" />
+    </group>
+</menu>
