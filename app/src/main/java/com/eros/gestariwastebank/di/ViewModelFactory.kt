@@ -22,18 +22,8 @@ class ViewModelFactory(
     private val context: Context
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return when(modelClass) {
-            AllCatalogViewModel::class.java -> AllCatalogViewModel(repository) as T
-            PaperCatalogViewModel::class.java -> PaperCatalogViewModel(repository) as T
-            PlasticCatalogViewModel::class.java -> PlasticCatalogViewModel(repository) as T
-            MetalCatalogViewModel::class.java -> MetalCatalogViewModel(repository) as T
-            GlassCatalogViewModel::class.java -> GlassCatalogViewModel(repository) as T
-            OthersCatalogViewModel::class.java -> OthersCatalogViewModel(repository) as T
-            LoginViewModel::class.java -> LoginViewModel(repository, context) as T
-            RegisterViewModel::class.java -> RegisterViewModel(repository) as T
-            NewsViewModel::class.java -> NewsViewModel(repository) as T
-            else -> throw UnsupportedOperationException()
-        }
+        return modelClass.getConstructor(Repository::class.java, Context::class.java)
+            .newInstance(repository, context)
     }
 
     companion object {
@@ -41,48 +31,44 @@ class ViewModelFactory(
         private const val BASE_URL = "https://hammerhead-app-zfi4g.ondigitalocean.app/"
         private const val NEWS_URL = "https://berita-indo-api.vercel.app/v1/"
 
-        private val logging : HttpLoggingInterceptor
-            get() {
-                val httpLoggingInterceptor = HttpLoggingInterceptor()
-                return httpLoggingInterceptor.apply {
-                    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-                }
-            }
+        private val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
 
-        private val client = OkHttpClient.Builder()
-            .addInterceptor(logging)
+        private val client: OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
             .build()
 
-        private val remote : ApiService by lazy {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            retrofit.create(ApiService::class.java)
-        }
+        private val gsonConverterFactory: GsonConverterFactory = GsonConverterFactory.create()
 
-        //retrofit call from 2 different api url (newsapi and hammerhead) using same retrofit instance
-        private val remoteNews : ApiService by lazy {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(NEWS_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            retrofit.create(ApiService::class.java)
-        }
+        private val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(gsonConverterFactory)
+            .build()
+
+        private val remote: ApiService = retrofit.create(ApiService::class.java)
+
+        // Use the same retrofit instance for both API endpoints
+        private val remoteNews: ApiService = Retrofit.Builder()
+            .baseUrl(NEWS_URL)
+            .client(client)
+            .addConverterFactory(gsonConverterFactory)
+            .build()
+            .create(ApiService::class.java)
 
         private val remoteDataSource = RemoteDataSource(remote, remoteNews)
 
         @Volatile
-        private var INSTANCE : ViewModelFactory? = null
-        fun getInstance(context : Context)= synchronized(ViewModelFactory::class.java){
+        private var INSTANCE: ViewModelFactory? = null
+
+        fun getInstance(context: Context) = synchronized(ViewModelFactory::class.java) {
             INSTANCE ?: ViewModelFactory(
                 RepositoryImp(
                     remoteDataSource = remoteDataSource
                 ),
                 context
-            ). also { INSTANCE = it }
+            ).also { INSTANCE = it }
         }
     }
 

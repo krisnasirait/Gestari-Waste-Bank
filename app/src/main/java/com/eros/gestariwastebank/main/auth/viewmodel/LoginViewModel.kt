@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,6 +25,7 @@ class LoginViewModel(
     val login: LiveData<LoginResponse?> = _login
 
     private val _errorMessage = MutableLiveData<String>()
+    val error: LiveData<String?> = _errorMessage
 
     private val _isLoading = MutableLiveData<String>()
     val isLoading: LiveData<String> = _isLoading
@@ -47,6 +49,7 @@ class LoginViewModel(
             }.onFailure { error ->
                 withContext(Dispatchers.Main) {
                     _errorMessage.value = error.message
+                    Log.d("errorLogin", "getLogin: ${error.message}")
                     _isLoading.value = "error"
                 }
             }
@@ -60,12 +63,24 @@ class LoginViewModel(
         password: String
     ): Boolean {
         return when {
+            email.isEmpty() && password.isEmpty() -> {
+                _errorMessage.value = "Email dan Password tidak boleh kosong"
+                false
+            }
             email.isEmpty() -> {
                 _errorMessage.value = "Email tidak boleh kosong"
                 false
             }
+            "@" !in email -> {
+                _errorMessage.value = "Email tidak valid"
+                false
+            }
             password.isEmpty() -> {
                 _errorMessage.value = "Password tidak boleh kosong"
+                false
+            }
+            password.length < 8 -> {
+                _errorMessage.value = "Password tidak boleh kurang dari 8 huruf"
                 false
             }
             else -> true

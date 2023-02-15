@@ -13,7 +13,6 @@ import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.ActivityLoginBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
@@ -103,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.lottieView.postDelayed({
                     binding.lottieView.visibility = View.GONE
                 }, 1500)
-                Toast.makeText(this, "Login tidak valid", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "${viewModel.error.value}", Toast.LENGTH_SHORT).show()
             }
 
 
