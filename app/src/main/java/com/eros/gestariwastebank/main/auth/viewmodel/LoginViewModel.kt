@@ -1,6 +1,7 @@
 package com.eros.gestariwastebank.main.auth.viewmodel
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import com.eros.gestariwastebank.data.helpers.SharedPreferenceHelper
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.data.remote.networking.response.LoginResponse
 import com.eros.gestariwastebank.domain.Repository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -20,52 +22,55 @@ class LoginViewModel(
 ) : ViewModel() {
     private val sharedPreferenceHelper = SharedPreferenceHelper(context.applicationContext)
 
-    private val _login = MutableLiveData<LoginResponse?>()
-    val login: LiveData<LoginResponse?> = _login
-
-    private val _errorMessage = MutableLiveData<String>()
-
-    private val _isLoading = MutableLiveData<String>()
-    val isLoading: LiveData<String> = _isLoading
+    private val _state = MutableLiveData<LoginState>()
+    val state: LiveData<LoginState> = _state
 
     private suspend fun requestLogin(loginRequest: LoginRequest): Response<LoginResponse> {
         return repository.loginUser(loginRequest)
     }
 
-    fun getLogin(loginRequest: LoginRequest): MutableLiveData<LoginResponse?> {
+    fun login(loginRequest: LoginRequest) {
         viewModelScope.launch {
             kotlin.runCatching {
-                _isLoading.value = "loading"
+                _state.value = LoginState.Loading
                 withContext(Dispatchers.IO) {
                     requestLogin(loginRequest)
                 }
             }.onSuccess { response ->
                 withContext(Dispatchers.Main) {
-                    _login.value = response.body()
-                    _isLoading.value = "done"
+                    _state.value = LoginState.Success(response.body())
                 }
             }.onFailure { error ->
                 withContext(Dispatchers.Main) {
-                    _errorMessage.value = error.message
-                    _isLoading.value = "error"
+                    _state.value = LoginState.Error(error.message)
                 }
             }
         }
-        return _login
     }
 
-    //create function to check if form is valid or not in LoginActivity.kt file
     fun isFormValid(
         email: String,
         password: String
     ): Boolean {
         return when {
+            email.isEmpty() && password.isEmpty() -> {
+                _state.value = LoginState.Error("Email dan Password tidak boleh kosong")
+                false
+            }
             email.isEmpty() -> {
-                _errorMessage.value = "Email tidak boleh kosong"
+                _state.value = LoginState.Error("Email tidak boleh kosong")
+                false
+            }
+            "@" !in email -> {
+                _state.value = LoginState.Error("Email tidak valid")
                 false
             }
             password.isEmpty() -> {
-                _errorMessage.value = "Password tidak boleh kosong"
+                _state.value = LoginState.Error("Password tidak boleh kosong")
+                false
+            }
+            password.length < 8 -> {
+                _state.value = LoginState.Error("Password tidak boleh kurang dari 8 huruf")
                 false
             }
             else -> true
@@ -87,5 +92,10 @@ class LoginViewModel(
     fun clearCredentials() {
         sharedPreferenceHelper.clearCreds()
     }
+}
 
+sealed class LoginState {
+    object Loading : LoginState()
+    data class Success(val response: LoginResponse?) : LoginState()
+    data class Error(val message: String?) : LoginState()
 }

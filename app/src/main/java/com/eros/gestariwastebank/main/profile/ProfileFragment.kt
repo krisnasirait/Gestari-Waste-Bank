@@ -11,6 +11,7 @@ import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentProfileBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
 import com.eros.gestariwastebank.main.auth.LoginActivity
+import com.eros.gestariwastebank.main.auth.viewmodel.LoginState
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import java.text.NumberFormat
 import java.util.*
@@ -45,15 +46,24 @@ class ProfileFragment : Fragment() {
     private fun getData() {
         val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
 
-        viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            binding.tvNama.text = response?.login?.user?.name.toString()
-            binding.tvNoTlp.text = response?.login?.user?.phone.toString()
-            binding.tvEmail.text = response?.login?.user?.email.toString()
-            binding.tvId.text = "UID: " + response?.login?.user?.id.toString()
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.tvBalance.text = "Rp. $formAmount.00"
-        }
+        viewModel.login(loginCred)
 
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is LoginState.Success -> {
+                    val response = state.response
+                    binding.tvNama.text = response?.login?.user?.name.toString()
+                    binding.tvNoTlp.text = response?.login?.user?.phone.toString()
+                    binding.tvEmail.text = response?.login?.user?.email.toString()
+                    binding.tvId.text = "UID: " + response?.login?.user?.id.toString()
+                    val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
+                    binding.tvBalance.text = "Rp. $formAmount.00"
+                }
+                else -> {
+                    // Handle other states if necessary
+                }
+            }
+        }
     }
 
     private fun setOnClickListener() {
