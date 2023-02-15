@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentHomeBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
+import com.eros.gestariwastebank.main.auth.viewmodel.LoginState
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.home.artikel.NewsAdapter
 import com.eros.gestariwastebank.main.home.artikel.viewmodel.NewsViewModel
@@ -24,24 +25,19 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var newsAdapter: NewsAdapter
 
-    private val viewModel: LoginViewModel by activityViewModels(
-        factoryProducer = {
-            ViewModelFactory.getInstance(requireContext())
-        }
-    )
+    private val viewModel: LoginViewModel by activityViewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
-    private val newsViewModel: NewsViewModel by activityViewModels(
-        factoryProducer = {
-            ViewModelFactory.getInstance(requireContext())
-        }
-    )
+    private val newsViewModel: NewsViewModel by activityViewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -63,7 +59,7 @@ class HomeFragment : Fragment() {
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-        newsViewModel.news.observe(requireActivity()) {
+        newsViewModel.news.observe(viewLifecycleOwner) {
             binding.cvArtikelLoading.visibility = View.GONE
             newsAdapter.addAll(it!!)
         }
@@ -71,16 +67,27 @@ class HomeFragment : Fragment() {
     }
 
     private fun getDataLogin() {
-
-        val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
-
-        viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.totalBalance.text = "Rp. ${formAmount}.00"
-            Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
-            binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is LoginState.Success -> {
+                    val response = state.response
+                    val formAmount = NumberFormat.getNumberInstance(Locale.US)
+                        .format(response?.login?.user?.balance)
+                    binding.totalBalance.text = "Rp. ${formAmount}.00"
+                    Log.d("amountBalance", "getDataLogin: ${response?.login?.user?.balance}")
+                    binding.tvGreetings.text = "Welcome, ${response?.login?.user?.name}"
+                }
+                is LoginState.Error -> {
+                    // Handle error state
+                }
+                is LoginState.Loading -> {
+                    // Handle loading state
+                }
+            }
         }
 
+        val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
+        viewModel.login(loginCred)
     }
 
     private fun setOnClickListener() {

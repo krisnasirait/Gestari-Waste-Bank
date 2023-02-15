@@ -11,6 +11,7 @@ import com.eros.gestariwastebank.data.Util
 import com.eros.gestariwastebank.data.remote.networking.request.LoginRequest
 import com.eros.gestariwastebank.databinding.FragmentWalletBinding
 import com.eros.gestariwastebank.di.ViewModelFactory
+import com.eros.gestariwastebank.main.auth.viewmodel.LoginState
 import com.eros.gestariwastebank.main.auth.viewmodel.LoginViewModel
 import com.eros.gestariwastebank.main.wallet.history.HistoryAdapter
 import io.reactivex.disposables.Disposable
@@ -74,11 +75,19 @@ class WalletFragment : Fragment() {
     private fun getData() {
 
         val loginCred = LoginRequest(viewModel.getEmail(), viewModel.getPassword())
+        viewModel.login(loginCred)
 
-        viewModel.getLogin(loginCred).observe(requireActivity()){ response ->
-            val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
-            binding.tvTotalBalance.text = "Rp. $formAmount.00"
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is LoginState.Success -> {
+                    val response = state.response
+                    val formAmount = NumberFormat.getNumberInstance(Locale.US).format(response?.login?.user?.balance)
+                    binding.tvTotalBalance.text = "Rp. $formAmount.00"
+                }
+                else -> {
+                    // Handle other states if necessary
+                }
+            }
         }
-
     }
 }
